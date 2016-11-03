@@ -1,0 +1,26 @@
+.alert-success, .alert-info, .alert-warning, .alert-danger, .alert-purple {
+	font-size:14px
+}
+img.contact {
+	margin-top: 70px;
+}
+.min {
+	padding: 20px;
+	margin-bottom: 15px;
+}
+h2 {
+	font-size: 27px;
+	font-weight: bold;
+}
+h3 {
+	font-size: 20px;
+	font-weight: bold;
+}
+p {
+	text-align: justify
+}
+.alert-purple {
+    background-color: #dfa0e8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
