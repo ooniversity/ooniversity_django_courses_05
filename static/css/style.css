@@ -1,0 +1,13 @@
+
+.box-content {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-left-color: #2c1b4f;
+    border-radius: 3px;
+}
+
+.title {
+	font-family: 'Ubuntu', sans-serif;
+}
