@@ -1,0 +1,39 @@
+.text-description { text-align: justify;}
+
+.name_course {font-style:italic; text-decoration: underline}
+
+.img_rez {text-align: center}
+
+#title_success {text-align: center; text-decoration: underline; font-weight: bold}
+
+.des_succes {font-style:italic; font-weight: bold}
+
+#title_course {color: #3c763d; text-align: center}
+
+#id_accordion-1 {color: green}
+
+#id_accordion-2 {color: red}
+
+#id_accordion-3 {color: blue}
+
+.contact_title {font-style:italic;}
+
+
+
+.contact_info {text-decoration: underline; font-weight: bold}
+
+.contact_info_line-1 {background-color: #ededed}
+
+.contact_info_line-2 {background-color: #d1d1d1}
+
+.contact_info_line-3 {background-color: #babbbc}
+
+.contact_info_line-4 {background-color: #a5a5a5}
+
+#important_info {color: red; text-align: center}
+
+#telephone {color: #000000; text-align: center; text-decoration: underline; font-weight: bold}
+
+#address {color: #adadad; text-align: center}
+
+.schedule {text-align: center}
