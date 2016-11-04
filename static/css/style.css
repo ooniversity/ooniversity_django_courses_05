@@ -20,6 +20,12 @@ body {
     text-decoration: underline;
     color: blue;
 }
+.textblue {
+    color: blue;
+}
+.textred {
+    color: red;
+}
 #director {
     height: 160px
 }
