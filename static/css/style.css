@@ -1,0 +1,59 @@
+.content_description{
+font-family: 'Open Sans', sans-serif;
+font-size: 20px:
+}
+.description{
+text-align: center;
+}
+
+.program{
+text-align: center;
+}
+
+.title_description{
+  color: black;
+  font-size: 32px;
+  font-family: 'Bungee Hairline', cursive;
+  font-style: bold;
+}
+
+.program_title{
+  color: black;
+  font-size: 32px;
+  font-family: 'Bungee Hairline', cursive;
+  font-style: bold;
+}
+
+
+.header_image{
+  width: 205px;
+}
+.contact_img{
+  width: 205px;
+  height: 205px;
+}
+
+.header{
+  font-family: 'Bungee Hairline', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: auto;
+  text-align: center;
+}
+
+.content_program{
+font-family: 'Open Sans', sans-serif;
+font-size: 28px:
+margin: auto;
+text-align: center;
+}
+
+.contact_properties{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+}
+
+.contact_heder{
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Play', sans-serif;
+  font-size: 30px;
+}
