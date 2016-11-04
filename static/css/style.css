@@ -1,0 +1,26 @@
+body {
+  padding-top: 60px;
+}
+h1#main_header {
+  font-size: 40px;
+  color: #800000;
+}
+.style {
+  text-align: left;
+  width: 600px; 
+  height: 210px;
+  padding-left: 100px;
+  padding-right: 15px;
+}
+.name {
+	background-color: #F0FFF0;
+}
+.skype {
+	background-color: #F0FFFF;
+}
+.email {
+	background-color: #F0F8FF;
+}
+.phone {
+	background-color: #F0FFF0;
+}
