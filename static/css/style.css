@@ -11,3 +11,40 @@
 .title {
 	font-family: 'Ubuntu', sans-serif;
 }
+
+.text-default{
+	color: #14441a;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.text-primary{
+	font-weight: bold;
+}
+
+.footer-style {
+	background-image: url("../images/1.bmp");
+	text-align: center;
+	color: gray;
+	padding: 15px;
+}
+
+.broken-text-up {
+	color: #fff;
+	transform: rotate(-7deg);
+}
+
+.broken-text-down{
+	color: red;
+}
+
+.upper-text	{
+	text-transform: uppercase;
+}
+
+.imag {
+	background: url("../images/bg.bmp");
+}
+
+.first-word {
+	color: red;
+}
