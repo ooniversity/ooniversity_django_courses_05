@@ -1,0 +1,29 @@
+li.name {
+    color: cyan
+}
+li.skype {
+    color: darkred
+}li.phone {
+    color: chartreuse
+}li.email {
+    color: hotpink
+}
+h2.manager{
+ font-weight: initial;
+}
+h2.director{
+
+font-weight: lighter;
+}
+h2.founder{
+    font-weight: inherit;
+}
+li.font{
+    font-family: Helvetica
+}
+a.noir{
+    font-family: Arial, Helvetica, sans-serif
+}
+p.noir{
+    color: black
+}
