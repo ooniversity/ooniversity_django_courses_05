@@ -44,32 +44,6 @@
 	color: blue;
 }
 
-.inline-link-1 {
-    display: inline-block;
-    margin: 0 0.2em;
-    padding: 3px;
-    background: #97CAF2;
-    border-radius: 2px;
-    transition: all 0.3s ease-out; 
-    /* Font styles */
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
-.inline-link-2 {
-    display: inline-block;
-    margin: 0 0.2em;
-    padding: 3px;
-    background: #97CAF2;
-    border-radius: 2px;
-    transition: all 0.3s ease-out; 
-    /* Font styles */
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
 .imagee {
 	background-image: url(../images/django.png);
 }
