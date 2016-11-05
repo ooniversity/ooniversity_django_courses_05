@@ -6,6 +6,16 @@ h1#main_header {
   color: #800000;
   font-variant: small-caps;
 }
+h1#description {
+  color: #B22222;
+  font-variant: small-caps;
+  font-size: 34px;
+}
+h2#program {
+  color: #DC143C;
+  font-variant: small-caps;
+  font-size: 34px;
+}
 .style {
   text-align: left;
   width: 600px; 
@@ -22,9 +32,20 @@ h1#main_header {
 .email {
   background-color: #F0F8FF;
 }
+.phone {
+  background-color: #F0FFF0;
+}
 .lead {
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 300;
   line-height: 1.4;
+}
+#cream {
+  background-color: #FFE4B5;
+  padding-left: 10px;
+}
+#light-red {
+  background-color: #FFDAB9;
+  padding-left: 10px;
 }
