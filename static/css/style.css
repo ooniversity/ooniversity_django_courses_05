@@ -59,3 +59,18 @@ p#light-red {
 .founder_header {
   color: #4682B4;
 }
+table {
+  border-collapse: collapse;
+}
+table th,
+table td {
+  padding: 0 3px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  background-color: #FFE4B5;
+}
+table.brd th,
+table.brd td {
+  border: 1px solid #000;
+}
