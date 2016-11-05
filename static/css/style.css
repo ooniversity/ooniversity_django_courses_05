@@ -22,5 +22,20 @@ p {
 .alert-purple {
     background-color: #dfa0e8;
     border-color: #d6e9c6;
-    color: #3c763d;
+    color: #49060a;
+}
+img {
+	border: dotted;
+}
+#Program {
+	font-family: Batang;
+}
+.w450 {
+	width: 450px;
+}
+.w500 {
+	width: 500px;
+}
+.w400 {
+	width: 400px;
 }
