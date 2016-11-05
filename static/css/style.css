@@ -1,0 +1,516 @@
+/*  
+Theme Name: Eco Blog
+Theme URI: http://www.nattywp.com
+Version: 1.5
+Description: A Wordpress Theme For Your Blog <br> - Designed by <a href="http://www.nattywp.com">Natty WP</a> 
+Author: Natty WP
+Tags: 2 column, personal page, nature, fixed width, widgets, gravatar support, valid XHTML, valid CSS, blue, green, left sidebar
+Author URI: http://www.sabiostar.com
+2008, Natty WP. All rights reserved
+*/
+
+/* Begin Main-Layout */
+*{
+	margin:0;
+	padding:0
+}
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #005ea6;
+}
+a:visited {
+	color: #005ea6;
+}
+a:hover, a:active {
+	color: #005ea6;
+	text-decoration:underline;
+}
+
+
+body {
+	background:#052433 url(images/background.jpg);
+	color:#333333;
+	font:11px arial,verdana,sans-serif;
+}
+
+.page2{
+	margin:0 auto;
+	width:1000px;
+	background:#afd451 url(images/green-bg.gif) repeat;
+
+}
+.page { 
+	margin:0 auto;
+	background: url(images/mainbg.jpg) repeat-x;
+	text-align:left;
+	width:994px;
+	border-right:3px solid #fff;
+	border-left:3px solid #fff;
+	}
+
+#header {
+	background: url("images/header.jpg") no-repeat;
+    width: 994px;
+    height: 198px;
+    margin:0 auto;
+	}
+
+.header-title {
+	font-family: "Times New Roman", Times, serif;
+	font-size:21px;
+	font-weight:bold;
+    padding-top: 25px;
+	text-align:left;
+	padding-left:105px;
+	}
+.header-title a{
+	color:#000000;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+	text-decoration:none;
+	}
+.header-title a:hover{
+	text-decoration:underline;
+	}
+.header-description {
+	color:#ffffff;
+	font-family:"Times New Roman", Times, serif;
+	font-size:18px;
+    padding:5px 0px 0px 40px;
+	}
+
+#content {
+	float:left;
+	padding:0px 0px 0px 45px;
+	width:632px;
+	}
+
+#content ol li { 
+    list-style: decimal;
+                 }
+
+#content ul { 
+    margin-top: 10px;
+    margin-left: 35px;
+              }
+#sidebar{
+	padding-left:40px;
+	float:left;
+}
+#sidebar1 {
+	float:left;
+	width:196px;
+	background:#f7f7f7 url(images/sidebar_bg.jpg) repeat-y;
+	}
+#sidebar-img{
+	background:#e3e0f1 url(images/sidebar_top.jpg) no-repeat;
+	width:196px;
+	height:98px;
+}
+#sidebar-bot{
+	background:#a3c54c url(images/sidebar_bott.gif) no-repeat;
+	width:196px;
+	height:32px;
+}
+#footer {
+	background:#a4b4c1 url(images/footer.jpg) no-repeat;
+	width:994px;
+	height:50px;
+    color: #333333;
+	border-top:5px solid #ffffff;
+	clear:both;
+	text-align:center;
+	}
+#footer p{padding:20px 0 0px 0;}
+#footer a, 
+#footer a:hover,
+#footer a:visited,
+#footer a:visited:hover {
+    color: #19bcf1;
+	text-decoration:none;
+                          }
+
+/* End Main-Layout */
+
+
+
+/* Begin Content*/
+h4,h5,h6{
+	color:#333333;
+	font:12px arial,verdana,sans-serif;
+	margin:20px 0 0 0;
+	}
+
+h2{ font-family:"Times New Roman", Times, serif;
+	font-size:19px;
+	color:#000000;
+    margin:0px 0px 5px 0px;
+padding-top:5px;
+	}
+
+h3{ color:#333333;
+	border-bottom:1px dotted #333;
+    margin:20px 0 0 0;
+	}
+
+h2 a:link, h2 a:visited, h2 a:active, h2 a:hover{
+	color:#ffffff;
+	text-decoration:none;
+}
+h3 a:link, h3 a:visited, h3 a:active, h3 a:hover{
+	color:#e88601;
+	text-decoration:none;
+}
+
+.post-date {
+	width: 49px;
+	float:left;
+}
+.post-month {
+	font-size: 11px;
+	font-family:"Times New Roman", Times, serif;
+	color: #828282;
+	text-align: center;
+	display:block;
+}
+.post-meta{
+	float:left;
+	width: 700px;
+	color: white;
+	font-size: 18px;
+	font-family:"Times New Roman", Times, serif;
+	
+}
+.post-meta h2{
+	color:#FFFFFF;
+	background:#19bcf1;
+	border-bottom:1px dotted #474747;
+	padding-left:5px;
+	width:538px;
+}
+.post-day {
+	font-size: 25px;
+	font-family:"Times New Roman", Times, serif;
+	text-transform: uppercase;
+	color: #000000;
+	text-align: center;
+	display:block;
+}
+.post { 	
+	color:#333;
+	background-color:#FFFFFF;
+	text-align:justify;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+	width:592px;
+	}
+.post-end{
+	background:url(images/post-bottom.jpg) no-repeat;
+	width:632px;
+	height:10px;
+	padding-bottom:10px;
+}
+.post-top{
+	background:#FFFFFF;
+	width:632px;
+	height:5px;
+	}
+.postmetadata {
+	color:#555;
+	font-size:.85em;
+}
+
+.postmetadata a:link, .postmetadata a:visited, .postmetadata a:active{
+	color:#005ea6;
+	text-decoration:none;
+}
+
+.postmetadata a:hover{
+	text-decoration:underline
+}
+
+.entry, .entrytext{
+	line-height:140%;
+	margin:2px 0 0 0;
+	}
+
+.alt {
+	background-color: #dcf2a7 !important;
+}
+.entrytext p{
+	margin:0 0 15px 0;
+	}
+
+/* End Content*/
+
+
+
+/* Begin Comments */
+.commentlist li, #commentform input, #commentform textarea {
+	font-size:1em;
+    color: #333;
+	}
+	
+.commentlist li {
+	font-weight:bold;
+	}
+.commentlist li.alt {
+background:#ffffff;
+padding:10px 0px 5px 10px;
+	}
+
+.commentlist cite, .commentlist cite a {
+	font-weight:bold;
+	font-style:normal;
+	font-size:1.1em;
+	}
+
+.commentlist p {
+	font-weight:normal;
+	line-height:140%;
+	text-transform:none;
+    color: #333;
+	}
+
+.commentmetadata {
+	font-weight:normal;
+    color: #333;
+	}
+
+.commentlist {
+	padding:0;
+	text-align:justify;
+	}
+
+.commentlist li {
+	margin:0px 0 15px 16px;
+	padding:5px 10px 0 0;
+	list-style:decimal;
+	}
+
+.commentlist p {
+	margin:10px 5px 10px 0;
+	}
+
+#commentform p {
+	margin:5px 0;
+	}
+
+.commentmetadata {
+	margin:0;
+	display:block;
+	}
+/* End Comments */
+
+	
+
+/* Begin Lists */
+.entry ul, .entry ol,
+.entrytext ul, .entrytext ol{
+	margin:5px 0 5px 26px;
+	}
+
+#sidebar1 ul li {
+	list-style:none;
+	padding:0px 20px 10px 20px;
+	color:#404040;
+	}
+
+#sidebar1 ul li ul li{
+	list-style:square;
+	margin-left: 15px;
+	padding:3px 0;
+	color:#404040;
+	}
+
+#sidebar1 ul li ul li a:link, #sidebar1 ul li ul li a:visited, #sidebar1 ul li ul li a:active{
+	text-decoration: none;
+	color:#005ea6;
+}
+
+#sidebar1 ul li ul li a:hover{
+	text-decoration:underline;
+	color:#005ea6;
+}
+/* End Entry Lists */
+
+
+
+/* Begin Images */
+p img {
+	padding:0;
+	max-width:100%
+	}
+
+img.centered {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	}
+	
+img.alignright {
+	padding:4px;
+	margin:0 0 2px 7px;
+	display:inline;
+	}
+
+img.alignleft {
+	padding:4px;
+	margin:0 7px 2px 0;
+	display:inline;
+	}
+
+.alignright {
+	float:right
+	}
+	
+.alignleft {
+	float:left
+	}
+/* End Images */
+
+
+
+/* Begin Form Elements */
+#searchform {
+	margin:2px 0;
+	padding:5px 0;
+	}
+
+#sidebar1 #searchform #s {
+	width:130px;
+	border:1px solid #999999;
+    background: #f6f6f6;
+    color: #666666;
+	}
+
+#sidebar1 #searchsubmit {
+	margin-top:5px;
+	border:1px solid #999999;
+    background: #f6f6f6;
+    color: #999999;
+	font-size:11px;
+	}
+
+.entry form { 
+	text-align:center;
+	}
+
+select {
+	width:130px;
+	}
+
+#commentform input {
+	width:170px;
+	padding:2px;
+	margin:5px 5px 1px 0;
+	}
+
+#commentform textarea {
+	width:98%;
+	padding:2px;
+	border:1px solid #ddd;
+	}
+
+#commentform #submit {
+	margin-right:3px;
+	float:right;
+	border:1px solid #999999;
+        background: #f6f6f6;
+        color: #66666;
+	}
+/* End Form Elements */
+
+
+
+
+/* Begin Various Tags & Classes */
+code {
+	font:1.1em 'Courier New', Courier, Fixed
+	}
+
+acronym, abbr, span.caps
+{
+	cursor:help;
+	font-size:0.9em;
+	letter-spacing:.07em;
+	}
+
+acronym, abbr {
+	border-bottom:1px dashed #333
+	}
+
+blockquote {
+	border-left:5px solid #f2f2f2;
+	margin:15px 0 0 0;
+	padding:0 0 0 15px;
+	}
+
+blockquote cite {
+	margin:5px 0 0;
+	display:block;
+	}
+
+.center {
+	text-align:center;
+	}
+
+hr {
+	clear:both;
+	display:none;
+	}
+
+a img {
+	border:none;
+	}
+
+.navigation {
+	display:block;
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:5px;
+	}
+/* End Various Tags & Classes*/
+/* WP 2.6 FIX */
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption-dd {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}
