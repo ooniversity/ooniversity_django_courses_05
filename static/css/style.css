@@ -1,7 +1,3 @@
-.image {
-	background-image: url(../images/python.png);
-}
-
 .block-first {
 	box-shadow: 0 0 5px 2px rgba(0,0,0,.60)
 }
@@ -42,10 +38,6 @@
 .paragraph-third {
 	font-family: Comic Sans MS;
 	color: blue;
-}
-
-.imagee {
-	background-image: url(../images/django.png);
 }
 
 .block-four {
