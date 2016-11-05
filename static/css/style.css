@@ -24,3 +24,15 @@ h1#main_header {
 .phone {
 	background-color: #F0FFF0;
 }
+.lead {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+h2#description {
+  color: #B22222;
+}
+h2#program {
+  color: #B22222;
+}
