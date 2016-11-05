@@ -1,0 +1,40 @@
+.red_color{
+    color:red;
+}
+.green_color{
+    color:green;
+}
+.orange_color{
+    color:orange;
+}
+.blue_color{
+    color:blue;
+}
+.gray_color{
+    color:gray;
+}
+.fine_backround{
+    background:gray
+}
+.italic_text{
+    font-style:italic;
+}
+.bold_text{
+    font-weight:bold;
+}
+.font_family{
+    font-family: 'Trocchi', serif;
+}
+.font_size_50{
+    font-size: 50px
+}
+.font_size_40{
+    font-size: 40px
+}
+.font_size_15{
+    font-size: 15px
+}
+.font_size_16{
+    font-size: 16px
+}
+
