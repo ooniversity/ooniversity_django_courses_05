@@ -1,6 +1,7 @@
 body {
   padding-top: 60px;
 }
+
 h1#main_header {
   font-size: 42px;
   color: #800000;
@@ -48,4 +49,13 @@ p#cream {
 p#light-red {
   background-color: #FFDAB9;
   padding-left: 10px;
+}
+.director_header {
+  color: #00008B;
+}
+.manager_header {
+  color: #000080;
+}
+.founder_header {
+  color: #4682B4;
 }
