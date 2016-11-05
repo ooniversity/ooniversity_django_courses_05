@@ -1,0 +1,115 @@
+.name {
+	padding-left:140px;
+    font-size:45px;
+    color:blue;
+}
+
+.info {
+    width: 1000px;
+    height: 80px;
+    padding-left: 20px;
+    padding-right:10px;
+    background:#FAEBD7;
+    color:grey;
+font-size:18px;}
+
+.info2 {
+    width: 1000px;
+    height: 140px;
+    padding-left: 20px;
+    padding-right:10px;
+    background:#E6E6FA;
+    color:grey;
+font-size:18px;}
+
+.info3 {
+    width: 1000px;
+    height: 90px;
+    padding-left: 20px;
+    padding-right:10px;
+    background:#66CDAA;
+    color:grey;
+font-size:18px;}
+
+.h2{
+	padding-right:140px;
+    color:red;
+font-size:32px}
+
+.higlights{
+    font-style:italic;
+    font-weight:bold;
+    color:green;
+font-size: 18px
+}
+
+.littl{
+    font-size:14px
+}
+
+.main{
+    padding-right: 550px;
+padding-left: 150px
+}
+
+.ico{
+    width: 45px;
+height: 45px
+}
+.cont{
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: brown;
+margin: 40px
+}
+
+.contact{
+    padding-left: 140px;
+}
+.dir {
+    color: grey;
+    font-size: 26px;
+    background-color:#FAEBD7; 
+padding-left:40px
+}
+.man {
+    color: grey;
+    font-size: 26px;
+    background-color:#8B1C62; 
+padding-left:40px
+}
+.fou {
+    color: grey;
+    font-size: 26px;
+    background-color:#8B008B; 
+padding-left:40px
+}
+
+.Name{
+    font-size: 20px;
+    color: grey;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.Skype{
+    font-size: 20px;
+    color: #104E8B;
+    font-weight:bold;
+    font-style: italic;
+}
+
+.Phone{
+    font-size: 20px;
+    color: #00868B;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.mail{
+    font-size: 20px;
+    color: #8B658B;
+    font-weight: bold;
+    font-style: italic;
+}
