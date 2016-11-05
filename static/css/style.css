@@ -32,7 +32,16 @@ h1#main_header {
 }
 h2#description {
   color: #B22222;
+  font-variant: 
 }
 h2#program {
   color: #B22222;
+}
+.lead#cream {
+  background-color: #FFE4B5;
+  padding-left: 10px;
+}
+.lead#light-red {
+  background-color: #FFDAB9;
+  padding-left: 10px;
 }
