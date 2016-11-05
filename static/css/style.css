@@ -2,8 +2,9 @@ body {
   padding-top: 60px;
 }
 h1#main_header {
-  font-size: 40px;
+  font-size: 42px;
   color: #800000;
+  font-variant: small-caps;
 }
 .style {
   text-align: left;
@@ -13,16 +14,16 @@ h1#main_header {
   padding-right: 15px;
 }
 .name {
-	background-color: #F0FFF0;
+  background-color: #F0FFF0;
 }
 .skype {
-	background-color: #F0FFFF;
+  background-color: #F0FFFF;
 }
 .email {
-	background-color: #F0F8FF;
+  background-color: #F0F8FF;
 }
 .phone {
-	background-color: #F0FFF0;
+  background-color: #F0FFF0;
 }
 .lead {
   margin-bottom: 20px;
@@ -30,18 +31,21 @@ h1#main_header {
   font-weight: 300;
   line-height: 1.4;
 }
-h2#description {
+h1#description {
   color: #B22222;
-  font-variant: 
+  font-variant: small-caps;
+  font-size: 34px;
 }
 h2#program {
   color: #B22222;
+  font-variant: small-caps;
+  font-size: 34px;
 }
-.lead#cream {
+#cream {
   background-color: #FFE4B5;
   padding-left: 10px;
 }
-.lead#light-red {
+#light-red {
   background-color: #FFDAB9;
   padding-left: 10px;
 }
