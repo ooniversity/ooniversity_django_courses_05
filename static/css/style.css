@@ -22,30 +22,3 @@ h1#main_header {
 .email {
   background-color: #F0F8FF;
 }
-.phone {
-  background-color: #F0FFF0;
-}
-.lead {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1.4;
-}
-h1#description {
-  color: #B22222;
-  font-variant: small-caps;
-  font-size: 34px;
-}
-h2#program {
-  color: #B22222;
-  font-variant: small-caps;
-  font-size: 34px;
-}
-#cream {
-  background-color: #FFE4B5;
-  padding-left: 10px;
-}
-#light-red {
-  background-color: #FFDAB9;
-  padding-left: 10px;
-}
