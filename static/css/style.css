@@ -1,0 +1,11 @@
+.nb {color:yellow}
+.cont {color:green}
+.tbl {align:left;width:100%;background:transparent}
+.cap_d {text-align:center;font-style:oblique;background:#ADFF2F;font-size:150%;font-family:"Times New Roman",Georgia,Serif}
+.cap_m {text-align:center;font-style:oblique;background:#00FFFF;font-size:150%;font-family:"Times New Roman",Georgia,Serif}
+.cap_f {text-align:center;font-style:oblique;background:#7FFFD4;font-size:150%;font-family:"Times New Roman",Georgia,Serif}
+.td_name {color:red}
+.td_skype {color:blue}
+.td_email {color:green}
+.td_tel {color:brown}
+.img_skype {width:30px;height:30px;border:0}
