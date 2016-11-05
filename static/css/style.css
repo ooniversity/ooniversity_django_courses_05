@@ -1,4 +1,3 @@
-
 .block-first {
 	box-shadow: 0 0 5px 2px rgba(0,0,0,.60)
 }
@@ -40,33 +39,6 @@
 	font-family: Comic Sans MS;
 	color: blue;
 }
-
-.inline-link-1 {
-    display: inline-block;
-    margin: 0 0.2em;
-    padding: 3px;
-    background: #97CAF2;
-    border-radius: 2px;
-    transition: all 0.3s ease-out; 
-    /* Font styles */
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
-.inline-link-2 {
-    display: inline-block;
-    margin: 0 0.2em;
-    padding: 3px;
-    background: #97CAF2;
-    border-radius: 2px;
-    transition: all 0.3s ease-out; 
-    /* Font styles */
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
 
 .block-four {
 	box-shadow: 0 0 5px 2px rgba(0,0,0,.60)
