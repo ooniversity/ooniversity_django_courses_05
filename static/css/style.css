@@ -34,16 +34,20 @@
 }
 
 .admin{
-	color: #1e7a00; font-family: 'Homemade+Apple', bold; font-weight:20;}
+	color: #1e7a00; font-family: 'Homemade+Apple', cursive; font-weight:20;}
 
 .HTTP{
 	background-color: #1946a8;
 }
 
 .browser{
-	color: #434549;
+	font-color: #434549;
 }
 
 .start_pr{
 	background-color: #9b130c; font-weight:5;
+}
+
+.bg1{
+	font-color: #4f2a19; font-family: 'Homemade+Apple', cursive; font-weight:5;
 }
