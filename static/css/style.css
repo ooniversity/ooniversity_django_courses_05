@@ -45,6 +45,10 @@
 	background: url("../images/bg.bmp");
 }
 
+.imag-contact {
+	background: url("../images/bf2.jpg");
+}
+
 .first-word {
 	color: red;
 }
@@ -61,7 +65,7 @@
 
 
 .fa-3x {
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .primary {
