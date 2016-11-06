@@ -17,19 +17,8 @@
 dl {margin-bottom:50px;margin-right: 100px}
 dl dt {background:#DCDCDC;color:#fff;float:left;font-weight:bold;margin-right:5px;padding:5px;width:100px}
 dl dd {margin:2px 0;padding:5px 0;}
-.box_row {width:100%;background-color:#00FF7F}
-.box_head {width:100%;background-color:#FFFAFA;color:#708090;font-size:15px;font-weight:bold;}
-.s0 {background-color:#FFFAFA;text-align:center;margin-bottom:10px}
-.s1 {background-color:#FFFAFA;text-align:center;margin-bottom:10px}
-.s2 {background-color:#FFFAFA;text-align:center;margin-bottom:10px}
-.s3 {background-color:#FFFAFA;margin-bottom:10px}
-.s4 {background-color:#FFFAFA;text-align:center;margin-bottom:10px}
-.std_det {color:green;}
-.img_pp {width:200px;height:200px;border:0}
-.box1{display: table;width: 100%;}
-.box1_row {display: table-row;}
-.box1_cell {border: 1px solid #999999;display: table-cell;padding: 3px 10px;}
-.box2_head {background-color:#EEE;display:table-header-group;font-weight: bold;}
-.box2_cell {border: 0px solid #999999;display:table-cell;padding:3px 10px;}
-.box2_body {display: table-row-group;}
-
+.radius {border-radius: 20px;box-shadow: 0 0 5px 5px #e7d5c0;}
+t_s_n {width: 5%;}
+t_s_sn {width: 20%;}
+t_s_a {width: 42%;}
+t_s_s {width: 10%;}
