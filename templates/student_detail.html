@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>detail</title>
+    <title>stud.detail</title>
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
@@ -34,7 +34,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="../templates/index.html">Main <span class="sr-only">(current)</span></a></li>
+        <li><a href="../templates/index.html">Main</a></li>
         <li><a href="../templates/contact.html">Contact</a></li>
         <li class="active"><a href="../templates/student_list.html">Students</a></li>
       </ul>
@@ -45,35 +45,39 @@
 </nav>
   <h1 class="name">Ivanov Ivan</h1>
     <img class="contact" src="../static/images/man2.png"/>
-    <p class="contact"><a href="#progr"><input type="button" value=" Progress "></a></p>
-    <h2><div class="inform"><table width="800px">
-          <tr><td>Surname</td><td>Ivanov</td></tr>
-          <tr><td>Name</td><td>Ivan</td></tr>
-          <tr><td>Patronimic</td><td>Ivanovich</td></tr>
-          <tr><td>Skype</td><td>ivanoviv</td></tr>
-          <tr><td>E-mail</td><td>iv.ivanov@outlook.com</td></tr>
-          <tr><td>Birth Date</td><td>08/04/1987</td></tr>
-          <tr><td>Address</td><td>Ukraine, Lviv, Ivanova str.28</td></tr>
-      </table>
+      <p class="contact"><a href=#progr><input type="button" value=" Progress "></a></p>
+    <div class="inform">  
+      <h2>
+        <table width="800px">
+          <tr><td class="nam">Surname</td><td>Ivanov</td></tr>
+          <tr><td class="nam">Name</td><td>Ivan</td></tr>
+          <tr><td class="nam">Patronimic</td><td>Ivanovich</td></tr>
+          <tr><td class="nam">Skype</td><td>ivanoviv</td></tr>
+          <tr><td class="nam">E-mail</td><td>iv.ivanov@outlook.com</td></tr>
+          <tr><td class="nam">Birth Date</td><td>08/04/1987</td></tr>
+          <tr><td class="nam">Address</td><td>Ukraine, Lviv, Ivanova str.28</td></tr>
+        </table>
+      </h2>
+    </div>  
+      <div class="Progress">
+        <h3>
+          <table>
+            <col width="200">
+            <tr class="cell-1"><th>Course</th><th>Week</th><th>Control Type</th><th>Grade</th></tr>
+            <col width="200">
+            <tr class="cells"><td class="pd">Python&Django</td><td>Week1</td><td>Tests</td><td>99%</td></tr>
+            <col width="200">
+            <tr class="cells"><td></td><td></td><td>Problem Task №1</td><td>100%</td></tr>
+            <col width="200">
+            <tr class="cells"><td></td><td></td><td>Problem Task №2</td><td>100%</td></tr>
+            <col width="200">
+            <tr class="cells"><td></td><td>Week2</td><td>Tests</td><td>100%</td></tr>
+            <col width="200">
+            <tr class="cells"><td></td><td></td><td>Problem Task №1</td><td>100%</td></tr>
+          </table>
+        </h3>
       </div>
-    </h2>
-    <h3><div class="Progress">
-      <table>
-      <col width="200">
-        <tr class="cell-1"><th>Course</th><th>Week</th><th>Control Type</th><th>Grade</th></tr>
-      <col width="200">
-        <tr class="cells"><td>Python&Django</td><td>Week1</td><td>Tests</td><td>99%</td></tr>
-      <col width="200">
-        <tr class="cells"><td></td><td></td><td>Problem Task №1</td><td>100%</td></tr>
-      <col width="200">
-        <tr class="cells"><td></td><td></td><td>Problem Task №2</td><td>100%</td></tr>
-      <col width="200">
-        <tr class="cells"><td></td><td>Week2</td><td>Tests</td><td>100%</td></tr>
-      <col width="200">
-        <tr class="cells"><td></td><td></td><td>Problem Task №1</td><td>100%</td></tr>
-      </table>
-      <a name="progr"></a>
-    </h3>
+    <a name="progr"></a>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
