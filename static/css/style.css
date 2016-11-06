@@ -1,12 +1,21 @@
-.img2 {width:150px;heigh:150px}
-.img1 {width:150px;heigh:200px}
-.txt1 {color:red}
-.txt2 {color:blue}
-.txt3 {color:green}
-.txt4 {color:gray}
-.txt5 {color:black}
-.txt6 {color:white}
-.txt7 {color:purple}
-.txt8 {color:pink}
+.img2 {
+    width:150px;
+    heigh:150px
+}
+.img1 {
+    width:300px;
+    heigh:400px
+}
+.txt1 {color: #4cae4c}
+.txt1 {
+    color: #2aabd2;
+}
+.txt2 {color: #8a6d3b}
+.txt3 {color: #985f0d}
+.txt4 {color: #761c19}
+.txt5 {color: #c7254e}
+.txt6 {color: #ec971f}
+.txt7 {color: burlywood}
+.txt8 {color: pink}
 
 
