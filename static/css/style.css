@@ -57,3 +57,38 @@ text-align: center;
   font-family: 'Play', sans-serif;
   font-size: 30px;
 }
+
+.table{
+  background-color:#f8bbd0;
+  font-size: 17px;
+}
+.title_table{
+  font-style: bold;
+  background-color:#9c27b0;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Play', sans-serif;
+}
+.table_first_student{
+  background-color:  #f06292;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.title_another_students{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.header_portret{
+  width:300px;
+}
+.student_name{
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Play', sans-serif;
+}
+
+.table_student_detail{
+  background-color:#f8bbd0;
+  font-size: 17px;
+  border: 2px solid #9c27b0;
+  width: 800px;
+  text-align: center;
+}
