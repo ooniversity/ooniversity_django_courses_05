@@ -113,3 +113,46 @@ padding-left:40px
     font-weight: bold;
     font-style: italic;
 }
+
+.list{
+    padding-left: 120px;
+    font-size: 18px
+}
+
+.st{
+    padding-left: 120px;
+    font-size: 45px;
+    color: blue
+}
+
+.tr{
+    background-color: #FF8C00
+}
+.act_tr{
+    background-color: #FFA500
+}
+
+.simple{
+    background-color: #DAA520;
+}
+
+.Progress{
+    margin-left: 20px;
+    width: 800px;
+    background-color: #6495ED;
+   
+}
+.cell-1{
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+}
+.cells{
+    background-color: #87CEEB
+}
+
+.inform{
+    margin-left: 20px;
+    width: 800px;
+    background-color: #F4A460
+}
