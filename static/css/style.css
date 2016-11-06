@@ -18,5 +18,34 @@
 .txt7 {color: burlywood}
 .txt8 {color: pink}
 .txt9 {text-align: center}
-.txt10 {text-align: center}
+.txt10 {text-align: right}
+.table {
+    width: 1000px;
+    height: 300px;
+}
+.tbl1 {
+    color: #ff3928;
+    background-color: #cfffe2;
+}
+.tbl2 {
+    color: #6bf5ff;
+    background-color: #0f0f0f;
+}
+.tbl3 {
+    color: white;
+    background-color: black;
+}
+.tbl4 {
+    color: yellow;
+    background-color: black;
+}
+.tbl5 {
+    color: yellowgreen;
+    background-color: black;
+}
+.tbl6 {
+    color: green;
+    background-color: black;
+}
+
 
