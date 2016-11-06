@@ -1,0 +1,67 @@
+.img2 {
+    width: 250px;
+    height: 250px
+}
+.img1 {
+    width: 500px;
+    height: 300px
+}
+.txt1 {
+    text-align: center;
+    background-color: #7bff2a;
+    color: #4cae4c}
+.txt2 {text-align: right;color: #8a6d3b}
+.txt3 {color: #985f0d}
+.txt4 {color: #761c19}
+.txt5 {color: #c7254e}
+.txt6 {color: #ec971f}
+.txt7 {color: burlywood}
+.txt8 {color: pink}
+.txt9 {text-align: center}
+.txt10 {text-align: right}
+.txt11 {color: red}
+.table {
+    width: 1000px;
+    height: 300px;
+}
+.table2 {
+    width: 400px;
+    height: 500px;
+}
+.tbl1 {
+    color: #ff3928;
+    background-color: #cfffe2;
+}
+.tbl2 {
+    color: #6bf5ff;
+    background-color: #0f0f0f;
+}
+.tbl3 {
+    color: white;
+    background-color: black;
+}
+.tbl4 {
+    color: yellow;
+    background-color: black;
+}
+.tbl5 {
+    color: yellowgreen;
+    background-color: black;
+}
+.tbl6 {
+    color: green;
+    background-color: black;
+}
+
+.tbl7 {
+    color: wheat;
+    background-color: black;
+}
+
+.button {
+    width: 300px;
+    height: 150px;
+    background-color: #0f0f0f;
+    color: white;
+}
+
