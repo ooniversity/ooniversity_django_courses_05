@@ -30,9 +30,10 @@ a:hover, a:active {
 
 
 body {
-	background:#052433 url(images/background.jpg);
+	background:aliceblue;
 	color:#333333;
-	font:11px arial,verdana,sans-serif;
+	font:16px arial,verdana,sans-serif;
+	padding-left:50px; 
 }
 
 .page2{
@@ -144,11 +145,17 @@ h4,h5,h6{
 	margin:20px 0 0 0;
 	}
 
-h2{ font-family:"Times New Roman", Times, serif;
-	font-size:19px;
-	color:#000000;
+.hh2{ font-family:"Times New Roman", Times, serif;
+	font-size:23px;
+	color:#ffffff;
     margin:0px 0px 5px 0px;
 padding-top:5px;
+	}
+.hhh2{ font-family:"Times New Roman", Times, serif;
+	font-size:22px;
+	color:blue;
+    margin:0px 0px 5px 0px;
+    padding-top:5px;
 	}
 
 h3{ color:#333333;
@@ -179,7 +186,7 @@ h3 a:link, h3 a:visited, h3 a:active, h3 a:hover{
 .post-meta{
 	float:left;
 	width: 700px;
-	color: white;
+	color: red;
 	font-size: 18px;
 	font-family:"Times New Roman", Times, serif;
 	
@@ -239,7 +246,8 @@ h3 a:link, h3 a:visited, h3 a:active, h3 a:hover{
 	}
 
 .alt {
-	background-color: #dcf2a7 !important;
+	background-color: #dcf000 !important;
+	padding:50px 20px 15px 10px;
 }
 .entrytext p{
 	margin:0 0 15px 0;
@@ -513,4 +521,27 @@ a img {
 	line-height: 17px;
 	padding: 0 4px 5px;
 	margin: 0;
+}
+.head-descr {
+	color: #008000;
+	text-align: center;
+	border:1px solid yellow
+}
+.meta-d {
+	color: #red;
+}
+.cont {
+	color: #008000;
+	text-align: center;
+	border:2px solid yellow
+}
+.my-color {
+	color: #27cda5
+}
+.names {
+	color: #0000ff;
+	font-size:16px;
+}
+.other-names {
+	color: #800080;
 }
