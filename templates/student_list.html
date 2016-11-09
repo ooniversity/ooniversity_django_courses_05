@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,9 +10,12 @@
     <title>Students</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="../static/css/bootstrap.css" rel="stylesheet"> -->
+    <link href={% static 'css/bootstrap.css' %} rel="stylesheet">
 
-    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
+    <link href={% static 'css/style.css' %} rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,9 +30,9 @@
       <div class="container">
 
             <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li class="active"><a href="student_list.html">Students</a></li>
+            <li><a href="/">Main</a></li>
+            <li><a href="/contact">Contacts</a></li>
+            <li class="active"><a href="#">Students</a></li>
 
           </ul>
 
@@ -55,11 +60,11 @@
         <th>Skype</th>
       </tr>
       <tr>
-        <td><a href="student_detail.html">1</a></td>
-        <td><a href="student_detail.html">Ivanov</a></td>
-        <td><a href="student_detail.html">Ivan</a></td>
-        <td><a href="student_detail.html">Dnepr</a></td>
-        <td><a href="student_detail.html">ivan.ivanov</a></td>
+        <td><a href="/student_detail">1</a></td>
+        <td><a href="/student_detail">Ivanov</a></td>
+        <td><a href="/student_detail">Ivan</a></td>
+        <td><a href="/student_detail">Dnepr</a></td>
+        <td><a href="/student_detail">ivan.ivanov</a></td>
       </tr>
 
       <tr>
@@ -101,6 +106,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <!-- <script src="../static/js/bootstrap.js"></script> -->
+    <script src={% static 'js/bootstrap.js' %}></script>
+
   </body>
 </html>
