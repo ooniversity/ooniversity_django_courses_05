@@ -30,9 +30,9 @@
       <div class="container">
 
             <ul class="nav navbar-nav">
-            <li><a href="/">Main</a></li>
-            <li><a href="/contact">Contacts</a></li>
-            <li class="active"><a href="#">Students</a></li>
+            <li><a href={% url 'index' %}>Main</a></li>
+            <li><a href={% url 'contact' %}>Contacts</a></li>
+            <li class="active"><a href={% url 'student_list' %}>Students</a></li>
 
           </ul>
 
@@ -60,11 +60,11 @@
         <th>Skype</th>
       </tr>
       <tr>
-        <td><a href="/student_detail">1</a></td>
-        <td><a href="/student_detail">Ivanov</a></td>
-        <td><a href="/student_detail">Ivan</a></td>
-        <td><a href="/student_detail">Dnepr</a></td>
-        <td><a href="/student_detail">ivan.ivanov</a></td>
+        <td><a href={% url 'student_detail' %}>1</a></td>
+        <td><a href={% url 'student_detail' %}>Ivanov</a></td>
+        <td><a href={% url 'student_detail' %}>Ivan</a></td>
+        <td><a href={% url 'student_detail' %}>Dnepr</a></td>
+        <td><a href={% url 'student_detail' %}>ivan.ivanov</a></td>
       </tr>
 
       <tr>
