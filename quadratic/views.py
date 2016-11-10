@@ -2,7 +2,7 @@ from django.shortcuts import render
 import math
 
 
-def get_val_data(a, val_a = False):
+def get_val_data(a):
     error_a = ''
     error_not_int = 'коэффициент не целое число'
     error_null = 'коэффициент не определен'
@@ -15,15 +15,13 @@ def get_val_data(a, val_a = False):
             a = int(a)
             if a == 0:
                 error_a = error_zero
-            elif a < 0 and val_a:
-                error_a = error_not_int
         except:
             error_a = error_not_int
 
     return {'val': a, 'error': error_a}
 
 
-def result_quadratic(request):
+def quadratic(request):
 
     dis_text_null = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     dis_text_result = 'Дискриминант: %(dis)d'
@@ -31,7 +29,7 @@ def result_quadratic(request):
     result_text = 'Квадратное уравнение имеет два действительных корня: x1 = %(x1)d, x2 = %(x2)d'
 
     a = request.GET['a']
-    data = get_val_data(a, True)
+    data = get_val_data(a)
     error_a = data.get('error')
     a = data.get('val')
 
