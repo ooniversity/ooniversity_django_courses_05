@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
    <head>
    	<title>List students</title>
    		<meta charset="utf-8">
-   		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
-			<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-			<script src="../static/js/bootstrap.min.js"></script>
+   		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<script src="{% static 'bootstrap.min.js' %}"></script>	
    </head>
    <body>
    	<nav class=".navbar-inverse">
@@ -18,14 +19,14 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="index.html">Main</a>
+		      <a class="navbar-brand" href="{% url 'index' %}">Main</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li><a href="contact.html">Contacts</a></li>
-		        <li><a href="student_list.html">Students</a></li>
+		        <li><a href="{% url 'contact' %}">Contacts</a></li>
+		        <li><a href="{% url 'student_list' %}">Students</a></li>
 		      </ul>		     
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -41,7 +42,7 @@
 	    <th>Address</th>
 	    <th>Skype</th>
 	   </tr>
-	   <tr><td><a href="student_detail.html">1</a></td><td>Zvonarev</td><td>Aleksandr</td><td>Ukraine, Mikolayiv,р-н, ул. MIzhrIchniy provulok 21</td><td>Zvonarev_Aleks</td></tr>
+	   <tr><td><a href="{% url 'student_detail' %}">1</a></td><td>Zvonarev</td><td>Aleksandr</td><td>Ukraine, Mikolayiv,р-н, ул. MIzhrIchniy provulok 21</td><td>Zvonarev_Aleks</td></tr>
 	   <tr><td>2</td><td>Chernobay</td><td>Yuliya</td><td>Ukraine, Mikolayiv,р-н, ул. Geroyiv StalIngradu 19</td><td>July_Chb1990</td></tr>
 	   <tr><td>3</td><td>Mircha</td><td>Nikolay</td><td>Ukraine, Reni,р-н Reniyskiy, ул. Bebelya 9</td><td>nik_Mircha</td></tr>
 	   <tr><td>4</td><td>Moskalenko</td><td>Aleksandr</td><td>Ukraine, Mikolayiv, р-н , ул. PotomkInska 149</td><td>moskalenko.Alek</td></tr>
