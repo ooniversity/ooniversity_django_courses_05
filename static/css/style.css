@@ -1,4 +1,16 @@
-.alert-success, .alert-info, .alert-warning, .alert-danger, .alert-purple {
+.alert-success {
+	font-size:14px
+}
+.alert-info{
+	font-size:14px
+}
+.alert-warning {
+	font-size:14px
+}
+.alert-danger {
+	font-size:14px
+}
+.alert-purple {
 	font-size:14px
 }
 img.contact {
