@@ -26,7 +26,7 @@ def quadratic(request):
     dis_text_null = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     dis_text_result = 'Дискриминант: %(dis)d'
 
-    result_text = 'Квадратное уравнение имеет два действительных корня: x1 = %(x1)d, x2 = %(x2)d'
+    result_text = 'Квадратное уравнение имеет два действительных корня: x1 = %(x1)s, x2 = %(x2)s'
 
     a = request.GET['a']
     data = get_val_data(a)
@@ -69,7 +69,4 @@ def quadratic(request):
                'val_c': c,
                }
 
-    #print(request)
-    #print(request.method)
-    print(context)
     return render(request, 'results.html', context)
