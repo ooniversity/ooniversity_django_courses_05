@@ -15,8 +15,27 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from pybursa import views
+from django.shortcuts import render
 
+def index(request):
+	return render(request, "index.html")
+
+def contact(request):
+	return render(request, "contact.html") 
+
+def student_list(request):
+	return render(request, "student_list.html")
+
+def student_detail(request):
+	return render(request, "student_detail.html") 
+
+app_name = 'pybursa'
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^student_list/$', views.student_list, name='student_list'),
+    url(r'^student_detail/$', views.student_detail, name='student_detail'),
 ]
