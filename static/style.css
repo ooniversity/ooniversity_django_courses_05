@@ -1,0 +1,57 @@
+.hhh1{
+	font-family: 'Indie Flower', cursive;
+	color: #0000ff;
+}
+
+.contact1{
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold; text-align: center;
+}
+
+#img1{
+	width="50px";height="50px"
+}
+
+.zidane{
+	color: #0000ff; 
+	font-family: 'Homemade+Apple', cursive;
+}
+
+.Ronaldo{
+	color: #FFD700; 
+	font-family: 'Homemade+Apple', cursive;
+}
+
+.Kahn{
+	color: #00000; 
+	font-family: 'Homemade+Apple', cursive;
+}
+
+.bg2{
+	background-color: #ed8210;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold; text-align: center;
+}
+
+.admin{
+	color: #1e7a00; font-family: 'Homemade+Apple', cursive; font-weight:20;}
+
+.HTTP{
+	background-color: #1946a8;
+}
+
+.browser{
+	font-color: #434549;
+}
+
+.start_pr{
+	background-color: #9b130c; font-weight:5;
+}
+
+.bg1{
+	font-color: #4f2a19; font-family: 'Homemade+Apple', cursive; font-weight:5;
+}
+
+.line{
+	background-color:#0c9b24; 
+}
