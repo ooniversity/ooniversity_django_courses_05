@@ -8,8 +8,9 @@
     <title>Students</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-     <link href="../static/css/style.css" rel="stylesheet">
+    {% load static %}
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
 
   </head>
   <body>
@@ -19,9 +20,9 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">       
-          <li><a href="index.html">Main</a></li>
-          <li><a href="contact.html">Contacts</a></li>
-           <li><a href="student_list.html">Students</a></li>       
+          <li><a href="{% url 'index'%}">Main</a></li>
+          <li><a href="{% url 'contact'%}">Contacts</a></li>
+          <li><a href="{% url 'student_list'%}">Students</a></li>      
          </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -34,7 +35,7 @@
      <p>Группа №5 </p>
     <table class="student_list">
       <tr><td>No</td><td>Surname</td><td>Name</td><td>Address</td><td>Skype</td></tr>
-      <tr><td><a href="student_detail.html">1</a> </td><td>Акимова</td><td>Татьяна</td><td>г. Харьков, ул. Краснодарская, д. 53, кв 24</td><td>akimova</td></tr>
+      <tr><td><a href="{% url 'student_detail'%}">1</a> </td><td>Акимова</td><td>Татьяна</td><td>г. Харьков, ул. Краснодарская, д. 53, кв 24</td><td>akimova</td></tr>
       <tr><td>2</td><td>Бублик</td><td>Лена</td><td>г. Харьков, ул. Иванова, д. 34, кв 44</td><td>bublik</td></tr>
       <tr><td>3</td><td>Баранов</td><td>Сергей</td><td>г. Харьков, ул. Сумская, д. 63, кв 24</td><td>baranov</td></tr>
       <tr><td>4</td><td>Гусева</td><td>Наталья</td><td>г. Харьков, ул. 23 августа, д. 34, кв 24</td><td>gus</td></tr>
@@ -61,6 +62,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
      <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
