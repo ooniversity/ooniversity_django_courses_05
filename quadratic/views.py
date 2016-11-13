@@ -33,4 +33,4 @@ def quadratic_results(request):
                  'x': 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных корней'}
     else:
         k = {'a': a, 'b': b, 'c': c}
-    return render(request,'quadratic/results.html', k)
+    return render(request, 'results.html', k)
