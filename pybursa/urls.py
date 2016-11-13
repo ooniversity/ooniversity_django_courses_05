@@ -20,6 +20,7 @@ from pybursa.views import index, contact, student_detail, student_list
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
+    url(r'^quadratic/', include('quadratic.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^contact/$', contact, name='contact'),
