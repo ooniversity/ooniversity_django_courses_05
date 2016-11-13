@@ -1,0 +1,9 @@
+from django.conf.urls import url
+
+from . import views
+
+app_name = 'quadratic'
+urlpatterns = [
+    url(r'^results/?a=(?P<a>\d+)&b=(?P<b>\d+)&c=(?P<c>\d+)$', views.quadratic_results, name='quadratic_results'),
+    #url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
+]
