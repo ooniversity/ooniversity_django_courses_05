@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'quadratic.apps.QuadraticConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,7 +133,8 @@ TEMPLATES = [
         'DIRS': [
             #os.path.join(BASE_DIR, "templates"),
             # insert your TEMPLATE_DIRS here
-            "/root/DJANGO",
+            #"/root/DJANGO",
+            "/root/Рабочий стол/test/django/week 4/ooniversity_django_courses_05/templates",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
