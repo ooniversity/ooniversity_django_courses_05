@@ -12,7 +12,6 @@ def quadratic_results(request):
     a=request.GET.get('a')
     b=request.GET.get('b')
     c=request.GET.get('c')
-    print(request.GET)
     if ((a.isdigit()==True) or ((len(a)>1) and (a[0]=='-') and (a[1:].isdigit())==True)):
         a_int=True
     if ((b.isdigit()==True) or ((len(b)>1) and (b[0]=='-') and (b[1:].isdigit())==True)):
@@ -35,11 +34,9 @@ def quadratic_results(request):
         ch=0
         d=int(b)**2 - 4*int(a)*int(c)
         if d<0:
-            print ("Дискриминант меньше нуля")
             return render(request, "results.html", {"a": a, "b": b, "c": c, "discr": d,"ch":ch})
         else:
             x1=(-int(b)+d**(1/2))/2*int(a)
-            print (x1)
             x2=(-int(b)-d**(1/2))/2*int(a)
         return render(request, "results.html", {"a": a, "b": b, "c": c, "discr": d,"x1": x1, "x2": x2, "ch":ch})
 
