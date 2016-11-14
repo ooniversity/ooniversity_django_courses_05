@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from pybursa import views
+
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
+    url(r'^$', views.index, name = 'index'),
+    url(r'^contact/', views.contact, name='contact'),
     url(r'^admin/', admin.site.urls),
 ]
