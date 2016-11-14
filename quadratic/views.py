@@ -2,7 +2,7 @@ from django.shortcuts import render
 import math
 
 
-def get_val_data(a):
+def get_val_data(a, this_is_a = False):
     error_a = ''
     error_not_int = 'коэффициент не целое число'
     error_null = 'коэффициент не определен'
@@ -13,7 +13,7 @@ def get_val_data(a):
     else:
         try:
             a = int(a)
-            if a == 0:
+            if a == 0 and this_is_a:
                 error_a = error_zero
         except:
             error_a = error_not_int
@@ -31,7 +31,7 @@ def quadratic(request):
 
 
     a = request.GET['a']
-    data = get_val_data(a)
+    data = get_val_data(a, True)
     error_a = data.get('error')
     a = data.get('val')
 
@@ -76,4 +76,4 @@ def quadratic(request):
                'val_c': c,
                }
 
-    return render(request, 'results.html', context)
+    return render(request, 'quadratic/results.html', context)
