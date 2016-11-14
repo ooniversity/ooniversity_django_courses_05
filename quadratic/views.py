@@ -65,7 +65,6 @@ def quadratic(request):
     else:
         dis_result = ''
 
-
     context = {'dis_result': dis_result,
                'result_text_x1_x2': result_text_x1_x2,
                'error_a': error_a,
