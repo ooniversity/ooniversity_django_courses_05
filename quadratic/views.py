@@ -21,7 +21,7 @@ def get_val_data(a, this_is_a = False):
     return {'val': a, 'error': error_a}
 
 
-def quadratic(request):
+def quadratic_results(request):
 
     dis_text_null = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     dis_text_result = 'Дискриминант: %(dis)d'
