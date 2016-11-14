@@ -29,14 +29,14 @@ def quadratic_results(request):
             mes_c="коэффициент не целое число"
              
 
-        return render(request, "results.html", {"a": a, "b": b, "c": c, "mes_a": mes_a,"mes_b": mes_b,"mes_c": mes_c, "ch":ch})
+        return render(request, "quadratic/results.html", {"a": a, "b": b, "c": c, "mes_a": mes_a,"mes_b": mes_b,"mes_c": mes_c, "ch":ch})
     else:
         ch=0
         d=int(b)**2 - 4*int(a)*int(c)
         if d<0:
-            return render(request, "results.html", {"a": a, "b": b, "c": c, "discr": d,"ch":ch})
+            return render(request, "quadratic/results.html", {"a": a, "b": b, "c": c, "discr": d,"ch":ch})
         else:
             x1=(-int(b)+d**(1/2))/2*int(a)
             x2=(-int(b)-d**(1/2))/2*int(a)
-        return render(request, "results.html", {"a": a, "b": b, "c": c, "discr": d,"x1": x1, "x2": x2, "ch":ch})
+        return render(request, "quadratic/results.html", {"a": a, "b": b, "c": c, "discr": d,"x1": x1, "x2": x2, "ch":ch})
 
