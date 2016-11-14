@@ -75,4 +75,4 @@ def quadratic_results(request):
                'val_c': c,
                }
 
-    return render(request, 'quadratic/results.html', context)
+    return render(request, 'results.html', context)
