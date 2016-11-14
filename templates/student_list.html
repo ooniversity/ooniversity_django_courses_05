@@ -8,8 +8,8 @@
     <title>Student list Brain Bursa</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{%static css/bootstrap.css%}" rel="stylesheet">
+    <link href="{%static css/style.css%}" rel="stylesheet">
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
@@ -42,9 +42,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        <li class="active"><a href="student_list.html">Students</a></li>
+        <li><a href="{% url 'index.html'%}">Main</a></li>
+        <li><a href="{% url 'contact.html'%}">Contacts</a></li>
+        <li class="active"><a href="{% url 'student_list.html'%}">Students</a></li>
      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

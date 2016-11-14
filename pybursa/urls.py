@@ -21,6 +21,8 @@ from pybursa import views
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^$', views.index, name = 'index'),
+    url(r'^contact/', views.student_detail, name='student_detail'),
+    url(r'^$', views.student_list, name = 'student_list'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^admin/', admin.site.urls),
 ]
