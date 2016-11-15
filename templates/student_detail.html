@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    {% load static %}
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <title>PyBursa-Detail</title>
@@ -57,8 +58,8 @@
 
 <div class="media">
 <h1 class="media-heading intro">Egorov Ivan</h1><br>
-  <a class="media-left" href="student_detail.html">
-    <img class="media-object img_ppp" src="{% static 'images/python_by_zaper.jpg"" alt="Generic placeholder image">
+  <a class="media-left" href="{% url 'student_detail' %}">
+    <img class="media-object img_ppp" src="{% static 'images/python_by_zaper.jpg' %}" alt="Generic placeholder image">
   </a>
     <br><button type="button" class="btn btn-success">About student</button>
     
