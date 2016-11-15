@@ -1,21 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>Students</title>
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static '/css/style.css' %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <script src="../static/js/jquery.js"></script>
-  <script src="../static/js/bootstrap.js"></script>
+  <script src="{% static '/js/jquery.js' %}"></script>
+  <script src="{% static '/js/bootstrap.js' %}"></script>
 </head>
 <body>
 	<header>
-		<ul class="nav nav-tabs">
-		  <li role="presentation"><a href="index.html">Main</a></li>
-		  <li role="presentation"><a href="contact.html">Contacts</a></li>
-		  <li role="presentation" class="active"><a href="student_list.html">Students</a></li>
-		</ul>	
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+      <li role="presentation" class="active"><a href="{% url 'student_list' %}">Students</a></li>
+    </ul>
 	</header>
 	<div class="conteiner col-md-9 col-md-offset-2">
 		<h2>List of PyBursa Students</h2>
@@ -32,7 +33,7 @@
   </thead>
   <tbody>
      <tr>
-      <th scope="row"><a href="student_detail.html">1</a></th>
+      <th scope="row"><a href="{% url 'student_detail' %}">1</a></th>
       <td>Hepburn</td>
       <td>Audrey</td>
       <td>Belgium, Brussels</td>
