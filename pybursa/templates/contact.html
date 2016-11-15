@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,8 +8,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Contact</title>
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <!--<templates tag {% load staticfiles %}/>-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,15 +30,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">PyBursa</a>
-      <a href="index.html"><img class="ico" src="../static/images/py.png"></a>
+      <a class="navbar-brand" href="{% url 'index' %}">PyBursa</a>
+      <a href="{% url 'index' %}"><img class="ico" src="{% static 'images/py.png' %}"></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Main</a></li>
-        <li class="active"><a href="contact.html">Contacts</a></li>
-        <li ><a href="student_list.html">Students</a></li>
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+        <li ><a href="{% url 'student_list' %}">Students</a></li>
       </ul>
         </li>
       </ul>
@@ -65,6 +67,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
