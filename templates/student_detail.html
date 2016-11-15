@@ -1,20 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
   <title>Student details</title>
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static '/css/style.css' %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <script src="../static/js/jquery.js"></script>
-  <script src="../static/js/bootstrap.js"></script></head>
+  <script src="{% static '/js/jquery.js' %}"></script>
+  <script src="{% static '/js/bootstrap.js' %}"></script>
 <body>
 	<header>
 		<ul class="nav nav-tabs">
-		  <li role="presentation"><a href="index.html">Main</a></li>
-		  <li role="presentation"><a href="contact.html">Contacts</a></li>
-		  <li role="presentation" class="active"><a href="student_list.html">Students</a></li>
-		</ul>	
+		  <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+		  <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+		  <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
+		</ul>		
 	</header>
 	<div class="container col-lg-5 col-lg-offset-2">
 		<h3 class="upper-text">Hepburn Audrey</h3>
@@ -95,7 +96,7 @@
 		  	</tr>
 		  </tbody>
 		</table>
-		<p><a class="btn btn-primary btn-lg" href="student_list.html" role="button">Back</a></p>		
+		<p><a class="btn btn-primary btn-lg" href="{% url 'student_list' %}" role="button">Back</a></p>		
 	</div>
 </body>
 </html>
