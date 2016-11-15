@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from pybursa import index, contact, student_list, student_detail
+from .views import index, contact, student_list, student_detail
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^index/$', views.index, name='index'),
-    url(r'^contact/$', views.contact, name='contact'),
-    url(r'^student_list/$', views.student_list, name='student_list'),
-    url(r'^student_detail/$', views.student_detail, name='student_detail'),	
+    url(r'^$', index, name='index'),
+    url(r'^index/$', index, name='index'),
+    url(r'^contact/$', contact, name='contact'),
+    url(r'^student_list/$', student_list, name='student_list'),
+    url(r'^student_detail/$', student_detail, name='student_detail'),	
 ]
