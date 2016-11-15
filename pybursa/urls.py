@@ -17,26 +17,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
 from django.shortcuts import render
+from pybursa import views
 
-
-def hello(request):
-    return render(request, 'index.html')
-
-def hello_c(request):
-    return render(request, 'contact.html')
-
-def hello_sd(request):
-    return render(request, 'student_detail.html')
-
-def hello_sl(request):
-    return render(request, 'student_list.html')
 
 
 urlpatterns = [
-    url(r'^$', hello),
-    url(r'index.html', hello),
-    url(r'contact.html', hello_c),
-    url(r'student_detail.html', hello_sd),
+    url(r'^$', views.index, name='index'),
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^student_list/$', views.student_list, name='student_list'),
+    url(r'^student_detail/$', views.student_detail, name='student_detail'),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
 ]
