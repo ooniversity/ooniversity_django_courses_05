@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pybursa',
     'polls.apps.PollsConfig',
+	'quadratic.apps.QuadraticConfig',
 ]
 
 MIDDLEWARE = [
