@@ -9,8 +9,8 @@
     <title>Contacts Brain Bursa</title>
     {% load static %}
     <!-- Bootstrap -->
-    <link href="{%static bootstrap.css%}" rel="stylesheet">
-    <link href="{%static style.css%}" rel="stylesheet">
+    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
@@ -37,7 +37,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Brain Bursa</a>
+      <a class="navbar-brand" href={% url "index"%}>Brain Bursa</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,7 +52,7 @@
 
 
 <div>
-    <img class="img_contact" src="../static/images/founder.jpg" alt="Photo founder">
+    <img class="img_contact" src={% static "images/founder.jpg" %} alt="Photo founder">
 </div>
 <div>
     <h2>Founder</h2>
@@ -66,7 +66,7 @@
 <br>
 
 <div>
-    <img class="img_contact" src="../static/images/director.jpg" alt="Photo director">
+    <img class="img_contact" src={% static "images/director.jpg" %} alt="Photo director">
 </div>
 
 <div>
@@ -81,7 +81,7 @@
 
 <br>
 <div>
-    <img class="img_contact" src="../static/images/manager.jpg" alt="Photo manager">
+    <img class="img_contact" src={% static "images/manager.jpg" %} alt="Photo manager">
 </div>
 <div>
     <h2>Manager</h2>

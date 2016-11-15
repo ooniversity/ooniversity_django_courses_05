@@ -8,8 +8,8 @@
     <title>Student list Brain Bursa</title>
     {% load static %}
     <!-- Bootstrap -->
-    <link href="{%static bootstrap.css%}" rel="stylesheet">
-    <link href="{%static style.css%}" rel="stylesheet">
+    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
@@ -36,7 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Brain Bursa</a>
+      <a class="navbar-brand" href={% url "index"%}>Brain Bursa</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,7 +52,7 @@
 
 <div class="header">
 
-    <img class="header_image" src="../static/images/loog1.png" alt="logo">
+    <img class="header_image" src={% static "images/loog1.png" %} alt="logo">
     <h3>BrainBursa</h3>
     </div>
 
@@ -72,7 +72,7 @@
       <td>Skype</td>
     </tr>
     <tr class="table_first_student">
-      <td><a href="student_detail.html">1</a></td>
+      <td><a href={% url "student_detail" %}>1</a></td>
       <td>Paschenko</td>
       <td>Tatyana</td>
       <td>Украина, г.Харьков, ул.Иванова, д.36, кв.5</td>
