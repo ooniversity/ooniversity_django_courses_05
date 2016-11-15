@@ -6,12 +6,14 @@
 </head>
 <body>
     <p>Квадратное уравнение a*x*x + b*x + c</p>
-    <p>a = {{ a }}</p>
-    <p>b = {{ b }}</p>
-    <p>c = {{ c }}</p>
-    {% if d %}
-        <p>{{ d }}</p>
-        <p>{{ x }}</p>
-    {% endif %}
+    {% autoescape off %}
+        <p>a = {{ a }}</p>
+        <p>b = {{ b }}</p>
+        <p>c = {{ c }}</p>
+        {% if d %}
+            <p>{{ d }}</p>
+            <p>{{ x }}</p>
+        {% endif %}
+    {% endautoescape %}
 </body>
 </html>
