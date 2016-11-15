@@ -1,17 +1,21 @@
 #from django.views import generic
 from django.shortcuts import render
 from django.http import HttpResponse
-#from django.template import loader
+from django.template import loader
 
 
 def index(request):
-    return render(request, 'templates/index.html')
+    template = loader.get_template('templates/index.html')
+    return HttpResponse(template.render(request))
 
 def contact(request):
-    return render(request, 'templates/contact.html')
+    template = loader.get_template('templates/contact.html')
+    return HttpResponse(template.render(request))
 
 def student_list(request):
-    return render(request, 'templates/student_list.html')
+    template = loader.get_template('templates/student_list.html')
+    return HttpResponse(template.render(request))
 
 def student_detail(request):
-    return render(request, 'templates/student_detail.html')
+    template = loader.get_template('templates/student_detail.html')
+    return HttpResponse(template.render(request))
