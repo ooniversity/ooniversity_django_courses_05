@@ -55,7 +55,7 @@ ROOT_URLCONF = 'pybursa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['.'],
+        'DIRS': [BASE_DIR],
         'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
