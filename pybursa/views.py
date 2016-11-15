@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, response
 from django.shortcuts import render
 
 def index(request):
@@ -11,4 +11,4 @@ def student_list(request):
     return render(request, "student_list.html")
 
 def student_detail(request):
-    return render(request, "student_detail.html")
+return render(request, "student_detail.html")
