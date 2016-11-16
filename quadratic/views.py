@@ -4,4 +4,10 @@ from django.http import HttpResponse, response
 # Create your views here.
 
 def quadratic_results(request):
-    return render(request, 'results.html')
+    a = request.GET['a']
+    b = request.GET['b']
+    c = request.GET['c']
+
+    context = { 'var_a' : a, 'var_b' : b, 'var_c' : c }
+
+    return render(request, 'results.html', context)
