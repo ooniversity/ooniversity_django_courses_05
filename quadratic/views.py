@@ -25,6 +25,13 @@ def quadratic_results(request):
     d_error = ""
     d_lover_zero = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 
+    info = ""
+    info_if_one = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: "
+    info_if_two = "Квадратное уравнение имеет два действительных корня: "
+
+
+
+
     a = request.GET['a']
 
     error_a = check_input_data(a)
@@ -42,10 +49,13 @@ def quadratic_results(request):
         c = int(c)
         d = b * b - 4 * a * c
 
-        if d:
-            d_text = "Дискриминант: {0}".format(d)
+        
+        d_text = "Дискриминант: {0}".format(d)
         if d < 0:
             d_error = d_lover_zero
+        elif d == 0:
+            x1 = -b / 2 * a
+            info = info_if_one + "x1 = x2 = {0}".format(x1)
 
 
 
@@ -53,6 +63,6 @@ def quadratic_results(request):
 
     
 
-    context = { 'var_a' : a, 'var_b' : b, 'var_c' : c, 'error_c' : error_c, 'error_b' : error_b, 'error_a' : error_a, 'd' : d_text, 'd_error' : d_error }
+    context = { 'var_a' : a, 'var_b' : b, 'var_c' : c, 'error_c' : error_c, 'error_b' : error_b, 'error_a' : error_a, 'd' : d_text, 'd_error' : d_error, 'info' : info }
 
     return render(request, 'results.html', context)
