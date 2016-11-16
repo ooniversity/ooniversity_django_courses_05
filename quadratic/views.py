@@ -22,6 +22,8 @@ def quadratic_results(request):
 
     error_if_zero = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
     d_text = ""
+    d_error = ""
+    d_lover_zero = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 
     a = request.GET['a']
 
@@ -42,12 +44,15 @@ def quadratic_results(request):
 
         if d:
             d_text = "Дискриминант: {0}".format(d)
+        if d < 0:
+            d_error = d_lover_zero
+
 
 
         
 
     
 
-    context = { 'var_a' : a, 'var_b' : b, 'var_c' : c, 'error_c' : error_c, 'error_b' : error_b, 'error_a' : error_a, 'd' : d_text }
+    context = { 'var_a' : a, 'var_b' : b, 'var_c' : c, 'error_c' : error_c, 'error_b' : error_b, 'error_a' : error_a, 'd' : d_text, 'd_error' : d_error }
 
     return render(request, 'results.html', context)
