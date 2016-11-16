@@ -6,7 +6,7 @@ def check_input_data(value):
     error = ""
     error_if_not_int = "коэффициент не целое число"
     error_if_empty = "коэффициент не определен"
-    error_if_zero = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+
 
     if len(value) == 0:
         error = error_if_empty
@@ -19,8 +19,14 @@ def check_input_data(value):
 
 
 def quadratic_results(request):
+
+    error_if_zero = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+
     a = request.GET['a']
     error_a = check_input_data(a)
+    if int(a) == 0:
+        error_a = error_if_zero
+
     b = request.GET['b']
     error_b = check_input_data(b)
     c = request.GET['c']
