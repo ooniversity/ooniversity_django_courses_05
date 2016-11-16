@@ -21,7 +21,7 @@ from django.shortcuts import render
 app_name = 'pybursa'
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
-    url(r'^quadratic/', include('quadratic.urls')),
+    url(r'^quadratic/', include('quadratic.urls'), name='quadratic'),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),

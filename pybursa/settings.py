@@ -134,7 +134,8 @@ TEMPLATES = [
             #os.path.join(BASE_DIR, "templates"),
             # insert your TEMPLATE_DIRS here
             #"/root/DJANGO",
-            "/root/Рабочий стол/test/django/week 4/ooniversity_django_courses_05/templates",
+            "/root/789/ooniversity_django_courses_05/templates/pybursa",
+            "/root/789/ooniversity_django_courses_05/quadratic/templates/quadratic",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
