@@ -26,5 +26,5 @@ def quadratic_results(request):
                     x1 = (-int(b) + descr ** (1/2)) / 2*int(a)
                     x2 = (-int(b) - descr ** (1/2)) / 2*int(a)
                 elif descr == 0:
-                    x1 = x2 = (-b) / (2*a)
+                    x1 = x2 = (-int(b)) / (2*int(a))
     return render(request, 'quadratic/results.html', {'descr':descr, 'x1':x1, 'x2':x2, 'a':a, 'b':b, 'c':c})
