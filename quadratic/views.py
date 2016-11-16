@@ -23,8 +23,9 @@ def quadratic_results(request):
     error_if_zero = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
 
     a = request.GET['a']
+
     error_a = check_input_data(a)
-    if int(a) == 0:
+    if not error_a and int(a) == 0:
         error_a = error_if_zero
 
     b = request.GET['b']
