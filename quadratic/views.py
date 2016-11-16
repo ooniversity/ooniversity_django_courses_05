@@ -21,6 +21,7 @@ def check_input_data(value):
 def quadratic_results(request):
 
     error_if_zero = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+    d_text = ""
 
     a = request.GET['a']
 
@@ -39,10 +40,10 @@ def quadratic_results(request):
         c = int(c)
         d = b * b - 4 * a * c
 
-    if d:
-        d_text = "Дискриминант: {0}".format(d)
-    else:
-        d_text = ""
+        if d:
+            d_text = "Дискриминант: {0}".format(d)
+
+
         
 
     
