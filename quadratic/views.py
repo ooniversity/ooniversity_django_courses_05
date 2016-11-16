@@ -29,9 +29,6 @@ def quadratic_results(request):
     info_if_one = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: "
     info_if_two = "Квадратное уравнение имеет два действительных корня: "
 
-
-
-
     a = request.GET['a']
 
     error_a = check_input_data(a)
@@ -56,12 +53,10 @@ def quadratic_results(request):
         elif d == 0:
             x1 = -b / 2 * a
             info = info_if_one + "x1 = x2 = {0}".format(x1)
-
-
-
-        
-
-    
+        else:
+            x1 = (-1*b + d ** (1 / 2)) / 2 * a
+            x2 = (-1*b - d ** (1 / 2)) / 2 * a
+            info = info_if_two + "х1 = {0}, х2 = {1}".format(x1, x2)
 
     context = { 'var_a' : a, 'var_b' : b, 'var_c' : c, 'error_c' : error_c, 'error_b' : error_b, 'error_a' : error_a, 'd' : d_text, 'd_error' : d_error, 'info' : info }
 
