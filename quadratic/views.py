@@ -8,6 +8,7 @@ def quadratic_results(request):
     c = request.GET.get('c')
     x1 = 0
     x2 = 0
+    descr = None
 
     if a != '0':
         if a.isdigit() and b.isdigit() and c.isdigit():
