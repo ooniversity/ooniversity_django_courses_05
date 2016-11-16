@@ -2,25 +2,30 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def proverka(x):
+    mess = ''
+    zn = ''
     if x:
         try:
-            y = int(x)
+            zn = int(x)
         except ValueError:
-            y = x + '\r\n коэффициент не целое число'
+            zn = x
+            mess = 'коэффициент не целое число'
     else:
-        y = ' коэффициент не определен'
-    return y
+        mess = 'коэффициент не определен'
+    return {'zn':zn, 'mess':mess}
 
 def quadratic_results(request):
     numbers = {}
 
-    a = proverka(request.GET['a'])
-    b = proverka(request.GET['b'])
-    c = proverka(request.GET['c'])
-   
+    dicta = proverka(request.GET['a'])
+    a = dicta['zn']
+    dictb = proverka(request.GET['b'])
+    b = dictb['zn']
+    dictc = proverka(request.GET['c'])
+    c = dictc['zn']   
     if isinstance(a,int) and isinstance(b,int) and isinstance(c,int):
         if a == 0:
-            a_rez = '0 коэффициент при первом слагаемом уравнения не может быть равным нулю'
+            dicta['mess'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
         else:
             d = b ** 2 - 4 * a * c
             if d < 0:
@@ -33,5 +38,5 @@ def quadratic_results(request):
                 result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
             numbers.update({ 'd' : d, 'result' : result })
 
-    numbers.update({ 'a' : a, 'b' : b, 'c' : c })
+    numbers.update({ 'a' : dicta, 'b' : dictb, 'c' : dictc })
     return render(request, 'results.html', numbers)

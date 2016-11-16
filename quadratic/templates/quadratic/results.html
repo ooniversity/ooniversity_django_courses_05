@@ -10,11 +10,10 @@
 Квадратное уравнение a*x*x + b*x + c = 0
 
   <ul>
-   <li>a = {{ a }}</li>
-   <li>b = {{ b }}</li>
-   <li>c = {{ c }}</li>
+   <li>a = {{ a.zn }}</li>{{ a.mess }}
+   <li>b = {{ b.zn }}</li>{{ b.mess }}
+   <li>c = {{ c.zn }}</li>{{ c.mess }}
   </ul>
-
 
     {% if result %}
     <p>Дискриминант: {{ d }}</p>
