@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'pybursa',
     'django.contrib.staticfiles',
+    'quadratic.apps.QuadraticConfig',
 ]
 
 MIDDLEWARE = [
