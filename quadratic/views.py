@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+
 
 def quadratic_results(request):
 
@@ -9,9 +9,17 @@ def quadratic_results(request):
     x1 = 0
     x2 = 0
     descr = None
+    no_int = ''
+
+    try:
+        int_a = int(a)
+        int_b = int(b)
+        int_c = int(c)
+    except ValueError:
+        no_int = 'not empty'
 
     if a != '0':
-        if a.isdigit() and b.isdigit() and c.isdigit():
+        if no_int == '':
             if a != '' and b != '' and c != '':
                 descr = int(b) ** 2 - 4 * int(a) * int(c)
                 if descr > 0:
