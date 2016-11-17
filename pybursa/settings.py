@@ -25,7 +25,7 @@ SECRET_KEY = '&yp$8ods$1cbtoau*8%m5x%r#hj4ts+a)r+p@z_s%-c9xm94&6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.114', 'csa.sofit.net.ua']
 
 
 # Application definition
