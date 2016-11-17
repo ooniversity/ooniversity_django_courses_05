@@ -58,7 +58,7 @@ TEMPLATES = [
         'DIRS': 
         [
             'templates',
-            'quadratic/templates'
+            'quadratic/templates/quadratic'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
