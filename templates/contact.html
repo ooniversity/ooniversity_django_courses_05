@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Sergey Chepurnykh">
-    <link rel="icon" href="../static/images/favicon.ico">
+	{% load static %}
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <title>Contacts</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <!-- Bootstrap theme -->
-    <link href="../static/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </head>
 
   <body>
@@ -32,13 +33,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"><img class="logo" src="../static/images/logo.png"></a>
+          <a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Main</a></li>
-            <li class="active"><a href="/contact/">Contacts</a></li>
-	    <li><a href="/student_list/">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+	    <li><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -113,8 +114,8 @@
 
 <nav aria-label="forward-back">
   <ul class="pager">
-    <li class="left"><a href="/">Назад</a></li>
-    <li class="right"><a href="/student_list/">Вперед</a></li>
+    <li class="left"><a href="{% url 'index' %}">Назад</a></li>
+    <li class="right"><a href="{% url 'student_list' %}">Вперед</a></li>
   </ul>
 </nav>
   </body>
