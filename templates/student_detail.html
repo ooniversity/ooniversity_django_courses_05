@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Sergey Chepurnykh">
+	{% load static %}
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <title>Student detail</title>
@@ -32,13 +33,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{% index %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
+          <a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% index %}">Main</a></li>
-            <li><a href="{% contact %}">Contacts</a></li>
-	    <li class="active"><a href="{% student_list %}">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+	    <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -125,7 +126,7 @@
 
 <nav aria-label="forward-back">
   <ul class="pager">
-    <li class="left_details"><a href="{% student_list %}">Назад</a></li>
+    <li class="left_details"><a href="{% url 'student_list' %}">Назад</a></li>
   </ul>
 </nav>
   </body>
