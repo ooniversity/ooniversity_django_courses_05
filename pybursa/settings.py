@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&yp$8ods$1cbtoau*8%m5x%r#hj4ts+a)r+p@z_s%-c9xm94&6'
+SECRET_KEY = '#y7xk03eek_c7$5ng2_tx+!40ccrns!#7vz^9^r-%bm3e1&&vk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.114', 'csa.sofit.net.ua']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'quadratic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'pybursa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,16 +123,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    '/home/ant/pybursa/static',
 ]
 
-TEMPLATES = [{'APP_DIRS': True,
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates"),],
-        'OPTIONS': {'context_processors': [
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
-                'django.contrib.messages.context_processors.messages',],},},]
+#STATIC_ROOT = '/home/ant/pybursa/static'
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'

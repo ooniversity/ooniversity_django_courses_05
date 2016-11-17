@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
-
+from quadratic.views import quadratic_results
 
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^student_detail/$', views.student_detail, name='student_detail'),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^quadratic/', include('quadratic.urls')),
 ]
