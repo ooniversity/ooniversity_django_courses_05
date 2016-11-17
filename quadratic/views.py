@@ -56,7 +56,7 @@ def quadratic_results(request):
         else:
             x1 = (-1*b + d ** (1 / 2)) / 2 * a
             x2 = (-1*b - d ** (1 / 2)) / 2 * a
-            info = info_if_two + "х1 = {0}, х2 = {1}".format(x1, x2)
+            info = info_if_two + "x1 = {0}, x2 = {1}".format(x1, x2)
 
     context = { 'var_a' : a, 'var_b' : b, 'var_c' : c, 'error_c' : error_c, 'error_b' : error_b, 'error_a' : error_a, 'd' : d_text, 'd_error' : d_error, 'info' : info }
 
