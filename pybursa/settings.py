@@ -25,13 +25,14 @@ SECRET_KEY = '#y7xk03eek_c7$5ng2_tx+!40ccrns!#7vz^9^r-%bm3e1&&vk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.113']
+ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.113', 'dj.ar2d2.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'quadratic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,3 +125,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/home/ant/pybursa/static',
 ]
+
+#STATIC_ROOT = '/home/ant/pybursa/static'
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
