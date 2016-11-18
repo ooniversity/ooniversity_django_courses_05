@@ -35,7 +35,7 @@
         <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
 
             <ul class="nav navbar-nav">
-            <li class="active"><a href={% url 'index' %}>Main</a></li>
+            <li><a href={% url 'index' %}>Main</a></li>
             <li><a href={% url 'contact' %}>Contacts</a></li>
             <li><a href={% url 'student_list' %}>Students</a></li>
 
@@ -46,39 +46,36 @@
     </nav>
 
 
-
-
     <div class="container">
       <div class="jumbotron">
         <div class="page-header">
-          <h3 id="title_course">PyBursa</h3>
-          <p>Мы лучшие. У нас огромное количество курсов</p>
+          <h3 id="title_course">{{ course }}</h3>
+          <p>{{ course.description }}</p>
         </div>
       </div>
     </div>
 
 
-    <div class="container">
+   <div class="container">
         <div>
 
         <table class="table">
           <tr  class="table_title">
-            <th>Курс</th>
+            <th>#</th>
+            <th>Тема</th>
             <th>Описание</th>
           </tr>
 
-          {% for course in courses %}
+          {% for lesson in lessons %}
               <tr>
-                <td><a href='/courses/{{ course.id }}'>{{ course }}</a></td>
-                <td>{{ course.short_description }}</td>
+                <td>{{ lesson.order }}</td>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
               </tr>
           {% endfor %}
         </table>
         </div>
-    </div>
-
-
-
+   </div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
