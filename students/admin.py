@@ -3,7 +3,7 @@ from students.models import Student
 from django.forms import widgets
 
 class StudentAdmin(admin.ModelAdmin):
-    search_fields = ['name', 'email']
+    search_fields = ['surname', 'email']
     list_display = ('full_name', 'email', 'skype')
     list_filter = ['courses']
 
@@ -20,7 +20,12 @@ class StudentAdmin(admin.ModelAdmin):
         }),
         ('Contact info', {
 
-            'fields': ('email', 'phone', 'address', 'skype', 'courses'),
+            'fields': ('email', 'phone', 'address', 'skype', ),
+        }),
+
+        (None, {
+
+            'fields': ('courses',),
         }),
     )
 
