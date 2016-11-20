@@ -55,7 +55,7 @@ def quadratic_results(request):
         b = context['b']
         c = context['c']
         d = get_discr(a, b, c)
-        if d >= 0:
+        if d > 0:
             x1 = (-b + d**(1/2.0)) / (2*a)
             x2 = (-b - d**(1/2.0)) / (2*a)
             result_text = "Квадратное уравнение имеет два действительных корня: x1 = {}, x2 = {}".format(x1, x2)
