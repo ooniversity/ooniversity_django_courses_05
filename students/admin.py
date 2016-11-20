@@ -2,7 +2,7 @@ from django.contrib import admin
 from students.models import Student
 from django.forms import widgets
 
-class StudentsAdmin(admin.ModelAdmin):
+class StudentAdmin(admin.ModelAdmin):
     search_fields = ['name', 'email']
     list_display = ('full_name', 'email', 'skype')
     list_filter = ['courses']
@@ -24,4 +24,4 @@ class StudentsAdmin(admin.ModelAdmin):
         }),
     )
 
-admin.site.register(Student, StudentsAdmin)
+admin.site.register(Student, StudentAdmin)
