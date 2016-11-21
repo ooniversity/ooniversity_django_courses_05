@@ -31,15 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'students.apps.StudentsConfig',
-    'courses.apps.CoursesConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'students.apps.StudentsConfig',
+    'courses.apps.CoursesConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +56,7 @@ ROOT_URLCONF = 'pybursa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/DJ101/project/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,15 +116,23 @@ USE_L10N = True
 USE_TZ = True
 
 
+TEMPLATE_LOADERS = (
+    ('django.template.loaders.cached.Loader', (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    )),
+)
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+TEMPLATE_URL = '/templates/'
 
 STATICFILES_DIRS = [
 	'/home/DJ101/project/static/',
 ]
 
 TEMPLATE_DIRS = [
-	os.path.join(BASE_DIR, 'templates'),
+	'/home/DJ101/project/templates/',
 ]
