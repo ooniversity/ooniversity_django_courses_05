@@ -59,7 +59,20 @@
         - Forms. Class-based (Generic) Views<br>
         - Реализация стандартных задач. Средства отладки и тестирование. Деплоймент<br>
         </p>
-    </div>
+        <h2 id="courses">Courses</h2>
+	   <div class="container">
+	      <table class="brd">
+		  <tr>
+		      <th>Course</th>
+		      <th>About</th>
+		  </tr>
+       {% for course in courses %}
+                  <tr>
+		      <td><a href="{% url 'student_detail' %}">{{course.name}}</td>
+                      <td>{{course.short_description}}</br></td>
+		  </tr>
+       {% endfor %}
+       </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
