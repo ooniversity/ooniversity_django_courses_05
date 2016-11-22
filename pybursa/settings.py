@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pybursa',
     'polls.apps.PollsConfig',
     'quadratic.apps.QuadraticConfig',
+    'courses.apps.CoursesConfig',
+    'students.apps.StudentsConfig',
+    'pybursa',
 ]
 
 MIDDLEWARE = [
