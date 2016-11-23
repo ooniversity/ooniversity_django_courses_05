@@ -11,7 +11,7 @@ img{
     width: 100px; 
     height: 150px;}
 h1{	
-	background: #e7e7e7}
+	}
 h2{	
 	font-family: inherit;
     font-weight: 500;
@@ -41,13 +41,15 @@ td{padding: 10px 10px 3px 3px;
 }
 tr{border: : 5px}
 .student_info{
-	background: #FBEFF5;
-	 border-color: #F78181;
-	 border-width:1px;
-    width:500px;}
+	background: #CED8F6;
+	}
 .student_list{
 	background: #CED8F6;
     border-width: 1px;}
 .student_perfomance:{
-	background: #A9E2F3;
+    font-weight: bold;
     border-width: 1px;}
+    th {
+    font-weight: normal;
+    
+}

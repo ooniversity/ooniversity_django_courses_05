@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from .views import index, contact, student_list, student_detail
-from quadratic.views import quadratic_results
+#from quadratic.views import quadratic_results
+#from courses.views import courses_list
 
 
 urlpatterns = [
@@ -26,5 +27,7 @@ urlpatterns = [
     url(r'^student_detail/$', student_detail, name='student_detail'),
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^polls/', include('polls.urls')),
+    url(r'^courses/', include('courses.urls', namespace = 'courses', app_name='courses')),
+    url(r'^students/', include('students.urls', namespace = 'students', app_name='students')),
     url(r'^admin/', admin.site.urls),
 ]

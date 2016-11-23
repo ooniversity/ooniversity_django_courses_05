@@ -34,70 +34,85 @@
  
         
   <div class="container">
-    <h1>Акимова Татьяна</h1>
+    
      <div class="media">
        <div class="media-left">
-          <img class ="media-object" src="../static/images/5.jpg" alt="Student">
+          <img class ="media-object" src="../static/images/6.jpg" alt="Student" style="height: 100px">
+          <p></p>
        </div>
   <div class="media-body">
-  <p>About student</p>
     <div >
-      <table class="student_info">
-        <tr><td>Surname</td><td>Акимова</td></tr>
-        <tr><td>Name</td><td>Татьяна</td></tr>
-        <tr><td>Patronymic</td><td>Юрьевна</td></tr>
-        <tr><td>Birth Date</td><td>03.06.1984</td></tr>
-        <tr><td>Address</td><td>г. Харьков, ул. Краснодарская, д. 53, кв 24</td></tr>
-        <tr><td>Post</td><td>61073</td></tr>
-        <tr><td>E-mail</td><td>akimova@mail.ru</td></tr>
-        <tr><td>Skype</td><td>akimova</td></tr>
-      </table>
+      <h1>Акимова Татьяна</h1>
     </div>
    
   </div>
- <p>Student perfomance</p>
- <div >
-      <table class="student_perfomance">
-      <tr bgcolor="#81BEF7" border="1"><td>Course</td><td>Week</td><td>Control Type</td><td>Grade</td></tr>
-      <tr bgcolor="#CEF6D8"><td>  Введение в Python </td> 
-          <td> week1 </td>
-          <td>
-            <table> 
-              <tr>
-                <td>Tests</td>
-              </tr>
-              <tr>
-                <td>Problem Tasks</td>
-              </tr>
-              </table>
-            </td>
-            <td>
-              <table> 
-                <tr>
-                  <td>100%</td>
-                </tr>
-                <tr>
-                  <td>90%</td>
-                </tr>
-              </table>
-      </tr>
-      </table>
-    </div>
+        
 
-      <p>Average Grade and Rating</p>
+</div>
+
+     </div>
+  <div class="media-body">
     <div >
-      <table class="student_info">
-        <tr><td>Average Grade</td><td>95</td></tr>
-        <tr><td>Rating</td><td>20</td></tr>
+    <h2>About student</h2>
+      <table class="table table-bordered", style="width: 50%">
+        <tr><td class="student_info">Surname</td><td>Акимова</td></tr>
+        <tr><td class="student_info">Name</td><td>Татьяна</td></tr>
+        <tr><td class="student_info">Patronymic</td><td>Юрьевна</td></tr>
+        <tr><td class="student_info">Birth Date</td><td>03.06.1984</td></tr>
+        <tr><td class="student_info">Address</td><td>г. Харьков, ул. Краснодарская, д. 53, кв 24</td></tr>
+        <tr><td class="student_info">Post</td><td>61073</td></tr>
+        <tr><td class="student_info">E-mail</td><td>akimova@mail.ru</td></tr>
+        <tr><td class="student_info">Skype</td><td>akimova</td></tr>
+         <tr style="font-weight: bold"><td class="student_info">Average Grade</td><td>95</td></tr>
+         <tr style="font-weight: bold"><td class="student_info">Rating</td><td>20</td></tr>
        
       </table>
     </div>
 
-</div>
-
-  </div>
 
    
+  </div>
+ <h2>Student perfomance</h2>
+      <div >
+      <table class="table table-bordered" style="width: 75%">
+      <tr class="student_info"><td>Course</td><td>Week</td><td>Control Type</td><td>Grade</td></tr>
+      <tr >
+          <td rowspan="6" >  Введение в Python </td> 
+          <td rowspan="3"> week1 </td>
+          <th colspan="1"> Tests</th>
+             <th colspan="1">100%</th>
+              </tr>
+              <tr>
+                <th>Problem Task №1</th>
+                <th>90%</th>
+              </tr>
+               <tr>
+                <th>Problem Task №2</th>
+                <th>100%</th>
+              </tr>
+                  <tr>
+                   <td rowspan="3"> week2 </td>
+                <th>Problem Task №1</th>
+                <th>100%</th>
+              </tr>
+               <tr>
+                <th>Problem Task №2</th>
+                <th>95%</th>
+              </tr>
+               <tr>
+                <th>Problem Task №2</th>
+                <th>100%</th>
+              </tr>
+              </table>
+          
+    </div>
+  </div>
+
+ 
+
+
+
+
 
  <footer class="footer">
     <p>&copy; 2016 Company, Inc.</p>

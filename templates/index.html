@@ -22,7 +22,7 @@
                
           <li><a href="{% url 'index'%}">Main</a></li>
           <li><a href="{% url 'contact'%}">Contacts</a></li>
-          <li><a href="{% url 'student_list'%}">Students</a></li>
+          <li><a href="{% url 'students:list_view' %}">Students</a></li>
          
          </ul>
         </div><!-- /.navbar-collapse -->
@@ -32,36 +32,58 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
  
         
-  <div class="container">
- <h1>Take online Python courses from PyBursa</h1>
-   <h2>Description </h2>
-   <p>This course is a great introduction to both fundamental programming concepts and the Python programming language. By the end, you'll be familiar with Python syntax and you'll be able to put into practice what you'll have learned in a final project you'll develop locally.</p>
-          <p>Python is a general-purpose, versatile and popular programming language. It's great as a first language because it is concise and easy to read, and it is also a good language to have in any programmer's stack as it can be used for everything from web development to software development and scientific applications.</p>
-   <h2>Program </h2>
-         <ul class="list-group">
-          <li class="list-group-item">Python Syntax</li>
-          <li class="list-group-item">String and Consol Output</li>
-          <li class="list-group-item">Lists and Dictionaries</li>
-          <li class="list-group-item">Functions</li>
-          <li class="list-group-item">Loops</li>
-        </ul>   
-        <p><a class="btn btn-default" href="contact.html" role="button">View details &raquo;</a></p>      
-    <h2>Perspectives</h2>   
-    <p>
-        Although Python is an easy to learn and powerful programming language as it is known in common parlance, there is nevertheless need of a good introduction and tutorial on the Python language.
-    </p>
+    <div class="container">
 
-  </div>
-
-     <div class="jumbotron">
-      <div class="container">
-        <h2>Welcome to the online Python courses from PyBursa</h2>
-        <p>Although Python is an easy to learn and powerful programming language as it is known in common parlance, there is nevertheless need of a good introduction and tutorial on the Python language.  </p>
-        <p><a class="btn btn-primary btn-lg" href="contact.html" role="button">Registration &raquo;</a></p>
+      <div class="blog-header">
+        <h1 class="blog-title">ITSchool</h1>
+        <p> У нас самая крутая в мире школа. Мы всех научим всему - только зарегистрируйтесь, и Вы без пяти минут эксперт во всем :) </p>
       </div>
-    </div>
 
- <footer class="footer">
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2>Наши курсы:</h2>
+
+            <table class="table table-bordered">
+                <tr class="student_list"><td>Курс</td><td>Описание</td></tr>
+                  {% for course in index%}
+                   <tr><td><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a> </td><td>{{course.short_description}} </td></tr>
+                  {% endfor %}
+            </table>
+
+          </div><!-- /.blog-post -->
+
+       </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+           <div >
+
+            <form class="form-signin">
+              <h2 class="form-signin-heading">Регистрация на курс</h2>
+              <label for="inputName" class="sr-only">Name</label>
+              <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              <label for="inputPhone" class="sr-only">Phone</label>
+              <input type="phone" id="inputPhone" class="form-control" placeholder="Phone" required autofocus>
+               <p></p>   
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Записаться</button>
+            </form>
+
+           </div> <!-- /container -->
+          </div>
+     
+
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+     
+ <footer class="footer" style="margin-top: 200px">
     <p>&copy; 2016 Company, Inc.</p>
   </footer>
 
