@@ -8,7 +8,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   
+    <link rel="icon" href="{% static '../static/images/icon.ico' %}">
+
     <title>PyBursa Main</title>
 
     <!-- Bootstrap core CSS -->
@@ -42,37 +43,25 @@
     </nav>
     <div class="container">
       <h1 id="main_header" align="center">Welcome to the most amazing Py&DjangoBursa educational course</h1>
-      <h1 id="descript">Description</h1>
-        <p class="lead" id="light-red">Web-программирование на Python и Django
-        с Алексеем Радченко<br>
-        Освоить разработку веб-приложений на Python и Django легко,
-        если делать это с нами. PYBursa поможет выучить web-программирование быстро и интересно!
-        </p>
-      <h2 id="programma">Program</h2>
-        <p class="lead" id="cream">
-        Понедельная программа курсов:<br>
-        - Основы html/css. GIT<br>
-        - Django first steps<br>
-        - Структура Web приложения. Работа с базами данных, ORM<br>
-        - Кастомизация админки. Язык шаблонов<br>
-        - Forms. Class-based (Generic) Views<br>
-        - Реализация стандартных задач. Средства отладки и тестирование. Деплоймент<br>
-        </p>
-        <h2 id="courses">Courses</h2>
+      <h1 id="descript">{{course.name}}</h1>
+        <p class="lead" id="light-red">{{course.description}}</p>
+    </div>
+       <h2 id="courses">Course plan</h2>
 	   <div class="container">
 	      <table class="brd">
 		  <tr>
-		      <th>Course</th>
-		      <th>About</th>
+		      <th>№</th>
+		      <th>Topic</th>
+                      <th>Description</th>
 		  </tr>
-       {% for course in courses %}
+       {% for lesson in lessons %}
                   <tr>
-		      <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</td>
-                      <td>{{course.short_description}}</br></td>
+                      <td>{{lesson.order}}</td>
+		      <td>{{lesson.subject}}</td>
+                      <td>{{lesson.description}}</br></td>
 		  </tr>
        {% endfor %}
        </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
