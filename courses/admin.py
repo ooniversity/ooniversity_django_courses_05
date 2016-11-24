@@ -15,5 +15,6 @@ class CourseAdmin(admin.ModelAdmin):
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson)
+admin.site.site_header = 'PyBursa Administration'
 
 # Register your models here.
