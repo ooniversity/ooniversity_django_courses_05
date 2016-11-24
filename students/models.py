@@ -12,3 +12,9 @@ class Student(models.Model):
     address = models.CharField(max_length=255)
     skype = models.CharField(max_length=20)
     courses = models.ManyToManyField(Course)
+
+    def _get_full_name(self):
+      "Returns the person's full name."
+      return '%s %s' % (self.name, self.surname)   
+    
+    full_name = property(_get_full_name)
