@@ -38,39 +38,31 @@
         <p>{{ course.description }} </p>
       </div>
 
-      <div class="row">
-     <!--   <div class="col-sm-8 blog-main">-->
-        
-             <div class="blog-post">
-                 <h2>Преподаватели</h2>
-                  {% if i_coach == 1 %} 
-                      <table class="table table-bordered" style="width: 95%">
-                      <tr class="student_list"><td>Учитель</td></tr>
-                       <tr><td>
-                       <p><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }}  {{ coach.user.last_name }}</a></p> 
-                       <p> {{ coach.description }}</p>
-                       </td></tr>
-                        </table>
-                  {% endif %}
+         <div class="blog-post">
+       <h2>Преподаватели</h2>
+        {% if i_coach == 1 %} 
+            <table class="table table-bordered" style="width: 95%">
+            <tr class="student_list"><td>Учитель</td></tr>
+             <tr><td>
+             <p><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }}  {{ coach.user.last_name }}</a></p> 
+             <p> {{ coach.description }}</p>
+             </td></tr>
+              </table>
+        {% endif %}
 
-                  {% if i_assist == 1 %} 
-                      <table class="table table-bordered" style="width: 95%">
-                      <tr class="student_list"><td>Ассистент</td></tr>
-                       <tr><td>
-                       <p>
-                          <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }}  {{ assistant.user.last_name }}</a>
-                       </p> 
-                       <p> {{ assistant.description }}</p>
-                       </td></tr>
-                      </table>
-                  {% endif %}
-              </div><!-- /.blog-post -->
-
-
-
-
-
-
+        {% if i_assist == 1 %} 
+            <table class="table table-bordered" style="width: 95%">
+            <tr class="student_list"><td>Ассистент</td></tr>
+             <tr><td>
+             <p>
+                <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }}  {{ assistant.user.last_name }}</a>
+             </p> 
+             <p> {{ assistant.description }}</p>
+             </td></tr>
+            </table>
+        {% endif %}
+    </div><!-- /.blog-post -->
+     
           <div class="blog-post">
             <h2>План занятий:</h2>
 
@@ -82,8 +74,7 @@
             </table>
 
           </div><!-- /.blog-post -->
-     <!--  </div><!/.blog-main -->
-      </div><!-- /.row -->
+
     </div><!-- /.container -->
      
  <footer class="footer" style="margin-top: 200px">
