@@ -1,10 +1,10 @@
 from django.db import models
-from django.conf import settings
+from django.contrib.auth.models import User
+#from django.conf import settings
 
 
 class Coach(models.Model):
-#    user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,)
+    user = models.OneToOneField(User,)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=1, choices = (('m', 'Male'), ('f', 'Female')))
     phone = models.CharField(max_length=15)    # телефон
