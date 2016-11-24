@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{% static '../static/images/icon.ico' %}">
 
-    <title>Student List</title>
+    <title>Details</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static '../static/css/bootstrap.css' %}" rel="stylesheet">
@@ -36,43 +36,28 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'sudent_list' %}">Students</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-      <h2 align="left"><font color="Chocolate">Students of Py&DjangoBursa educational course</font></h2>
-        <p class="lead">List of students of course, terms: October-December, 2016</p>
+      <h2 align="left"><font color="Chocolate">{{student.name}}&nbsp;{{student.surname}}</font></h2>
+        <p class="lead">About</p>
     </div>
 
     <div class="container">
-      <table class="brd">
-          <tr>
-              <th>No</th>
-              <th>Name Surname</th>
-              <th>Address</th>
-              <th>Skype</th>
-              <th>Courses</th>
-          </tr>
-          {% for student in students %}
-          <tr>
-              <td>{{student.id}}</td>
-              <td><a href="{% url 'students:detail' student.id %}">{{student.name}}&nbsp;{{student.surname}}</td>
-              <td>{{student.address}}</td>
-              <td>{{student.skype}}</td>
-              <td>
-		{% for course in student.courses.all %}
-                <a href="{% url 'courses:detail' course.id %}">
-		    {{ course }}
-		    <br>
-		{% endfor %}
-              </td>
-          </tr>
-         {% endfor %}
-      </table>
-     </div> 
+      {{student.date_of_birth}}</br>
+      {{student.email}}</br>
+      {{student.phone}}</br>
+      {{student.address}}</br>
+      {{student.skype}}</br>
+      {% for course in student.courses.all %}
+        <a href="{% url 'courses:detail' course.id %}">
+	    {{ course }}<br>
+      {% endfor %}
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
