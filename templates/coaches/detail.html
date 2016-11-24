@@ -37,7 +37,7 @@
             <ul class="nav navbar-nav">
             <li><a href={% url 'index' %}>Main</a></li>
             <li><a href={% url 'contact' %}>Contacts</a></li>
-            <li><a href={% url 'students:list_view' %}>Students</a></li>
+            <li><a href="{%  url 'students:list_view'  %}?course_id={{ course.id }}">Students</a></li>
 
           </ul>
 
@@ -83,7 +83,7 @@
                 <td>курсы учитель</td>
                 <td>
                     {% for course in courses_coach %}
-                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a> Студенты курса <a href="{%  url 'students:list_view'  %}"><i class="glyphicon glyphicon-user"></i></a></p>
+                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a> Студенты курса <a href="{%  url 'students:list_view' %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a></p>
                     {% endfor %}
                 </td>
               </tr>
@@ -92,7 +92,7 @@
                 <td>курсы ассистент</td>
                 <td>
                     {% for course in courses_assistant %}
-                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a> Студенты курса <a href="{%  url 'students:list_view'  %}"><i class="glyphicon glyphicon-user"></i></a></p>
+                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a> Студенты курса <a href="{%  url 'students:list_view'  %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a></p>
                     {% endfor %}
                 </td>
               </tr>
