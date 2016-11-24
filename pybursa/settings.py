@@ -31,7 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'quadratic.apps.QuadraticConfig',
     'polls.apps.PollsConfig',
+    'courses.apps.CoursesConfig',
+    'students.apps.StudentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'pybursa.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['quadratic/templates/result.html'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
