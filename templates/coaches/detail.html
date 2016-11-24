@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Main</title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
+    
+  </head>
+  <body>
+ 
+<div class="container">
+     <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+               
+          <li><a href="{% url 'index'%}">Главная</a></li>
+          <li><a href="{% url 'contact'%}">Контакты</a></li>
+          <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
+         
+         </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+ 
+       
+    <div class="container">
+    {% for coach in coach %}
+     <h1>{{ coach.user.first_name }}  {{ coach.user.last_name }}</h1>
+      {% endfor %}  
+      <div class="row">
+
+          <div class="blog-post">
+     
+          <table class="table table-bordered", style="width: 50%">
+          {% for coach in coach %}
+            <tr><td class="student_info">дата рождения</td><td>{{ coach.date_of_birth }}</td></tr>
+            <tr><td class="student_info">адрес</td><td>{{ coach.address }}</td></tr>
+            <tr><td class="student_info">email</td><td>{{ coach.user.email }}</td></tr>
+            <tr><td class="student_info">skype</td><td>{{ coach.skype }}</td></tr>
+            <tr><td class="student_info">телефон</td><td>{{ coach.phone }}</td></tr>
+            <tr><td class="student_info">курсы учитель</td>
+                 <td>{% for courses in coach_course.all %}
+                       <p><a href="{% url 'courses:detail' courses.id%}">{{ courses }}</a>   студенты курса   
+                       <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                         </p>
+                     {% endfor %} 
+                  </td>
+              </tr>
+            <tr><td class="student_info">курсы ассистент</td>
+                 <td>{% for courses in assistant_course.all %}
+                       <p><a href="{% url 'courses:detail' courses.id%}">{{ courses }}</a>  студенты курса  <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                     {% endfor %} 
+                  </td>
+            </tr>
+          {% endfor %}    
+          </table>
+
+          </div><!-- /.blog-post -->      
+        
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+     
+ <footer class="footer" style="margin-top: 200px">
+    <p>&copy; 2016 Company, Inc.</p>
+  </footer>
+
+
+   
+</div>
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
+
