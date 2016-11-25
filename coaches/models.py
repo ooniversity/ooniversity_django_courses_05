@@ -4,7 +4,7 @@ from django.db import models
 
 class Coach(models.Model):
     def __str__(self):
-        return self.user.first_name
+        return self.user.username
 
     def get_full_name(self):
         return self.user.first_name + ' ' + self.user.last_name
