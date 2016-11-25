@@ -11,7 +11,7 @@ class Lesson(models.Model):
     subject = models.CharField(max_length=90) #тема урока
     description = models.TextField() #описание темы курса
     course = models.ForeignKey(Course) #сам курс
-    order = models.PositiveIntegerField(verbose_name="Lesson number")
+    order = models.PositiveIntegerField()
     def __str__(self):
         return self.subject # возвращает тему урока
     def __repr__(self):
