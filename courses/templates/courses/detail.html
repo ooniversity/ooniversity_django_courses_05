@@ -56,7 +56,27 @@
     </div>
 
 
+    <div class="container">
+        <h3>Преподователи</h3>
 
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Учитель</h4>
+          </div>
+          <a href="{%  url 'coaches:detail'  course.coach.id %}">{{ course.coach.get_full_name }}</a>
+          <br>
+          {{ course.coach.description }}
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Ассистент</h4>
+          </div>
+          <a href="{%  url 'coaches:detail'  course.assistant.id %}">{{ course.assistant.get_full_name }}</a>
+          <br>
+          {{ course.assistant.description }}
+        </div>
+    </div>
 
 
    <div class="container">
