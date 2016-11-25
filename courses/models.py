@@ -8,7 +8,7 @@ class Course(models.Model):
         return self.name #возвращает название курса
 
 class Lesson(models.Model):
-    subject = models.CharField(max_length=90, verbose_name="Theme") #тема урока
+    subject = models.CharField(max_length=90) #тема урока
     description = models.TextField() #описание темы курса
     course = models.ForeignKey(Course) #сам курс
     order = models.PositiveIntegerField(verbose_name="Lesson number")
