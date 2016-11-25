@@ -31,6 +31,15 @@ font-size:18px;}
     color:grey;
 font-size:18px;}
 
+.select {
+    width: 1000px;
+    height: 110px;
+    padding-top:5px;
+    padding-left: 20px;
+    padding-right:10px;
+    background:#F5F5F5;
+    font-size:18px;}
+
 .h2{
 	padding-right:140px;
     color:red;
@@ -115,13 +124,13 @@ padding-left:40px
 }
 
 .list{
-    padding-left: 120px;
+    padding-left: 100px;
     font-size: 26px
 
 }
 
 .st{
-    padding-left: 120px;
+    padding-left: 100px;
     font-size: 45px;
     color: blue
 }
@@ -155,11 +164,13 @@ padding-left:40px
 }
 
 .inform{
+    padding:10px;
     margin-top: 30px;
-    margin-left: 20px;
+    margin-left: 100px;
     width: 800px;
     background-color: #F4A460;
     font-size:24px;
+    border-spacing:2px;
 }
 .pd{
     color: brown
@@ -167,4 +178,30 @@ padding-left:40px
 
 .nam{
     color:brown;
+}
+.content{
+    margin: 10px;
+    padding-left: 20px;
+    padding-right:10px;
+    background:#FAEBD7;
+}
+.td{
+    padding: 7px;
+}
+.otst{
+    padding: 12px;
+}
+.table{
+    background:#F5F5F5 ;
+    border-spacing: 4px;
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+.course{
+    margin-left:140px;
+    padding-left:15px;
+    background:#F5F5F5;
+    width:800px;
 }
