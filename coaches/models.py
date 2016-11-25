@@ -10,7 +10,7 @@ class Coach(models.Model):
         return self.user.first_name + ' ' + self.user.last_name
 
 
-    user = models.OneToOneField(User, blank=True, null=True)
+    user = models.OneToOneField(User)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
     phone = models.CharField(max_length=20)
