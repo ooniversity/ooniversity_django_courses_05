@@ -11,8 +11,12 @@ class Student(models.Model):
     phone = models.CharField(max_length=13, null=True, blank=True) #телефон
     address = models.CharField(max_length=255) #адрес
     skype = models.CharField(max_length=40, null=True, blank=True) 
-    courses = models.ManyToManyField(Course) #курсы на которы хучится студент
+    courses = models.ManyToManyField(Course) #курсы на которых учится студент
     def __str__(self):
         return self.name
+
+    @property
+    def full_name(self):
+        return '%s %s' % (self.name, self.surname)
 
 # Create your models here.
