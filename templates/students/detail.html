@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>PyBursa Contacts</title>
+  <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static '/css/style.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <script src="{% static '/js/jquery.js' %}"></script>
+  <script src="{% static '/js/bootstrap.js' %}"></script>
+</head>
+
+  <body class="imag-contact">
+  <header>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+      <li role="presentation" class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+      <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+    </ul> 
+  </header>
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="page-header">
+        <h2>{{ student.name }} {{ student.surname }}</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-4 col-lg-4 ">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td>Birth date</td>
+                    <td>{{ student.date_of_birth }}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{ student.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>{{ student.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Skype</td>
+                    <td>{{ student.skype }}</td>
+                  </tr>
+                  <tr>
+                    <td>phone</td>
+                    <td>{{ student.phone }}</td>
+                  </tr>
+                  <tr>
+                    <td>course</td>
+                    <td>
+                      {% for course in student.courses.all %}
+                        <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   </div>
+
+  </body>
+</html>

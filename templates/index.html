@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-	<html>
+<html>
 
 <head>
   <meta charset="utf-8">
@@ -40,38 +40,35 @@
 		<ul class="nav nav-tabs">
 		  <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
 		  <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-		  <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
+		  <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
 		</ul>	
 	</header>
 
-	<div class="container">
-			<h2 class="upper-text">PyBursa<span class="glyphicon glyphicon-heart"></span></h2>
-			<h3>Description</h3>
-  			<p class="jumbotron col-xs-12">Lorem  ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit temporibus quasi vitae architecto, debitis fuga voluptates aut provident dolore labore, et minima, nesciunt, similique iure facilis vel! Nisi, sapiente rerum! dolor sit amet, consectetur adipisicing elit. Perferendis unde alias voluptatibus facilis eum nesciunt quibusdam saepe vero ratione architecto laborum consequatur possimus provident officia atque, aliquid neque ab nemo!</p>
-	</div>
-	<div class="col-md-9">
-		<div class='box-content'>
-			<h4 class="title">Program</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, voluptatum expedita non corrupti! Nihil aperiam sequi, quas delectus impedit, vitae officia eum, error voluptatum explicabo dolor ex unde quam inventore?</p> 
-		</div>
-		<div class='box-content'>
-			<h4 class="title">What's new</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, voluptatum expedita non corrupti! Nihil aperiam sequi, quas delectus impedit, vitae officia eum, error voluptatum explicabo dolor ex unde quam inventore?</p> 
-		</div>
-	</div>
-	<section class="container col-lg-12">
-		<div class="panel-group">
-	  		<div class="panel panel-info">
-	    		<div class="panel-body">
-	    			<p class="text-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda soluta unde maiores, molestiae magni natus similique aut fuga debitis provident, ea, molestias odio minima, dolore ut doloremque ipsum ex in.</p>
-	    		</div>
-	  		</div>
-	  		<div class="panel panel-default">
-	    		<div class="panel-body">
-	    			<p class="text-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae reprehenderit ut dolores! Labore doloribus laboriosam eveniet sapiente ab iure, quaerat quis quos nihil ullam! Excepturi necessitatibus dolores tempore cupiditate ut?</p>
-	    		</div>
-	  		</div>
-		</div>
+
+
+<div class="page-header">
+        <h1>Our courses</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course in courses %}
+                <tr>
+                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+                  <td>{{ course.short_description }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
 		<p><a class="btn btn-primary btn-lg" href="{% url 'contact' %}" role="button">Learn more</a></p>
 	</section>
 	
