@@ -76,7 +76,11 @@
       <td><a href="{% url 'students:detail' student.id%}">{{student.surname}} {{student.name}}</a></td>
       <td><a href="{% url 'students:detail' student.id%}">{{student.address}}</a></td>
       <td><a href="{% url 'students:detail' student.id%}">{{student.skype}}</a></td>
-      <td><a href="{% url 'students:detail' student.id%}">{{student.courses}}</a></td>
+      <td>
+        {% for course in student.courses.all %}
+      <a href="{% url 'students:detail' student.id%}">{{course}}</a><br>
+      {% endfor %}
+      </td>
     </tr>
     {% endfor %}
 
