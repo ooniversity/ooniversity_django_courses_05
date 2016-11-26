@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+		<title>quadratic</title>
+		<meta name="description">
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Handlee|Indie+Flower|Marck+Script" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<style type="text/css">
+			h1{font-family: 'Indie Flower', cursive;}
+			h3{font-family: 'Handlee', cursive;}
+            h6{font-family: 'Marck+Script', cursive;}
+		</style>
+		<script src="{% static 'bootstrap.min.js' %}"></script>
+   </head>
+   <body>
+   	<nav class=".navbar-inverse">
+   		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="{% url 'index' %}">Main</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="{% url 'contact' %}">Contacts</a></li>
+		        <li><a href="{% url 'student_list' %}">Students</a></li>
+              </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--<img src="../static/images/python-django.jpg" width="200px" height="200px"> -->
+    <h1 class="title" align="center">Квадратное уравнение а*х*х + b*x + c = 0</h1>
+    <ul>
+			<li><p class="small">a={{ a }}</p></li>
+                {% if a == 0  %}
+                    <p>коэффициент при первом слагаемом уравнения не может быть равным нулю</p>
+                {% endif %}
+			<li><p class="glyphicon-minus:before">b={{ b }} </p></li>
+			<li><p class="badge">c={{ c }}</p></li>
+    </ul>
+
+
+    <h6>Дискриминант: {{ discr }}</h6>
+    <p>Квадратное уравнение имеет два действительных корня: x1= {{ x1 }}, x2={{ x2 }} </p>
+  <!--  {% for key, value in d %}
+    <p>{{ key }}={{ value }}</p>
+    {% endfor %} -->
+
+		<a href="{% url 'contact' %}" data-toggle="tooltip" title="Click ME!"><img src="{% static 'images/python.png'%}"></a>
+		<div class="tooltip top" role="tooltip">
+		  <div class="tooltip-arrow"></div>
+		  <div class="tooltip-inner">
+		    <p>Click me!</p>
+		  </div>
+		</div>
+		<p class="line">____________________________</p>
+   </body>
+</html>

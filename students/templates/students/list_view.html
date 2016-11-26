@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+   		<meta charset="utf-8">
+		<title>students loafers</title>
+		<meta name="description">
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Handlee|Indie+Flower" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<style type="text/css">
+			h1{font-family: 'Indie Flower', cursive;}
+			h3{font-family: 'Handlee', cursive;}
+			body {
+    			margin-right: 5%; /* Отступ справа */
+    			margin-left: 2%; /* Отступ слева */
+   				 }
+		</style>
+		<script src="{% static 'bootstrap.min.js' %}"></script>
+   </head>
+   <body>
+   	<nav class=".navbar-inverse">
+   		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">Главная</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		       <!-- <li><a ">Контакты</a></li> -->
+		        <li><a href="/students/">Студенты</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+    </nav>
+
+	<h1 align="center">СПИСОК СТУДЕНТИКОВ</h1></br>
+  	<table border="0">
+		<col width="50" valign="top">
+   		<col width="200" valign="top">
+		<col width="300" valign="top">
+   		<col width="250" valign="top">
+		<col width="100" valign="top">
+    	  <tr>
+		    <th> # </th>
+		    <th> фамилия имя </th>
+			<th> адресс </th>
+			<th> skype </th>
+			<th> курсы </th>
+		  </th>
+		  </tr>
+		  {% for stud in list_students %}
+		  <tr><td>{{ stud.id }}</td><td><a href="/students/{{ stud.id }}/" >{{ stud.name }} {{ stud.surname }}</td></a>
+		  <td> {{ stud.address }} </td><td> {{ stud.skype }} </td>
+		  <td> {{ course_name.name }} </td>
+		  </tr>
+		  {% endfor %}
+		</table>
+   		<p></p>
+   <p class="line">____________________________</p>
+   </body>
+</html>

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+   		<meta charset="utf-8">
+		<title>ooniversity</title>
+		<meta name="description">
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Handlee|Indie+Flower" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<style type="text/css">
+			h1{font-family: 'Indie Flower', cursive;}
+			h3{font-family: 'Handlee', cursive;}
+			body {
+    			margin-right: 5%; /* Отступ справа */
+    			margin-left: 2%; /* Отступ слева */
+   				 }
+		</style>
+		<script src="{% static 'bootstrap.min.js' %}"></script>
+   </head>
+   <body>
+   	<nav class=".navbar-inverse">
+   		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+					  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">Главная</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		       <!-- <li><a ">Контакты</a></li> -->
+		        <li><a href="/students/">Студенты</a></li>
+		      </ul>		     
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+    </nav>
+    <h1 class="title" align="center">Raccoon School</h1>
+		<div class="light" > Освоить разработку веб-приложений на Ruby, Python и Django легко,
+		если делать это с нами. ItBursa поможет выучить web-программирование быстро и интересно!</div> 
+		<h3>Сделай свой CHANGE:</h3>
+    	<table border="0">
+		 	<col width="200" valign="top">
+			<col width="1000" valign="top">
+    	  <tr>
+		    <th> КУРС </th>
+		    <th> ОПИСАНИЕ </th>
+		  </th>
+		  </tr>
+		  {% for curse in course_list %}
+		  <tr><td><a href="/courses/{{ curse.id }}/" >{{ curse.name }}</td></a><td> {{ curse.short_description }}</td>
+		  {% endfor %}
+		  </tr>
+		</table>
+		
+		<a href="{% url 'contact' %}" data-toggle="tooltip" title="Click ME!"></a>
+		<div class="tooltip top" role="tooltip">
+		  <div class="tooltip-arrow"></div>
+		  <div class="tooltip-inner">
+		    <p>Click me!</p>
+		  </div>
+		</div>
+		<p class="line">____________________________</p>
+   </body>
+</html>

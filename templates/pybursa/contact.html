@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+   	<meta charset="utf-8">
+		<title>ABOUT/info</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Ubuntu|Homemade+Apple" rel="stylesheet">
+		<style type="text/css">
+			#img1 {width:18px;height:18px}
+			#img2 {width:25px;height:25px}
+		</style>
+		<script src="{% static 'bootstrap.min.js' %}"></script>	
+   </head>
+
+
+   <body>   	
+   	<nav class=".navbar-inverse">
+   		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="{% url 'index' %}">Main</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="{% url 'contact' %}">Contacts</a></li>
+		        <li><a href="{% url 'student_list' %}">Students</a></li>
+		      </ul>	    
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+    </nav>
+  	<h1 class="hhh1" align="center"><img src="{% static 'images/fi-results-demographics.svg'%}" width="50px" height="50px">Contacts</img></h1>
+  	<div class="head_padding">
+  			<h3 class="contact1"><i>Founder</i></h3>
+						  <dl class="dl-horizontal">
+				    		 <dt class="contact1"><img id="img2" src="{% static 'images/France.png'%}">Name</dt>
+				    			<dd class="zidane"> Zinedine Zidane</dd>
+				    		 <dt class="text_skype"><img id="img1" src="{% static 'images/fi-social-skype.svg'%}">Skype</dt>
+				    			<dd class="zidane"> ZiZU</dd>
+				    		 <dt class="text_email"><img id="img1" src="{% static 'images/fi-mail.svg'%}">Email</dt>
+				    			<dd class="zidane">ZiZU1972@gmail.com</dd>
+				    		 <dt class="text_phone"><img id="img1" src="{% static 'images/fi-telephone.svg'%}">Phone</dt>
+				    			<dd class="zidane">9 8 10 334366267</dd>	
+				    	</dl>       
+		</div>
+
+		<div class="head_padding">
+  			<h3 class="contact1"><i>Manager</i></h3>
+						  <dl class="dl-horizontal">
+				    		 <dt><img id="img2" src="{% static 'images/germany.png'%}">Name</dt>
+				    			<dd class="Kahn"> Oliver Rolf Kahn</dd>
+				    		 <dt><img id="img1" src="{% static 'images/fi-social-skype.svg'%}">Skype</dt>
+				    			<dd class="Kahn"> Kan_King</dd>
+				    		 <dt><img id="img1" src="{% static 'images/fi-mail.svg'%}">Email</dt>
+				    			<dd class="Kahn"> Kan_King1969@gmail.com</dd>
+				    		 <dt><img id="img1" src="{% static 'images/fi-telephone.svg'%}">Phone</dt>
+				    			<dd class="Kahn"> +491720154975</dd>	
+				    	</dl>       
+		</div>
+		<div class="head_padding">
+  			<h3 class="contact1"><i>Director</i></h3>
+						  <dl class="dl-horizontal">
+				    		 <dt><img id="img2" src="{% static 'images/brazil.png'%}">Name</dt>
+				    			<dd class="Ronaldo"> Ronaldo Luís Nazário de Lima</dd>
+				    		 <dt><img id="img1" src="{% static 'images/fi-social-skype.svg'%}">Skype</dt>
+				    			<dd class="Ronaldo"> Nibbler</dd>
+				    		 <dt><img id="img1" src="{% static 'images/fi-mail.svg'%}">Email</dt>
+				    			<dd class="Ronaldo"> Nibbler1976@gmail.com</dd>
+				    		 <dt><img id="img1" src="{% static 'images/fi-telephone.svg'%}">Phone</dt>
+				    			<dd class="Ronaldo"> 0 31 85 2222 2222</dd>	
+				    	</dl>       
+		</div>
+
+		<a href="{% url 'index' %}"> <img id="img2" src="{% static 'images/fi-arrow-left.svg'}"> <img id="img2" src="../static/images/fi-foot.svg"></a>
+
+		<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Click to back" data-content="And here's some amazing content. It's very engaging. Right?">BACK</button>
+		
+	</body>
+</html> 
