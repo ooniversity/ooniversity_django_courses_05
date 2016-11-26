@@ -56,7 +56,10 @@
     <h3>BrainBursa</h3>
     </div>
   <div class = "description">
-    <h1 class=title_description>{{student.surname}} {{student.name}}</h1>
+    <h1 class=title_description>{% for student in students %}
+        {{student.surname}} {{student.name}}
+    {% endfor %}
+</h1>
 </div>
 
 
