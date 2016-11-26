@@ -1,9 +1,13 @@
 from django.db import models
+from coaches.models import Coach
 
 class Course(models.Model):
     name = models.CharField(max_length=90) #имя курса
     short_description = models.CharField(max_length=255) #краткое описание
     description = models.TextField(default=None) #полное описание
+    coach=models.ForeignKey(Coach, null=True, blank=True, related_name='coach_courses')
+    assistant=models.ForeignKey(Coach, null=True, blank=True, related_name='assistant_courses')
+
     def __str__(self):
         return self.name #возвращает название курса
 
