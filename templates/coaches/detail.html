@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{% load static %}
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>PyBursa Detail Student</title>
+		<title>PyBursa Coaches</title>
 		
 		<!-- Bootstrap core CSS -->
 		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -34,9 +34,9 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="{% url 'index' %}">Main</a></li>
+						<li><a href="{% url 'index' %}">Main</a></li>
 						<li><a href="{% url 'contact' %}">Contacts</a></li>
-						<li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
+						<li><a href="{% url 'students:list_view' %}">Students</a></li>
 					</ul>
 				</div>
 			</div>
@@ -45,57 +45,59 @@
 			
 			<div class="container-fluid">
 				<div class="hero-unit">
-					<h2>Преподаватели</h2>
-					<div class="container">
-						<h4>Учитель</h4>
-						<p>
-						<a href="{%  url 'coaches:detail'  course.coach.id %}">{{ course.coach.get_full_name }}</a>
-						</p>
-						{{ course.coach.description }}
-					</div>
-					<h2>Ассисттент</h2>
-					<div class="container">
-						<h4>Учитель</h4>
-						<p>
-						<a href="{%  url 'coaches:detail'  course.assistant.id %}">{{ course.assistant.get_full_name }}</a>
-						</p>
-						{{ course.assistant.description }}
-					</div>
-				</div>
-			</div>
-			
-			<div class="container-fluid">
-				<div class="hero-unit">
-					<h2 id="title_course">{{ course }}</h2>
-					<p>{{ course.description }}</p><br>
+					<h2 id="title_course">{{ coach.get_full_name }}</h2>
 					
-					<h2>План курса:</h2>
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
 								<table class="table">
-									<thead>
-										<tr>
-											<th class="panel-heading">№</th>
-											<th class="panel-heading">Тема</th>
-											<th class="panel-heading">Описание</th>
-										</tr>
-									</thead>
 									<tbody>
-										{% for i in lessons %}
 										<tr>
-										<td>{{ i.id }}</a></td>
-										<td>{{ i.subject }}</td>
-										<td>{{ i.description }}</td>
-									</tr>
-									{% endfor %}
-								</tbody>
-							</table>
+											<td>Дата рождения</td><td>{{ coach.date_of_birth }}</td>
+										</tr>
+										<tr>
+											<td>адрес</td><td>{{ coach.address }}</td>
+										</tr>
+										<tr>
+											<td>почта</td><td>{{ coach.email }}</td>
+										</tr>
+										<tr>
+											<td>логин skype</td><td>{{ coach.skype }}</td>
+										</tr>
+										<tr>
+											<td>телефон</td><td>{{ coach.phone }}</td>
+										</tr>
+										<tr>
+											<td>курсы учителя</td>
+											<td>
+												{% for course in courses_coach %}
+												<p>
+													<a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a>
+													Студенты курса 
+													<a href="{%  url 'students:list_view' %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a>
+												</p>
+												{% endfor %}
+											</td>
+										</tr>
+										<tr>
+											<td>курсы ассистента</td>
+											<td>
+												{% for course in courses_assistant %}
+												<p>
+													<a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a>
+													Студенты курса 
+													<a href="{%  url 'students:list_view'  %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a>
+													</p>
+												{% endfor %}
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
+	</body>
 </html>
