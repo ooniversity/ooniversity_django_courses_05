@@ -29,10 +29,11 @@ ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.113', 'dj.ar2d2.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'quadratic',
+    'courses',
+    'students',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
