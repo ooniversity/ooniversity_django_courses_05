@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'courses',
+    'students',
 ]
 
 MIDDLEWARE = [
@@ -123,9 +125,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/home/ant/pybursa/static',
+    '/home/csa/pybursa/static',
 ]
 
-#STATIC_ROOT = '/home/ant/pybursa/static'
+#STATIC_ROOT = '/home/csa/pybursa/static'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
