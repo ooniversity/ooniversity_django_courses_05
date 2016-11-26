@@ -151,7 +151,7 @@ padding-left:40px
     margin-left: 20px;
     width: 800px;
     background-color: #6495ED;
-    font-size: 24px
+    font-size: 24px;
    
 }
 .cell-1{
@@ -160,7 +160,7 @@ padding-left:40px
     font-weight: bold;
 }
 .cells{
-    background-color: #87CEEB
+    background-color: #87CEEB;
 }
 
 .inform{
@@ -192,10 +192,11 @@ padding-left:40px
     padding: 12px;
 }
 .table{
-    background:#F5F5F5 ;
-    border-spacing: 4px;
-    font-style: italic;
-    font-weight: bold;
+    margin-left:140px;
+    background:#F5F5F5;
+    border-spacing:8px;
+    font-style:italic;
+    font-weight:bold;
 
 }
 
@@ -204,4 +205,16 @@ padding-left:40px
     padding-left:15px;
     background:#F5F5F5;
     width:800px;
+    
 }
+.coach{
+    padding-left:4px;
+    font-weight:bold;
+    font-style:italic;
+}
+.master{
+    margin-left:140px;
+    padding-left:15px;
+    background:#F5F5F5;
+}
+.
