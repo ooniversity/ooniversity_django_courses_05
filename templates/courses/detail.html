@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa Main</title>
+    <title>PyBursa Courses</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -31,7 +31,7 @@
 		    <ul class="nav">
 					<li class="active"><a href="{% url 'index' %}">Main</a></li>
 					<li><a href="{% url 'contact' %}">Contacts</a></li>
-					<li><a href="{% url 'students:list_view' %}">Students</a></li>
+					<li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -40,26 +40,27 @@
 
 <div class="container-fluid">
   <div class="hero-unit">
-    <h2>ItBursa</h2>
-    <p>Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.</p>
-    <p>Более подробную информацию вы можете получить по номерам указанным на странице контакты</p><br>
+    <h2 id="title_course">{{ course }}</h2>
+    <p>{{ course.description }}</p><br>
 
-    <h2>Наши курсы:</h2>
+    <h2>План курса:</h2>
     <div class="container">
 			<div class="row">
 				<div class="col-md-12">
 				  <table class="table">
 				    <thead>
 				      <tr>
-				        <th class="panel-heading">Курс</th>
+				        <th class="panel-heading">#</th>
+				        <th class="panel-heading">Тема</th>
 				        <th class="panel-heading">Описание</th>
 				      </tr>
 				    </thead>
 				    <tbody>
-							{% for i in courses %}
+							{% for i in lessons %}
 				      <tr>
-                <td><a href="{%  url 'courses:detail'  i.id %}">{{ i.name }}</a></td>
-								<td>{{ i.short_description }}</td>
+                <td>{{ i.id }}</a></td>
+								<td>{{ i.subject }}</td>
+								<td>{{ i.description }}</td>
 			     	  </tr>
 						  {% endfor %}
 		 	  	 </tbody>
