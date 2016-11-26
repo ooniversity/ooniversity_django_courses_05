@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quadratic',
-    'courses',
+    'courses.apps.CoursesConfig',
     'students',
 ]
 
