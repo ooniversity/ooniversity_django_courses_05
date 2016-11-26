@@ -18,7 +18,8 @@ def list_view(request):
 
 def detail(request, stud_id):
     student_full = Student.objects.get(id=stud_id)
-    course_name = Course.objects.filter(student = student_full.id)
+    #course_name = Course.objects.filter(student = student_full.id)
+    course_name = Course.objects.filter(student=student_full.name)
     print(course_name)
     return render(request, 'students/templates/students/detail.html', {'stud_id': stud_id,
                                                                        'student_full': student_full,

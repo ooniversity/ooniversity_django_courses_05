@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^students/', include('students.urls')),
     url(r'^student_list/$', views.student_list, name='student_list'),
     url(r'^student_detail/$', views.student_detail, name='student_detail'),
+ #   url(r'^admin_tools/', include('admin_tools.urls')),
 ]

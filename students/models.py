@@ -3,6 +3,9 @@ from django.db import models
 from datetime import date
 from courses.models import Course
 
+
+def _get_full_name(self):
+	return '%s %s' % (self.name, self.surname)
 # Create your models here.
 class Student(models.Model):
 	name = models.CharField(verbose_name = u'Имя', max_length=255, help_text='это имя')
@@ -13,6 +16,9 @@ class Student(models.Model):
 	address = models.CharField(max_length=100, null = True)
 	skype = models.CharField(max_length=100, null = True,)
 	courses = models.ManyToManyField(Course)
+	full_name = property(_get_full_name)
 
 	def __str__(self):
 		return self.surname
+
+

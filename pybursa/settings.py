@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #'admin_tools',
+    #'admin_tools.theming',
+    #'admin_tools.menu',
+    #'admin_tools.dashboard',
     'polls.apps.PollsConfig',
     'quadratic.apps.QuadraticConfig',
     'courses',
@@ -125,7 +129,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/root/789/ooniversity_django_courses_05/static',
+    '/static/',
 ]
 
 
@@ -140,7 +144,7 @@ TEMPLATES = [
             "templates/pybursa",
             "quadratic/templates/quadratic",
             "",
-
+            "templates/pybursa/admin",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
