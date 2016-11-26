@@ -96,14 +96,14 @@
     <footer>
       <nav aria-label="...">
         <ul class="pager">
-          <li class="previous"><a href="{% url 'index'%|"><span aria-hidden="true">&larr;</span>Back to main </a></li>
-          <li class="next"><a href="{% url 'student_list'%}"><span aria-hidden="true">&rarr;</span>Students </a></li>
+          <li class="previous"><a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span>Back to main </a></li>
+          <li class="next"><a href="{% url 'student_list' %}"><span aria-hidden="true">&rarr;</span>Students </a></li>
         </ul>
       </nav>
     </footer>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="{% static'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
