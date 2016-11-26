@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from courses.models import Course
 
 def index(request):
-    return render(request, 'index.html')
+    context = Course.objects.all()
+    return render(request, 'index.html', {'courses': context})
 
 
 def contact(request):

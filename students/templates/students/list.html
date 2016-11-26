@@ -9,7 +9,7 @@
     <meta name="description" content="Online курсы PyBursa Web-программирования на Python и Django с Алексеем Радченко">
     <meta name="author" content="PyBursa">
 
-    <title>Онлайн курсы Python&Django</title>
+    <title>Студенты Онлайн-курса Python&Django</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -50,10 +50,9 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>
-
+              <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
             </ul>
             
           </div><!--/.nav-collapse -->
@@ -62,34 +61,39 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron min">
-        <h2>Online курсы PyBursa Web-программирования на Python и Django с Алексеем Радченко</h2>
-        <p>Освоить разработку веб-приложений на Python и Django легко, если делать это с нами. PYBursa поможет выучить web-программирование быстро и интересно!</p>
-
+        <h2>Список студентов</h2>
+        <p>Ниже представлен список студентов, октябрь - ноябрь, 2016</p>
       </div>
-
-	  <div class="jumbotron min">
-	    <h3 id="Program">Выбирай курс!</h3>
-	    <div class="row">
-		     <div class="table-responsive">
+	  <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Курс</th>
-                  <th>Описание</th>
+                  <th>#</th>
+                  <th>фамилия имя</th>
+                  <th>адрес</th>
+                  <th>skype</th>
+                  <th>курсы</th>
                 </tr>
               </thead>
               <tbody>
-              {% for item in courses %}
-                <tr>
-                  <td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
-                  <td>{{ item.short_description }}</td>
-                </tr>
-              {% endfor %}
+                {% for student in students_list %}
+                    <tr>
+                      <td>{{ student.id }}</td>
+                      <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
+                      <td>{{ student.address }}</td>
+                      <td>{{ student.skype }}</td>
+                      <td>
+                          {% for course in student.courses.all %}
+                              <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></p>
+                          {% endfor %}
+                      </td>
+                    </tr>
+                {% endfor %}
+
+
               </tbody>
             </table>
-
-        </div>
-	  </div>
+          </div>
     </div> <!-- /container -->
 
 

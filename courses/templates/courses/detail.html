@@ -52,44 +52,42 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>
+              <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
 
             </ul>
-            
+
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron min">
-        <h2>Online курсы PyBursa Web-программирования на Python и Django с Алексеем Радченко</h2>
-        <p>Освоить разработку веб-приложений на Python и Django легко, если делать это с нами. PYBursa поможет выучить web-программирование быстро и интересно!</p>
+        <h1>{{ course.name }}</h1>
+        <p>{{ course.description }}</p>
 
       </div>
 
-	  <div class="jumbotron min">
-	    <h3 id="Program">Выбирай курс!</h3>
-	    <div class="row">
-		     <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
+      <h4>План курса</h4>
+      <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Тема</th>
+                <th>Описание</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for lessons in course.lesson_set.all %}
                 <tr>
-                  <th>Курс</th>
-                  <th>Описание</th>
+                  <td>{{ lessons.order }}</td>
+                  <td>{{ lessons.subject }}</td>
+                  <td>{{ lessons.description }}</td>
                 </tr>
-              </thead>
-              <tbody>
-              {% for item in courses %}
-                <tr>
-                  <td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
-                  <td>{{ item.short_description }}</td>
-                </tr>
-              {% endfor %}
-              </tbody>
-            </table>
+            {% endfor %}
+            </tbody>
+      </table>
 
-        </div>
-	  </div>
+
     </div> <!-- /container -->
 
 
@@ -103,3 +101,4 @@
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
   </body>
 </html>
+
