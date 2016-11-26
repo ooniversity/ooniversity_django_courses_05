@@ -16,4 +16,4 @@ class StudentAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Student)
+admin.site.register(Student, StudentAdmin)
