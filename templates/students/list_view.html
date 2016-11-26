@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,15 +31,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Django course</a>
+      <a class="navbar-brand" href="#">Courses</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Main <span class="sr-only">(current)</span></a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        <li><a href="student_list.html">Students</a></li> 
+        <li><a href="/students/">Students</a></li>
       </ul>
         </li>
       </ul>
@@ -46,17 +47,20 @@
 </nav>
   <div class="jumbotron">
   <div class="container">
-    <h1>PyBursa</h1>
-    <h2>Description</h2>
-    <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source. </p>
-    <h2>Programm</h2>
-    
+ <h1>Students list</h1>
+
+
    <ul>
-       <li>MVC</li>
-       <li>ORM</li>
-       <li>GIT</li>
-       <li>Bootstrap</li>
-     </ul>
+{% for student in object_list %}
+    <li><p>==============================</p><a href="/student/{{student.id }}">{{ student.name }} {{ student.surname }} </a>  - {{ student.skype }} {{ student.adress}}  {% for item in  student.courses.all%}
+        <li>{{ item }}</li>
+        {% endfor %}
+
+        </li>
+{% empty %}
+    <li>No students</li>
+{% endfor %}
+</ul>
   </div>
 </div>
 

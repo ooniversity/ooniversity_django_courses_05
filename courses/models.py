@@ -8,7 +8,7 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
-class Lessons(models.Model):
+class Lesson(models.Model):
     subject = models.CharField(max_length=100)
     description = models.TextField()
     course = models.ForeignKey(Course)

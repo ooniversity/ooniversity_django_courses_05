@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,8 +9,7 @@
     <title>Main Page</title>
 
     <!-- Bootstrap -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,8 +36,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Main <span class="sr-only">(current)</span></a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        <li><a href="student_list.html">Students</a></li> 
+        <li><a href="../students/list_view.html">Students</a></li>
       </ul>
         </li>
       </ul>
@@ -46,16 +45,20 @@
 </nav>
   <div class="jumbotron">
   <div class="container">
-    <h1>PyBursa</h1>
-    <h2>Description</h2>
-    <p>Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source. </p>
-    <h2>Programm</h2>
-    
+    <h1>{{ student.name}} {{ student.surname }}</h1>
+  <h4>{{ student.date_of_birth }}</h4>
+  <h4>{{ student.email }}</h4>
+      <h4>{{ student.adress }}</h4>
+      <h4>{{ student.skype }}</h4>
+      <h4>{{ student.phone }}</h4>
+
    <ul>
-       <li>MVC</li>
-       <li>ORM</li>
-       <li>GIT</li>
-       <li>Bootstrap</li>
+
+{% for item in student.courses.all %}
+    <li><h3>><a href="/course/{{item.id }}">{{ item.name }} </a></h3> </li>
+    {% empty %}
+    <li>No courses yet.</li>
+{% endfor %}
      </ul>
   </div>
 </div>
