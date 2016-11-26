@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'quadratic.apps.QuadraticConfig',
+    'courses',
+    'students',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,7 +125,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    #'/root/Рабочий стол/test/django/week5/hello/s',
+    '/root/789/ooniversity_django_courses_05/static',
 ]
 
 
@@ -134,8 +136,11 @@ TEMPLATES = [
             #os.path.join(BASE_DIR, "templates"),
             # insert your TEMPLATE_DIRS here
             #"/root/DJANGO",
+            "/root/789/ooniversity_django_courses_05/courses/templates/courses",
             "/root/789/ooniversity_django_courses_05/templates/pybursa",
             "/root/789/ooniversity_django_courses_05/quadratic/templates/quadratic",
+            "/root/789/ooniversity_django_courses_05",
+
         ],
         'APP_DIRS': True,
         'OPTIONS': {

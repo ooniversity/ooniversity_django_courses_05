@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+   		<meta charset="utf-8">
+		<title>ooniversity</title>
+		<meta name="description">
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Handlee|Indie+Flower" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<style type="text/css">
+			h1{font-family: 'Indie Flower', cursive;}
+			h3{font-family: 'Handlee', cursive;}
+			body {
+    			margin-right: 5%; /* Отступ справа */
+    			margin-left: 2%; /* Отступ слева */
+   				 }
+		</style>
+		<script src="{% static 'bootstrap.min.js' %}"></script>
+   </head>
+   <body>
+   	<nav class=".navbar-inverse">
+   		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">Главная</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		       <!-- <li><a ">Контакты</a></li> -->
+		        <li><a href="/students/?course_id={{ curse_id }}">Студенты</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+    </nav>
+
+	<h1 align="center">{{ course_name }}</h1></br>
+   <div align="center">{{ course_name.description }}</div></br>
+	<h3>ПЛАН КУРСА</h3></br>
+   <table border="0">
+    	  <tr>
+			<th> № </th>
+		    <th> КУРС </th>
+		    <th> ОПИСАНИЕ </th>
+		  </th>
+		  </tr>
+		  {% for x in lesson_list%}
+		  <tr><td>{{ x.id }}</td><td>{{ x.subject }}</td><td> {{ x.description}} </td>
+		  </tr>
+	      {% endfor %}
+   </table>
+
+   		<p></p>
+   <p class="line">____________________________</p>
+   </body>
+</html>
