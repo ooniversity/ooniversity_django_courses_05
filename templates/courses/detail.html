@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
+    <title>Course {{cource.name}}</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -36,9 +36,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>
+              <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -47,33 +47,28 @@
         <div class="container">
           <div class="block-first">
             <div class="jumbotron">
-              <h1 class="name">PyBursa</h1>
-              <h2 class="description">Description</h2>
-              <p class ="paragraph">PyBursa course provides a basic understanding of Python language, as well as introduce you to the framework Django. However, we made a running project to Python / Django and spent many more useful.</p>
-            </div>
-          </div>
-          <div class="container">
-            <div class="block-second">
-              <div class="jumbotron">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <table class="table">
-                      <tr>
-                        <td class="fonttable">Курс</td>
-                        <td class="fonttable">Описание</td>
-                      </tr>
-                      {% for i in courses %}
-                      <tr>
-                        <td><a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a></td>
-                        <td>{{i.short_description}}</td>
-                      </tr>
-                      {% endfor %}
-                    </table>
-                  </div>
-                </div>     
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3>{{course.name}}</h3>
+                  <p>{{ course.description }}</p>
+                  <table class="table">
+                    <tr>
+                      <td class="fonttable">#</td>
+                      <td class="fonttable">Тема</td>
+                      <td class="fonttable">Описание</td>
+                    </tr>
+                    {% for i in lessons %}
+                    <tr>
+                      <td>{{i.order}}</td>
+                      <td>{{i.subject}}</td>
+                      <td>{{i.description}}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div>
               </div>
-            </div>  
-          </div>      
+            </div>
+          </div>              
         </div>
       </div>
     </div>
