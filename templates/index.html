@@ -68,6 +68,24 @@
        <p>Python is a general-purpose, versatile and popular programming language. It's great as a first language <br>because it is concise and easy to read, and it is also a good language to have in any programmer's stack as <br>it can be used for everything from web development to software development and scientific applications.</p>
 </div><!-- /Content_program-->
 
+    <div class="panel panel-default">
+
+  <!-- Table -->
+  <table class="table">
+    <tr class="title_table">
+      <td>Курс</td>
+      <td>Описание</td>
+    </tr>
+      {% for course in courses %}
+        <tr class="table_first_student">
+          <td><a href="{% url 'courses:detail' course.id%}">{{ course }}</a></td>
+          <td>{{ course.short_description }}</td>
+        </tr>
+    {% endfor %}
+
+  </table>
+</div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
