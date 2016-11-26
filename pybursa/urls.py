@@ -16,9 +16,16 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
+from courses.views import Detail
+from students.views import List_View, StudentDescr
 
 urlpatterns = [
+    url(r'^student/(?P<pk>\d+)/', StudentDescr.as_view(), name = 'student-detail'),
+    url(r'^students/',List_View.as_view(), name = 'list_view' ),
+    url(r'^$', Detail.as_view(), name = 'detail'),
+    url(r'^course/', include('courses.urls')),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^quadratic/', include('quadratic.urls')),
 ]
 
