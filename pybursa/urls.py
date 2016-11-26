@@ -20,7 +20,6 @@ from django.shortcuts import render
 from pybursa import views
 from quadratic.views import quadratic_results
 
-
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),
@@ -29,4 +28,6 @@ urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^quadratic/', include('quadratic.urls')),
+    url(r'courses/', include('courses.urls', namespace="courses")),
+    url(r'students/', include('students.urls', namespace="students")),
 ]
