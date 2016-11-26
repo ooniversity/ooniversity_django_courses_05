@@ -9,7 +9,6 @@ from .models import Course, Lesson
 def main(request):
     course_list = Course.objects.all()
     context = {'course_list': course_list}
-   # print(context)
     return render(request, 'main.html', context)
 
 def detail(request, curse_id):
