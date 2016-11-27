@@ -5,7 +5,7 @@ class Student(models.Model):
     """
     -  name                         (CharField)                                     # имя
     -  surname                      (CharField)                                     # фамилия
-    -  date_of_birth                (DateField)                                     # датa рождения
+    -  date_of_birth                (DateField)                                     # дата рождения
     -  email                        (EmailField)
     -  phone                        (CharField)                                     # телефон
     -  address                      (CharField)                                     # адрес
