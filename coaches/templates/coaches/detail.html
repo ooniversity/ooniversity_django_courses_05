@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Student list Brain Bursa</title>
+    <title>Brain Bursa Main</title>
     {% load static %}
     <!-- Bootstrap -->
     <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -15,8 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Gloria+Hallelujah" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Play" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,50 +41,73 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{% url 'index'%}">Main</a></li>
+        <li class="active"><a href="{% url 'index'%}">Main</a></li>
         <li><a href="{% url 'contact'%}">Contacts</a></li>
-        <li class="active"><a href="{% url 'students:list_view'%}">Students</a></li>
+        <li><a href="{% url 'students:list_view'%}?course_id={{pk}}">Students</a></li>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
 <div class="header">
 
-    <img class="header_image" src={% static "images/loog1.png" %} alt="logo">
+    <img class="header_image" src="../../static/images/loog1.png" alt="logo">
     <h3>BrainBursa</h3>
     </div>
-  <div class = "description">
-    <h1 class=title_description>BrainBursa students list</h1>
-    <p class=content_description>Below is a list of the best students of the course </p>
-</div>
+<br>
+<br>
 
-<h1>Список студентов</h1>
-<div class="panel panel-default">
-<table class="table">
-    <tr class="title_table">
-      <td>#</td>
-      <td>фамилия имя</td>
-      <td>адрес</td>
-      <td>skype</td>
-      <td>курсы</td>
-    </tr>
-    {% for student in students %}
-    <tr class="title_table">
-      <td>{{student.id}}</td>
-      <td><a href="{% url 'students:detail' student.id%}">{{student.surname}} {{student.name}}</a></td>
-      <td>{{student.address}}</td>
-      <td>{{student.skype}}</td>
-      <td>
-        {% for course in student.courses.all %}
-      <a href="{% url 'courses:detail' course.id%}">{{course}}</a><br>
-      {% endfor %}
-      </td>
-    </tr>
+    <div class = "program">
+    <h1 class="program_title">{% for coache in coaches %}
+        {{coache.full_name}}
     {% endfor %}
+    </h1>
+</div><!-- /Program-->
 
+    <div class="panel panel-default">
+
+  <!-- Table -->
+  <div class="panel panel-default">
+<table class="table">
+    {% for coache in coaches %}
+
+    <tr>
+        <td>дата рождения</td>
+      <td>{{coache.date_of_birth}}</td>
+        </tr>
+    <tr>
+        <td>адрес</td>
+      <td>{{coache.address}}</td>
+        </tr>
+    <tr>
+        <td>почта</td>
+        <td>{{coache.get_user_email}}</td>
+        </tr>
+    <tr>
+        <td>логин skype</td>
+      <td>{{coache.skype}}</td>
+        </tr>
+    <tr>
+        <td>телефон</td>
+        <td>{{coache.phone}}</td>
+        </tr>
+    <tr>
+        <td>курсы учитель</td>
+        <td>{% for course in courses_teacher %}
+            <a href="{% url 'courses:detail' pk%}">{{course.name}}</a>
+                студенты курса<a href="{% url 'students:list_view'%}?course_id={{pk}}"<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+        {% endfor %}</td>
+        </tr>
+    <tr>
+        <td>курсы ассистент</td>
+        <td>{% for course in courses_asistent %}
+            <a href="{% url 'courses:detail' pk%}">{{course.name}}</a>
+            студенты курса<a href="{% url 'students:list_view'%}?course_id={{pk}}"<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+        {% endfor %}</td>
+        </tr>
+{% endfor %}
   </table>
 </div>
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -61,6 +61,27 @@
 
 </div><!-- /description-->
 
+    <div class = "program">
+    <h1 class="program_title">Преподаватели</h1>
+</div><!-- /Program-->
+
+    <div class="panel panel-default">
+
+  <!-- Table -->
+  <table class="table">
+    <tr class="title_table">
+       <td>Учитель</td>
+    </tr>
+      {% for coache in coaches %}
+        <tr class="table_first_student">
+          <td><a href="{% url 'coaches:detail' pk%}">{{ coache.full_name }}</a> <br> {{coache.description}}</td>
+        </tr>
+    {% endfor %}
+  </table>
+</div>
+
+
+
 <div class = "program">
     <h1 class="program_title">План курса</h1>
 </div><!-- /Program-->
