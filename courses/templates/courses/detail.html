@@ -74,7 +74,7 @@
     </tr>
       {% for coache in coaches %}
         <tr class="table_first_student">
-          <td><a href="{% url 'coaches:detail' pk%}">{{ coache.full_name }}</a> <br> {{coache.description}}</td>
+          <td><a href="{% url 'coaches:detail' pk%}">{{ coache.user.first_name }} {{ coache.user.last_name }}</a> <br> {{coache.description}}</td>
         </tr>
     {% endfor %}
   </table>
@@ -86,7 +86,7 @@
     </tr>
       {% for assistant in assistants %}
         <tr class="table_first_student">
-          <td><a href="{% url 'coaches:detail' pk%}">{{ assistant.full_name }}</a> <br> {{assistant.description}}</td>
+          <td><a href="{% url 'coaches:detail' pk%}">{{ assistant.user.first_name }} {{ assistant.user.last_name }}</a> <br> {{assistant.description}}</td>
         </tr>
     {% endfor %}
   </table>
