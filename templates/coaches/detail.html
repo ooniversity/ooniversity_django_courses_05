@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{{student.surname}}</title>
+    <title>{{coach.full_name}}</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -49,33 +49,45 @@
             <div class="jumbotron">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3>{{ student.name }} {{ student.surname }}</h3>
-                  <table class="table">
+                  <h3>{{ coach.full_name }}</h3>
+                  <table>
                     <tr>
-                      <td class="fonttable">дата рождения</td>
-                      <td>{{ student.date_of_birth }}</td>
+                      <td>дата рождения</td>
+                      <td>{{ coach.date_of_birth }}</td>
                     </tr>
                     <tr>
-                      <td class="fonttable">адрес</td>
-                      <td>{{ student.address }}</td>
+                      <td>адрес</td>
+                      <td>{{ coach.address }}</td>
                     </tr>
                     <tr>
-                      <td class="fonttable">почта</td>
-                      <td>{{ student.email }}</td>
+                      <td>почта</td>
+                      <td>{{ coach.user.email }}</td>
                     </tr>
                     <tr>
-                      <td class="fonttable">логин skype</td>
-                      <td>{{ student.skype }}</td>
+                      <td>логин skype</td>
+                      <td>{{ coach.skype }}</td>
                     </tr>
                     <tr>
-                      <td class="fonttable">телефон</td>
-                      <td>{{ student.phone }}</td>
+                      <td>телефон</td>
+                      <td>{{ coach.phone }}</td>
                     </tr>
                     <tr>
-                      <td class="fonttable">курсы</td>
-                      <td>{% for i in student.courses.all %}
-                            <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a><br>
+                      <td>курсы учитель</td>
+                      <td>{% if couch_cours %}
+                          {% for i in couch_cours %}
+                            <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
+
                           {% endfor %}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>курсы ассистент</td>
+                      <td>{% if assistant_cours %}
+                      {% for i in assistant_cours %}
+                      <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
+                      {% endfor %}
+                      {% endif %}
                       </td>
                     </tr>
                   </table>
