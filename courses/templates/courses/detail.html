@@ -80,6 +80,18 @@
   </table>
 </div>
 
+    <table class="table">
+    <tr class="title_table">
+       <td>Ассистент</td>
+    </tr>
+      {% for assistant in assistants %}
+        <tr class="table_first_student">
+          <td><a href="{% url 'coaches:detail' pk%}">{{ assistant.full_name }}</a> <br> {{assistant.description}}</td>
+        </tr>
+    {% endfor %}
+  </table>
+</div>
+
 
 
 <div class = "program">
