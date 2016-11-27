@@ -12,7 +12,7 @@ class Coach(models.Model):
     phone = models.CharField(max_length=15)  # телефон
     address = models.CharField(max_length=255)  # адрес
     skype = models.CharField(max_length=50)
-    description = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
 
 
     @property
@@ -32,4 +32,4 @@ class Coach(models.Model):
         return self.assistant_courses.filter(assistent=self.id)
 
     def __str__(self):
-        return self.user.first_name
+        return self.user.username
