@@ -49,30 +49,30 @@
             <div class="jumbotron">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3>{{ coach.full_name }}</h3>
-                  <table>
+                  <h2>{{ coach.full_name }}</h2s>
+                  <table class="table">
                     <tr>
-                      <td>дата рождения</td>
+                      <td class="fonttable">дата рождения</td>
                       <td>{{ coach.date_of_birth }}</td>
                     </tr>
                     <tr>
-                      <td>адрес</td>
+                      <td class="fonttable">адрес</td>
                       <td>{{ coach.address }}</td>
                     </tr>
                     <tr>
-                      <td>почта</td>
+                      <td class="fonttable">почта</td>
                       <td>{{ coach.user.email }}</td>
                     </tr>
                     <tr>
-                      <td>логин skype</td>
+                      <td class="fonttable">логин skype</td>
                       <td>{{ coach.skype }}</td>
                     </tr>
                     <tr>
-                      <td>телефон</td>
+                      <td class="fonttable" >телефон</td>
                       <td>{{ coach.phone }}</td>
                     </tr>
                     <tr>
-                      <td>курсы учитель</td>
+                      <td class="fonttable">курсы учитель</td>
                       <td>{% if couch_cours %}
                           {% for i in couch_cours %}
                             <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>
@@ -82,7 +82,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>курсы ассистент</td>
+                      <td class="fonttable">курсы ассистент</td>
                       <td>{% if assistant_cours %}
                       {% for i in assistant_cours %}
                       <a href="{% url 'courses:detail' i.id %}">{{i.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ i.id }}"><i class="glyphicon glyphicon-share-alt"></i></a><br>

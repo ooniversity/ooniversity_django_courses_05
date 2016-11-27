@@ -49,13 +49,13 @@
             <div class="jumbotron">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3>{{course.name}}</h3>
+                  <h2>{{course.name}}</h2>
                     <p class="description">{{ course.description }}</p>
-                    <table>
+                    <table class="table">
                         <tr>
-                            <th>#</th>
-                            <th>Тема</th>
-                            <th>Описание</th>
+                            <td class="fonttable" >#</td>
+                            <td class="fonttable" >Тема</td>
+                            <td class="fonttable">Описание</td>
                         </tr>
                         {% for i in lessons %}
                         <tr>
