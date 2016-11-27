@@ -5,15 +5,17 @@ class Coach(models.Model):
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
     date_of_birth = models.DateField()  # дата рождения
-    gender = models.CharField(max_length=1, choices=(
+    gender = models.CharField(max_length=10, choices=(
         ('M', 'Male'),
         ('F', 'Female')
     ))
-    phone = models.CharField(max_length=15)  # телефон
+    phone = models.CharField(max_length=25)  # телефон
     address = models.CharField(max_length=255)  # адрес
     skype = models.CharField(max_length=50)
     description = models.TextField(max_length=255)
 
+    def __str__(self):
+        return self.user.username
 
     @property
     def get_name(self):
@@ -28,8 +30,6 @@ class Coach(models.Model):
     def get_courses_coach(self):
         return self.coach_courses.filter(coach=self.id)
 
-    def get_courses_assistent(self):
-        return self.assistant_courses.filter(assistent=self.id)
+    def get_courses_assistant(self):
+        return self.assistant_courses.filter(assistant=self.id)
 
-    def __str__(self):
-        return self.user.username
