@@ -58,7 +58,7 @@
 
     <div class = "program">
     <h1 class="program_title">{% for coache in coaches %}
-        {{coache.full_name}}
+        {{coache.user.first_name}} {{coache.user.last_name}}
     {% endfor %}
     </h1>
 </div><!-- /Program-->
