@@ -25,9 +25,6 @@ class Coach(models.Model):
     def get_email(self):
         return self.user.email
 
-    def get_staff(self):
-        return self.user.staff_status
-
     def get_courses_coach(self):
         return self.coach_courses.filter(coach=self.id)
 
