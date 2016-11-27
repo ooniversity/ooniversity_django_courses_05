@@ -24,6 +24,6 @@ class Coach(models.Model):
         return self.user.email
 
     def __str__(self):
-        return self.user.first_name
+        return self.user.username
 
 
