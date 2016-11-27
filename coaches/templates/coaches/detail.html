@@ -90,8 +90,9 @@
                         <td>курсы учитель</td>
                         <td>
                           {% for course in coach.get_courses_coach %}
-                              <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a> студенты курса
+                              <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
                                  <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                                      студенты курса
                                       <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                  </a>
                               </p>
@@ -102,8 +103,9 @@
                         <td>курсы ассистент</td>
                         <td>
                           {% for course in coach.get_courses_assistent %}
-                              <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a> студенты курса
+                              <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
                                  <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                                      студенты курса
                                       <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                  </a>
                               </p>
