@@ -93,15 +93,17 @@
     <tr>
         <td>курсы учитель</td>
         <td>{% for course in courses_teacher %}
-            <a href="{% url 'courses:detail' pk%}">{{course.name}}</a>
-                студенты курса <a href="{% url 'students:list_view'%}?course_id={{pk}}"<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+           <p><a href="{% url 'courses:detail' pk%}">{{course.name}}</a>
+                студенты курса <a href="{% url 'students:list_view'%}?course_id={{pk}}"<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
         {% endfor %}</td>
         </tr>
     <tr>
         <td>курсы ассистент</td>
-        <td>{% for course in courses_asistent %}
-            <a href="{% url 'courses:detail' course.id%}">{{course.name}}</a>
-            студенты курса <a href="{% url 'students:list_view'%}?course_id={{course.id}}"<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+        <td>
+        {% for course in courses_asistent %}
+            <p><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a>
+            студенты курса <a href="{% url 'students:list_view'%}?course_id={{course.id}}"> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></ul>
+                </p>
         {% endfor %}</td>
         </tr>
 {% endfor %}
