@@ -8,6 +8,5 @@ def detail(request, pk):
     course = courses[0]
     coaches = Coach.objects.filter(coach_courses=pk)
     assistants = Coach.objects.filter(assistant_courses=pk)
-    teacher_id = Coach.objects.filter()
     lessons = Lesson.objects.filter(course=pk)
-    return render(request, 'courses/detail.html', {'course': course, 'lessons': lessons, 'pk': pk, 'coaches': coaches, 'assistants': assistants, 'teacher_id': teacher_id})
+    return render(request, 'courses/detail.html', {'course': course, 'lessons': lessons, 'pk': pk, 'coaches': coaches, 'assistants': assistants})
