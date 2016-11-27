@@ -10,5 +10,4 @@ def list_view (request):
 
 def detail(request, pk):
     context = Student.objects.get(id=int(pk))
-    print(context.date_of_birth)
     return render(request, 'students/detail.html', {'student': context})
