@@ -1,8 +1,14 @@
-from django.http import HttpResponse, response
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.urls import reverse
+from django.views import generic
 
-def index(request):
-    return render(request, "index.html")
+
+class IndexView(generic.ListView):
+    template_name = 'index.html'
+    context_object_name = 'latest_question_list'
+    def index(request):
+        return render(request, "index.html")
 
 def contact(request):
     return render(request, "contact.html")
