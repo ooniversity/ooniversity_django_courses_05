@@ -53,6 +53,8 @@
 	      <p>_____________________________________________________</p>
 	      <p>phone:   {{ student_full.phone }}</p>
 		  <p>_____________________________________________________</p>
-	      <p>курсы:   {{ course_name.name }}</p>
+	      {% for course in student_full.courses.all %}
+			<br><a href="/courses/{{ course.id }}">{{ course.name }}</a></td></br></p>
+          {% endfor %}
    </body>
 </html>

@@ -48,7 +48,7 @@
    		<col width="200" valign="top">
 		<col width="300" valign="top">
    		<col width="250" valign="top">
-		<col width="100" valign="top">
+		<col width="50" valign="top">
     	  <tr>
 		    <th> # </th>
 		    <th> фамилия имя </th>
@@ -58,9 +58,12 @@
 		  </th>
 		  </tr>
 		  {% for stud in list_students %}
-		  <tr><td>{{ stud.id }}</td><td><a href="/students/{{ stud.id }}/" >{{ stud.name }} {{ stud.surname }}</td></a>
+		  <tr><td>{{ stud.id }}</td><td><a href="/students/{{ stud.id }}/" >{{ stud.name }} {{ stud.surname }}</a></td>
 		  <td> {{ stud.address }} </td><td> {{ stud.skype }} </td>
-		  <td> {{ course_name.name }} </td>
+		   {% for course in stud.courses.all %}
+		  	<td><a href="/courses/{{ course.id }}">{{course.name}}</a></td>
+		   {% endfor %}
+		  </td>
 		  </tr>
 		  {% endfor %}
 		</table>

@@ -18,4 +18,5 @@ class CoachAdmin(admin.ModelAdmin):
  #   site_header = 'PyBursa Administration'
 
 admin.site.register(Coach, CoachAdmin)
+admin.site.site_header = "PyBursa Administration"
 #admin.site.register(Lesson)
