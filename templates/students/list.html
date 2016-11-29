@@ -1,86 +1,52 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		{% load static %}
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>PyBursa list</title>
-		
-		<!-- Bootstrap core CSS -->
-		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-		<!-- Bootstrap theme -->
-		<link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
-		
-		<!-- Custom styles for this template -->
-		<link href="{% static 'css/style.css' %}" rel="stylesheet">
-		
-		
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="{% static 'js/bootstrap.js' %}"></script>
-	</head>
-	<body>
-		
-		
-		<!-- Fixed navbar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+﻿{% extends "base.html" %}
+
+
+{% block title %}Студенты{% endblock %}
+
+
+{% block navigation_students %}"active"{% endblock %}
+
+
+{%  block content %}
+
+
+<div class="container theme-showcase" role="main">
+	<div class="container-fluid">
+		<div class="hero-unit">
+			<h2 id="title_course">Cписок студентов</h2>
 			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'index' %}">Main</a></li>
-						<li><a href="{% url 'contact' %}">Contacts</a></li>
-						<li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="container theme-showcase" role="main">
-			<div class="container-fluid">
-				<div class="hero-unit">
-					
-					
-					<h2 id="title_course">Cписок студентов</h2>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<table class="table">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>фамилия имя</th>
-											<th>адрес</th>
-											<th>skype</th>
-											<th>курсы</th>
-										</tr>
-									</thead>
-									<tbody>
-										{% for student in students %}
-										<tr>
-											<td>{{ student.id }}</td>
-											<td><a href="{%  url 'students:detail'  student.id %}">{{ student.surname }} {{ student.name }}</a></td>
-											<td>{{ student.address }}</td>
-											<td>{{ student.skype }}</td>
-											<td>
-												{% for course in student.get_courses %}
-												<p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
-												{% endfor %}
-											</td>
-										</tr>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>фамилия имя</th>
+									<th>адрес</th>
+									<th>skype</th>
+									<th>курсы</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for student in students %}
+								<tr>
+									<td>{{ student.id }}</td>
+									<td><a href="{%  url 'students:detail'  student.id %}">{{ student.surname }} {{ student.name }}</a></td>
+									<td>{{ student.address }}</td>
+									<td>{{ student.skype }}</td>
+									<td>
+										{% for course in student.get_courses %}
+										<p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
 										{% endfor %}
-									</tbody>
-								</table>
-							</div>
-						</div>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-	</body>
-</html>
+	</div>
+</div>
+{% endblock %}

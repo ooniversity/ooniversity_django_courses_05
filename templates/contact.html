@@ -1,124 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<meta name="author" content="Sergey Chepurnykh">
-		{% load static %}
-		<link rel="icon" href="{% static 'images/favicon.ico' %}">
-		
-		<title>Contacts</title>
-		
-		<!-- Bootstrap core CSS -->
-		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-		<!-- Bootstrap theme -->
-		<link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
-		
-		<!-- Custom styles for this template -->
-		<link href="{% static 'css/style.css' %}" rel="stylesheet">
-		
-		
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="{% static 'js/bootstrap.js' %}"></script>
-	</head>
+﻿{% extends "base.html" %}
+
+
+{% block title %}Контакты{% endblock %}
+
+
+{% block navigation_contact %}"active"{% endblock %}
+
+
+{%  block content %}
+
+
+<div class="container theme-showcase" role="main">
 	
-	<body>
-		
-		<!-- Fixed navbar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'index' %}">Main</a></li>
-						<li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
-						<li><a href="{% url 'students:list_view' %}">Students</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="container theme-showcase" role="main">
-			
-			<div class="jumbotron">
-				<h1 class="intro">Контакты</h1>
-				<p>Здесь Вы можете найти контактную информацию для получения ответов на интересующие вопросы.</p>
-			</div>
-			
-			<div class="jumbotron">
-				<h2 class="sub_blocks">Director</h2>
-				<div class="row" style="padding:10px 18px;">
-					<div class="col-md-12" style="padding:0;">
-						<div class="rtable" style="width:100%;">
-							<div class="rTableRow_desc">
-								<div class="rTableCell">Name</div>
-								<div class="rTableCell">Skype</div>
-								<div class="rTableCell">Email</div>
-								<div class="rTableCell">Phone</div>
-							</div>
-							<div class="rTableRow_info">
-								<div class="rTableCell">Ivan Bondarenko</div>
-								<div class="rTableCell">ivan_bondar</div>
-								<div class="rTableCell">bondar@gmail.com</div>
-								<div class="rTableCell">(099) 123-45-67</div>
-							</div>
-						</div>
+	<div class="jumbotron">
+		<h1 class="intro">Контакты</h1>
+		<p>Здесь Вы можете найти контактную информацию для получения ответов на интересующие вопросы.</p>
+	</div>
+	
+	<div class="jumbotron">
+		<h2 class="sub_blocks">Director</h2>
+		<div class="row" style="padding:10px 18px;">
+			<div class="col-md-12" style="padding:0;">
+				<div class="rtable" style="width:100%;">
+					<div class="rTableRow_desc">
+						<div class="rTableCell">Name</div>
+						<div class="rTableCell">Skype</div>
+						<div class="rTableCell">Email</div>
+						<div class="rTableCell">Phone</div>
 					</div>
-					
-					<h2 class="sub_blocks">Manager</h2>
-					<div class="row" style="padding:10px 18px;">
-						<div class="col-md-12" style="padding:0;">
-							<div class="rtable" style="width:100%;">
-								<div class="rTableRow_desc">
-									<div class="rTableCell">Name</div>
-									<div class="rTableCell">Skype</div>
-									<div class="rTableCell">Email</div>
-									<div class="rTableCell">Phone</div>
-								</div>
-								<div class="rTableRow_info">
-									<div class="rTableCell">Vasil Bondarevich</div>
-									<div class="rTableCell">vasil_bondarevich</div>
-									<div class="rTableCell">vasil@gmail.com</div>
-									<div class="rTableCell">(099) 123-67-89</div>
-								</div>
-							</div>
-						</div>
-						
-						<h2 class="sub_blocks">Founder</h2>
-						<div class="row" style="padding:10px 18px;">
-							<div class="col-md-12" style="padding:0;">
-								<div class="rtable" style="width:100%;">
-									<div class="rTableRow_desc">
-										<div class="rTableCell">Name</div>
-										<div class="rTableCell">Skype</div>
-										<div class="rTableCell">Email</div>
-										<div class="rTableCell">Phone</div>
-									</div>
-									<div class="rTableRow_info">
-										<div class="rTableCell">James Bond</div>
-										<div class="rTableCell">james_bond</div>
-										<div class="rTableCell">bond@gmail.com</div>
-										<div class="rTableCell">(099) 987-65-43</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-						
-						<nav aria-label="forward-back">
-							<ul class="pager">
-								<li class="left"><a href="{% url 'index' %}">Назад</a></li>
-								<li class="right"><a href="{% url 'students:list_view' %}">Вперед</a></li>
-							</ul>
-						</nav>
-					</body>
-				</html>
-				
-						
+					<div class="rTableRow_info">
+						<div class="rTableCell">Ivan Bondarenko</div>
+						<div class="rTableCell">ivan_bondar</div>
+						<div class="rTableCell">bondar@gmail.com</div>
+						<div class="rTableCell">(099) 123-45-67</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2 class="sub_blocks">Manager</h2>
+		<div class="row" style="padding:10px 18px;">
+			<div class="col-md-12" style="padding:0;">
+				<div class="rtable" style="width:100%;">
+					<div class="rTableRow_desc">
+						<div class="rTableCell">Name</div>
+						<div class="rTableCell">Skype</div>
+						<div class="rTableCell">Email</div>
+						<div class="rTableCell">Phone</div>
+					</div>
+					<div class="rTableRow_info">
+						<div class="rTableCell">Vasil Bondarevich</div>
+						<div class="rTableCell">vasil_bondarevich</div>
+						<div class="rTableCell">vasil@gmail.com</div>
+						<div class="rTableCell">(099) 123-67-89</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2 class="sub_blocks">Founder</h2>
+		<div class="row" style="padding:10px 18px;">
+			<div class="col-md-12" style="padding:0;">
+				<div class="rtable" style="width:100%;">
+					<div class="rTableRow_desc">
+						<div class="rTableCell">Name</div>
+						<div class="rTableCell">Skype</div>
+						<div class="rTableCell">Email</div>
+						<div class="rTableCell">Phone</div>
+					</div>
+					<div class="rTableRow_info">
+						<div class="rTableCell">James Bond</div>
+						<div class="rTableCell">james_bond</div>
+						<div class="rTableCell">bond@gmail.com</div>
+						<div class="rTableCell">(099) 987-65-43</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<nav aria-label="forward-back">
+	<ul class="pager">
+		<li class="left"><a href="{% url 'index' %}">РќР°Р·Р°Рґ</a></li>
+		<li class="right"><a href="{% url 'students:list_view' %}">Р’РїРµСЂРµРґ</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
