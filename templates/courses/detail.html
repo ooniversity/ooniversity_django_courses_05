@@ -1,66 +1,18 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		{% load static %}
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>PyBursa Detail Student</title>
-		
-		<!-- Bootstrap core CSS -->
-		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-		<!-- Bootstrap theme -->
-		<link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
-		
-		<!-- Custom styles for this template -->
-		<link href="{% static 'css/style.css' %}" rel="stylesheet">
-		
-		
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="{% static 'js/bootstrap.js' %}"></script>
-	</head>
-	<body>
-		
-		
-		<!-- Fixed navbar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="{% url 'index' %}">Main</a></li>
-						<li><a href="{% url 'contact' %}">Contacts</a></li>
-						<li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+﻿{% extends "base.html" %}
+
+
+{% block title %}Курс{% endblock %}
+
+
+{%  block content %}
 		<div class="container theme-showcase" role="main">
 			
 			<div class="container-fluid">
 				<div class="hero-unit">
 					<h2>Преподаватели</h2>
-					<div class="container">
-						<h4>Учитель</h4>
-						<p>
-						<a href="{%  url 'coaches:detail'  course.coach.id %}">{{ course.coach.get_full_name }}</a>
-						</p>
-						{{ course.coach.description }}
-					</div>
+						{% include "include/coach_include.html" with coach_title="Учитель" coach=course.coach %}
 					<h2>Ассисттент</h2>
-					<div class="container">
-						<h4>Учитель</h4>
-						<p>
-						<a href="{%  url 'coaches:detail'  course.assistant.id %}">{{ course.assistant.get_full_name }}</a>
-						</p>
-						{{ course.assistant.description }}
-					</div>
+						{% include "include/coach_include.html" with coach_title="Ассистент" coach=course.assistant %}
 				</div>
 			</div>
 			
@@ -82,11 +34,11 @@
 										</tr>
 									</thead>
 									<tbody>
-										{% for i in lessons %}
+										{% for lesson_item in lessons %}
 										<tr>
-										<td>{{ i.id }}</a></td>
-										<td>{{ i.subject }}</td>
-										<td>{{ i.description }}</td>
+										<td>{{ lesson_item.id }}</a></td>
+										<td>{{ lesson_item.subject }}</td>
+										<td>{{ lesson_item.description }}</td>
 									</tr>
 									{% endfor %}
 								</tbody>
@@ -97,5 +49,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+{% endblock %}
