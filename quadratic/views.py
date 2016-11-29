@@ -1,27 +1,15 @@
 from django.shortcuts import render
 import math
+from quadratic.forms import QuadraticForm
 
+def get_value(data, name):
+    return int(data.get(name))
 
-def get_val_data(a, this_is_a = False):
-    error_a = ''
-    error_not_int = 'коэффициент не целое число'
-    error_null = 'коэффициент не определен'
-    error_zero = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+def discriminant(data):
 
-    if len(a) == 0:
-        error_a = error_null
-    else:
-        try:
-            a = int(a)
-            if a == 0 and this_is_a:
-                error_a = error_zero
-        except:
-            error_a = error_not_int
-
-    return {'val': a, 'error': error_a}
-
-
-def quadratic_results(request):
+    a = get_value(data, 'a')
+    b = get_value(data, 'b')
+    c = get_value(data, 'c')
 
     dis_text_null = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     dis_text_result = 'Дискриминант: %(dis)d'
@@ -30,49 +18,41 @@ def quadratic_results(request):
     result_text_eq = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %(x1)s'
 
 
-    a = request.GET['a']
-    data = get_val_data(a, True)
-    error_a = data.get('error')
-    a = data.get('val')
+    dis = b ** 2 - 4 * a * c
+    dis_result = dis_text_result % {'dis': dis}
 
-    b = request.GET['b']
-    data = get_val_data(b)
-    error_b = data.get('error')
-    b = data.get('val')
+    if dis >= 0:
+        x1 = (-b + math.sqrt(dis)) / 2 * a
+        x2 = (-b - math.sqrt(dis)) / 2 * a
 
-    c = request.GET['c']
-    data = get_val_data(c)
-    error_c = data.get('error')
-    c = data.get('val')
-
-
-    result_text_x1_x2 = ''
-    if error_a == error_b == error_c == '':
-        dis = b ** 2 - 4 * a * c
-        dis_result = dis_text_result % {'dis': dis}
-
-        if dis >= 0:
-            x1 = (-b + math.sqrt(dis)) / 2 * a
-            x2 = (-b - math.sqrt(dis)) / 2 * a
-
-            if dis == 0:
-                result_text_x1_x2 = result_text_eq % {'x1': x1}
-            else:
-                result_text_x1_x2 = result_text % {'x1': x1, 'x2': x2}
-
+        if dis == 0:
+            result_text_x1_x2 = result_text_eq % {'x1': x1}
         else:
-            result_text_x1_x2 = dis_text_null
+            result_text_x1_x2 = result_text % {'x1': x1, 'x2': x2}
+
     else:
-        dis_result = ''
+        result_text_x1_x2 = dis_text_null
+
 
     context = {'dis_result': dis_result,
                'result_text_x1_x2': result_text_x1_x2,
-               'error_a': error_a,
-               'error_b': error_b,
-               'error_c': error_c,
-               'val_a': a,
-               'val_b': b,
-               'val_c': c,
                }
+
+    return context
+
+
+def quadratic_results(request):
+
+    form = QuadraticForm()
+
+    context = {}
+    if len(request.GET) > 0:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            dict_discriminant = discriminant(request.GET)
+            context.update(dict_discriminant)
+
+
+    context['form'] = form
 
     return render(request, 'quadratic/results.html', context)

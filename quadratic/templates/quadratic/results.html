@@ -1,14 +1,18 @@
+{% extends "base.html" %}
 
-<H4>Квадратно уравнение ax**2 + bx + c = 0</H4>
+{% block title %}Квадратное уравнение{% endblock %}
 
-<ul>
-  <li>a = {{ val_a }}</li>
-    {{ error_a }}
-  <li>b = {{ val_b }}</li>
-    {{ error_b }}
-  <li>c = {{ val_c }}</li>
-    {{ error_c }}
-</ul>
 
-<h4>{{ dis_result }}</h4>
-<h4>{{ result_text_x1_x2 }}</h4>
+{%  block content %}
+<div class="container">
+    <H4>Квадратно уравнение ax**2 + bx + c = 0</H4>
+
+    <form method="GET">
+        {{ form.as_p }}
+    <input type="submit" value="Решить">
+    </form>
+
+    <h4>{{ dis_result }}</h4>
+    <h4>{{ result_text_x1_x2 }}</h4>
+</div>
+{% endblock %}
