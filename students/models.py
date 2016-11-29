@@ -3,14 +3,14 @@ from django.conf import settings
 from courses.models import Course
 
 class Student(models.Model):
-    name=models.CharField(max_length=60)         # имя
-    surname=models.CharField(max_length=60)     # фамилия
-    date_of_birth=models.DateField()    # дата рождения 
+    name=models.CharField(max_length=60)         
+    surname=models.CharField(max_length=60)     
+    date_of_birth=models.DateField()    
     email=models.EmailField(unique=True)
-    phone=models.CharField(max_length=15)    # телефон
-    address=models.CharField(max_length=255)        # адрес
+    phone=models.CharField(max_length=15)   
+    address=models.CharField(max_length=255)      
     skype=models.CharField(max_length=25)
-    courses=models.ManyToManyField(Course)   # курсы, на которых учится студент
+    courses=models.ManyToManyField(Course)   
 
     def full_name(self):
         self.full_n = self.name + " " + self.surname

@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
-    {% load static %}
-    <!-- Bootstrap -->
-    <link href="{% static 'css/style.css'%}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
-    
-  </head>
-  <body>
- 
-<div class="container">
-     <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-               
-          <li><a href="{% url 'index'%}">Главная</a></li>
-          <li><a href="{% url 'contact'%}">Контакты</a></li>
-          <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-         
-         </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
- 
-       
-    <div class="container">
-    {% for student in student %}
+{% extends "base.html" %}
+
+
+{% block nav_class_student %} active {% endblock %}
+
+
+{% block title %} О студенте {% endblock title %}
+
+
+{% block content %}
+     {% for student in student %}
      <h1>{{ student.name }} {{ student.surname }}</h1>
       {% endfor %}  
       <div class="row">
@@ -56,22 +33,7 @@
           </div><!-- /.blog-post -->      
         
       </div><!-- /.row -->
-
-    </div><!-- /.container -->
-     
- <footer class="footer" style="margin-top: 200px">
-    <p>&copy; 2016 Company, Inc.</p>
-  </footer>
+{% endblock content %}
 
 
-   
-</div>
-
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
-  </body>
-</html>
 
