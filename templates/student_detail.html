@@ -1,14 +1,13 @@
 {% extends "base.html"%}
 
 
-{% block title %}Main Page{% endblock title %}
+{% block title %}Student detail{% endblock title %}
 
 
 <!--{% block nav_class_index%}active{% endblock %}-->
 
 
-{% block main_content %}<!DOCTYPE html>
-{% load static %}
+{% block content %}
   <h1 class="name">Ivanov Ivan</h1>
     <img class="contact" src="{% static 'images/man2.png' %}"/>
       <div class="inform"><table width="800px">
@@ -39,4 +38,4 @@
           <tr class="cells"><td></td><td></td><td>Problem Task №1</td><td>100%</td></tr>
         </table>
       </div>
-{% endblock main_content%}
+{% endblock content%}

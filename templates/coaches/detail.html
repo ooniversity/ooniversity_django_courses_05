@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-{% load static %}
+
 
 {% block title %}Coaches Detail{% endblock title %}
 
@@ -7,7 +7,7 @@
 <!--{% block nav_class_index%}active{% endblock %}-->
 
 
-{% block main_content %}
+{% block content %}
 
   <h1 class="table">{{ coach.full_name }}</h1>
     <table border="1", class="table" >
@@ -50,4 +50,4 @@
         </td>
       </tr>
     </table>
-{% endblock main_content%}
+{% endblock content%}

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{% block title %}Courses Python{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -39,8 +39,7 @@
   </div><!-- /.container-fluid -->
 </nav>
   <!--<h1 class="name">Python&Django <span class="littl">by</span> PyBursa</h1>-->
-{% block main_content %}
-{% endblock main_content %}
+{% block content %}{% endblock content %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <!-- Include all compiled plugins (below), or include individual files as needed -->

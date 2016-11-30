@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-{% load static %}
+
 
 
 {% block title %}Contact{% endblock title %}
@@ -8,10 +8,10 @@
 {% block nav_class_contacts%}active{% endblock %}
 
 
-{% block main_content %}
+{% block content %}
 
 
-{% include "include/inc_desrription.html" %}
+{% include "include/description_include.html" %}
   <p class="cont">Contacts</p>
   <!--Nav-->
     <ul class="nav nav-tabs" role="tablist">
@@ -44,4 +44,4 @@
       <p class="email">e-mail:max.maximov@mail.ru</p>
       </div>
     </div>
-{% endblock main_content %}
+{% endblock content %}
