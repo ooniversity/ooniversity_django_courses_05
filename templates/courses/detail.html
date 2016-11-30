@@ -9,7 +9,7 @@
 
 <div class="course">
   <h1 class="name">{{course.name}}</h1>
-    <p>{{ course.description }}</p>
+    <p>{{ course.description|truncatechars:32 }}</p>
 </div>
       <div class="course">
         <table>
@@ -24,7 +24,7 @@
         <tr>
           <td>{{i.order}}</td>
           <td>{{i.subject}}</td>
-          <td>{{i.description|truncatechars:32}}</td>
+          <td>{{i.description}}</td>
         </tr>
       {% endfor %}
         </table>
