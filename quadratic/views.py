@@ -11,6 +11,14 @@ def check(num):
     except :
         return num, "коэффициент не целое число"
 
+from django import forms
+
+class QuadraticForm(forms.Form):
+    a = forms.CharField(max_length=10)
+    b = forms.CharField(max_length=10)
+    c = forms.CharField(max_length=10)
+        
+
 def quadratic_results(request):
     a, prefix_a = check(request.GET.get('a'))
     b, prefix_b = check(request.GET.get('b'))
@@ -22,6 +30,8 @@ def quadratic_results(request):
         "diskr": "",
         "info_text": ""
     }
+    form = QuadraticForm()
+    dict_html['form'] = form
     if isinstance(a, int) and a != 0 and (b or b == 0) and (c or c == 0):
         diskr = b * b - 4 * a * c
         dict_html['diskr'] = "Дискриминант: {0}".format(diskr)

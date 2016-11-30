@@ -1,0 +1,17 @@
+  <div class="main">
+    <div class="select">
+    <table>
+      <col width="255">
+      <tr>
+        <th>Курс</th>
+        <th>Описание</th>
+      </tr>
+      {% for i in courses %}
+      <tr>
+        <td><a href="{% url 'courses:detail' i.id %}">{{ i.name|upper }}</a></td>
+        <td>{{i.short_description|title}}</td>
+      </tr>
+      {% endfor %}
+    </table></div>
+  </div>
+  
