@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-{% load static %}
+
 
 {% block title %}Students Detail{% endblock title %}
 
@@ -7,7 +7,7 @@
 {% block nav_class_students%}active{% endblock %}
 
 
-{% block main_content %}
+{% block content %}
 
   <div class="content">
   <h1><p>{{ student.name }} {{student.surname}}</p></h1>
@@ -43,4 +43,4 @@
       </tr>
     </table>
     </div>
-{% endblock main_content%}
+{% endblock content%}

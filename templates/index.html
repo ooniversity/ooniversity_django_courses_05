@@ -1,5 +1,5 @@
 {% extends "base.html"%}
-{% load static %}
+
 
 
 {% block title %}Main Page{% endblock title %}
@@ -8,7 +8,7 @@
 {% block nav_class_index%}active{% endblock %}
 
 
-{% block main_content %}
+{% block content %}
   <h2 class="h2" align="right">Select the course</h2>
   <div class="main">
     <div class="select">
@@ -28,7 +28,7 @@
   </div>
   <h2 class="h2" align="right">Description</h2>
     <div class="main">
-{% include "include/inc_desrription.html" %}
+{% include "include/description_include.html" %}
     </div>
   <h2 class="h2" align="right"> Program</h2>
     <div class="main">
@@ -38,4 +38,4 @@
     <div class="main">
     <p class="info3"> Успешное окончание курса предполагает подготовку студента на уровне достаточном для получения вакансии Junior-а в любой компании занимающейся разработкой ПО. По статистике 97% обучающихся получают указанные должности в течении первых 3 месяцев после окончания курса.</p>
     </div>
-{% endblock main_content %}
+{% endblock content %}
