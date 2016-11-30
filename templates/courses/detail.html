@@ -19,12 +19,12 @@
           <th width="120">Тема</th>
           <th width="650">Описание</th>
         </tr>
-      {% for i in lessons %}
+      {% for lesson in lessons %}
         <col>
         <tr>
-          <td>{{i.order}}</td>
-          <td>{{i.subject}}</td>
-          <td>{{i.description}}</td>
+          <td>{{lesson.order}}</td>
+          <td>{{lesson.subject}}</td>
+          <td>{{lesson.description}}</td>
         </tr>
       {% endfor %}
         </table>
