@@ -1,7 +1,7 @@
 {% extends "base.html"%}
 
 
-{% block title %}Results{% endblock title %}
+{% block title %}Quadratic{% endblock title %}
 
 
 {% block nav_class_quadratic%}active{% endblock %}
@@ -12,10 +12,10 @@
         <p><b>Квадратное уравнение a*x*x + b*x + c = 0</b></p>
           <form>
             {{ form.as_p }}
-        <input type="submit" />
+        <input type="submit" value="Решить уравнение" />
         </form><br>
 
-  <p>{{diskr}}</p> <br>
-  <p>{{info_text}}</p><br>
+  <p>{{ diskr }}</p><br>
+  <p>{{ info_text }}</p><br>
 </div>
 {% endblock content %}
