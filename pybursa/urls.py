@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
-from quadratic.views import quadratic_results
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -29,6 +27,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'courses/', include('courses.urls', namespace="courses")),
-    url(r'students/', include('students.urls', namespace="students")),
+    #url(r'students/', include('students.urls', namespace="students")),
     url(r'coaches/', include('coaches.urls', namespace="coaches")),
 ]
