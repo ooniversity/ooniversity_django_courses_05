@@ -2,14 +2,12 @@ from django.shortcuts import render
 import math
 from quadratic.forms import QuadraticForm
 
-def get_value(data, name):
-    return int(data.get(name))
 
 def discriminant(data):
 
-    a = get_value(data, 'a')
-    b = get_value(data, 'b')
-    c = get_value(data, 'c')
+    a = data['a']
+    b = data['b']
+    c = data['c']
 
     dis_text_null = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     dis_text_result = 'Дискриминант: %(dis)d'
@@ -33,7 +31,6 @@ def discriminant(data):
     else:
         result_text_x1_x2 = dis_text_null
 
-
     context = {'dis_result': dis_result,
                'result_text_x1_x2': result_text_x1_x2,
                }
@@ -49,9 +46,8 @@ def quadratic_results(request):
     if len(request.GET) > 0:
         form = QuadraticForm(request.GET)
         if form.is_valid():
-            dict_discriminant = discriminant(request.GET)
+            dict_discriminant = discriminant(form.cleaned_data)
             context.update(dict_discriminant)
-
 
     context['form'] = form
 
