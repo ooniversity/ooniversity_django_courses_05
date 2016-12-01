@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . forms import QuadraticForm
+from .forms import QuadraticForm
 
 def quadratic_results(request):
     if len(request.GET) > 0:
@@ -27,6 +27,6 @@ def quadratic_results(request):
                 context["info_text"] = "Квадратное уравнение имеет два действительных корня: x1 = {0}, x2 = {1}".format(
                     x1, x2)
     else:
-        form = QuadraticForm()
+        form = QuadraticForm({'a': 1, 'b': '', 'c': 3})
         context = {'form': form}
     return render(request, 'quadratic/results.html', context)
