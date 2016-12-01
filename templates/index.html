@@ -30,10 +30,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							{% for i in courses %}
+							{% for course_item in courses %}
 							<tr>
-								<td><a href="{%  url 'courses:detail'  i.id %}">{{ i.name }}</a></td>
-								<td>{{ i.short_description }}</td>
+								<td><a href="{% url 'courses:detail' course_item.id %}">{{ course_item.name|upper }}</a></td>
+								<td>{{ course_item.short_description|truncatechars:70 }}</td>
 							</tr>
 							{% endfor %}
 						</tbody>
