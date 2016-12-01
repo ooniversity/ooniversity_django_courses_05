@@ -3,7 +3,7 @@ import math
 from quadratic.forms import QuadraticForm
 
 def get_value(data, name):
-    return float(data.get(name))
+    return int(data.get(name))
 
 def discriminant(data):
 
