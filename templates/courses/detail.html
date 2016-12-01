@@ -1,0 +1,52 @@
+﻿{% extends "base.html" %}
+
+
+{% block title %}Курс{% endblock %}
+
+
+{%  block content %}
+		<div class="container theme-showcase" role="main">
+			
+			<div class="container-fluid">
+				<div class="hero-unit">
+					<h2>Преподаватели</h2>
+						{% include "include/coach_include.html" with coach_title="Учитель" coach=course.coach %}
+					<h2>Ассисттент</h2>
+						{% include "include/coach_include.html" with coach_title="Ассистент" coach=course.assistant %}
+				</div>
+			</div>
+			
+			<div class="container-fluid">
+				<div class="hero-unit">
+					<h2 id="title_course">{{ course }}</h2>
+					<p>{{ course.description }}</p><br>
+					
+					<h2>План курса:</h2>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table">
+									<thead>
+										<tr>
+											<th class="panel-heading">№</th>
+											<th class="panel-heading">Тема</th>
+											<th class="panel-heading">Описание</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for lesson_item in lessons %}
+										<tr>
+										<td>{{ lesson_item.id }}</a></td>
+										<td>{{ lesson_item.subject }}</td>
+										<td>{{ lesson_item.description }}</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

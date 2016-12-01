@@ -1,0 +1,88 @@
+﻿{% extends "base.html" %}
+
+
+{% block title %}Контакты{% endblock %}
+
+
+{% block navigation_contact %}"active"{% endblock %}
+
+
+{%  block content %}
+
+
+<div class="container theme-showcase" role="main">
+	
+	<div class="jumbotron">
+		<h1 class="intro">Контакты</h1>
+		<p>Здесь Вы можете найти контактную информацию для получения ответов на интересующие вопросы.</p>
+	</div>
+	
+	<div class="jumbotron">
+		<h2 class="sub_blocks">Director</h2>
+		<div class="row" style="padding:10px 18px;">
+			<div class="col-md-12" style="padding:0;">
+				<div class="rtable" style="width:100%;">
+					<div class="rTableRow_desc">
+						<div class="rTableCell">Name</div>
+						<div class="rTableCell">Skype</div>
+						<div class="rTableCell">Email</div>
+						<div class="rTableCell">Phone</div>
+					</div>
+					<div class="rTableRow_info">
+						<div class="rTableCell">Ivan Bondarenko</div>
+						<div class="rTableCell">ivan_bondar</div>
+						<div class="rTableCell">bondar@gmail.com</div>
+						<div class="rTableCell">(099) 123-45-67</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2 class="sub_blocks">Manager</h2>
+		<div class="row" style="padding:10px 18px;">
+			<div class="col-md-12" style="padding:0;">
+				<div class="rtable" style="width:100%;">
+					<div class="rTableRow_desc">
+						<div class="rTableCell">Name</div>
+						<div class="rTableCell">Skype</div>
+						<div class="rTableCell">Email</div>
+						<div class="rTableCell">Phone</div>
+					</div>
+					<div class="rTableRow_info">
+						<div class="rTableCell">Vasil Bondarevich</div>
+						<div class="rTableCell">vasil_bondarevich</div>
+						<div class="rTableCell">vasil@gmail.com</div>
+						<div class="rTableCell">(099) 123-67-89</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2 class="sub_blocks">Founder</h2>
+		<div class="row" style="padding:10px 18px;">
+			<div class="col-md-12" style="padding:0;">
+				<div class="rtable" style="width:100%;">
+					<div class="rTableRow_desc">
+						<div class="rTableCell">Name</div>
+						<div class="rTableCell">Skype</div>
+						<div class="rTableCell">Email</div>
+						<div class="rTableCell">Phone</div>
+					</div>
+					<div class="rTableRow_info">
+						<div class="rTableCell">James Bond</div>
+						<div class="rTableCell">james_bond</div>
+						<div class="rTableCell">bond@gmail.com</div>
+						<div class="rTableCell">(099) 987-65-43</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<nav aria-label="forward-back">
+	<ul class="pager">
+		<li class="left"><a href="{% url 'index' %}">РќР°Р·Р°Рґ</a></li>
+		<li class="right"><a href="{% url 'students:list_view' %}">Р’РїРµСЂРµРґ</a></li>
+	</ul>
+</nav>
+{% endblock %}
+

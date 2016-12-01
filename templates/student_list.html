@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Sergey Chepurnykh">
+	{% load static %}
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    <title>Students</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+	    <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+	<div class="jumbotron">
+		<h1 class="intro">Стунденты курса PyBursa</h1>
+		<h2 class="sub_blocks">Ниже представлен список стундентов, выпуск - декабрь 2016</h2>
+		<div class="student_head">
+			<div class="col-md-1 s_number">No</div>
+		        <div class="col-md-2 s_surname">Surname</div>
+		        <div class="col-md-2 s_name">Name</div>
+		        <div class="col-md-5 s_addr">Address</div>
+		        <div class="col-md-2 s_skype">Skype</div>
+		</div>
+		<div class="student_row">
+		      	<div class="col-md-1 st_number"><a class="s_details" href="{% url 'student_detail' %}">1</a></div>
+		        <div class="col-md-2 st_surname">Sergey</div>
+		        <div class="col-md-2 st_name">Chepurnykh</div>
+			<div class="col-md-5 st_addr">Украина, г. Харьков, ул. Иванова 1</div>
+		        <div class="col-md-2 st_skype">schepurnykh</div>
+		</div>
+		<div class="student_row">
+		      	<div class="col-md-1 st_number">2</div>
+		       	<div class="col-md-2 st_surname">Gunko</div>
+		       	<div class="col-md-2 st_name">Vadim</div>
+		      	<div class="col-md-5 st_addr">Украина, г. Харьков, ул. Иванова 2</div>
+		        <div class="col-md-2 st_skype">Vadim.Gunko</div>
+		</div>
+		<div class="student_row">
+			<div class="col-md-1 st_number">3</div>
+			<div class="col-md-2 st_surname">Eduard</div>
+		        <div class="col-md-2 st_name">Strukov</div>
+		        <div class="col-md-5 st_addr">Украина, г. Харьков, ул. Иванова 3</div>
+		        <div class="col-md-2 st_skype">edstrukov</div>
+		</div>
+		<div class="student_row">
+			<div class="col-md-1 st_number">4</div>
+		        <div class="col-md-2 st_surname">Kazntipov</div>
+		        <div class="col-md-2 st_name">Kazantip</div>
+		        <div class="col-md-5 st_addr">Казантип, ул. Казантипска 1</div>
+		        <div class="col-md-2 st_skype">kazan</div>
+		</div>
+		<div class="student_row">
+			<div class="col-md-1 st_number">5</div>
+		        <div class="col-md-2 st_surname">Fursov</div>
+		        <div class="col-md-2 st_name">Denis</div>
+		        <div class="col-md-5 st_addr">Украина, г. Харьков, ул. Иванова 4</div>
+		        <div class="col-md-2 st_skype">d.fursov</div>
+		</div>
+	<p>**Для получения детальной информации по студенту кликните на нужную строку.</p>
+	</div>
+    </div>
+
+<nav aria-label="forward-back">
+  <ul class="pager">
+    <li class="left"><a href="{% url 'contact' %}">Назад</a></li>
+  </ul>
+</nav>
+  </body>
+</html>
+
