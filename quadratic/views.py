@@ -14,9 +14,10 @@ def quadratic_results(request):
             if d>=0:
                 x1=(-b+d**(1/2))/(2*a)
                 x2=(-b-d**(1/2))/(2*a)
+                context['x1'] = x1
+                context['x2'] = x2
             context['discr'] = d
-            context['x1'] = x1
-            context['x2'] = x2
+            
     else:
         form = QuadraticForm()
         context =  {"form": form} 
