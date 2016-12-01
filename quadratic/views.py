@@ -18,25 +18,21 @@ def valid(value):
 
 def quadratic_results(request):
     form = QuadraticForm()
+    context =  {"form": form} 
     if len(request.GET) > 0:
-        print('>0')
         form = QuadraticForm(request.GET)
         (d, x1, x2) = (0, 0, 0)   
         if form.is_valid():
-            print('is_valid')
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']	
             ch = 0
             d=b**2 - 4*a*c
             if d>=0:
-                print(d)
                 x1=(-b+d**(1/2))/(2*a)
                 x2=(-b-d**(1/2))/(2*a)
             context =  {"a": a, "b": b, "c": c, "discr": d,"x1": x1, "x2": x2, "form": form, "ch": ch}
-            print(context)
     else:
-        print('<0')
         context =  {"form": form} 
     return render(request, "quadratic/results.html", context)
 
