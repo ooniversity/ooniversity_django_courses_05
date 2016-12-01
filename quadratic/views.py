@@ -15,7 +15,6 @@ def discriminant(data):
     result_text = 'Квадратное уравнение имеет два действительных корня: x1 = %(x1)s, x2 = %(x2)s'
     result_text_eq = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %(x1)s'
 
-
     dis = b ** 2 - 4 * a * c
     dis_result = dis_text_result % {'dis': dis}
 
