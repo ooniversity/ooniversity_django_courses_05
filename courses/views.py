@@ -17,7 +17,7 @@ def create(request):
         form = CourseModelForm(request.POST)
         if form.is_valid():
             course = form.save()
-            messages.success(request, u'Курс {} успешно создан.'.format(course.name))
+            messages.success(request, u'Course {} has been successfully added.'.format(course.name))
             return redirect('index')
     else:
         form = CourseModelForm()
@@ -30,7 +30,7 @@ def edit(request, pk):
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid():
             course = form.save()
-            messages.success(request, u'Данные изменены.')
+            messages.success(request, u'The changes have been saved.')
             return redirect('courses:edit', course.id)
     else:
         form = CourseModelForm(instance=course)
@@ -41,7 +41,7 @@ def remove(request, pk):
     course = get_object_or_404(Course, pk=pk)
     if request.method == "POST":
         course.delete()
-        messages.success(request, u'Курс {} был удален.'.format(course.name))
+        messages.success(request, u'Course {} has been deleted.'.format(course.name))
         return redirect('index')
     return render(request, 'courses/remove.html', {'course': course})
 
@@ -52,7 +52,7 @@ def add_lesson(request, pk):
         form = LessonModelForm(request.POST)
         if form.is_valid():
             lesson = form.save()
-            messages.success(request, u'Занятие {} было создано.'.format(lesson.subject))
+            messages.success(request, u'Lesson {} has been successfully added.'.format(lesson.subject))
             return redirect('courses:detail', lesson.course_id)
     else:
         form = LessonModelForm(initial={'course': course})
