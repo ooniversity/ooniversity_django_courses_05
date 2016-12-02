@@ -49,7 +49,7 @@ def edit(request, course_id):
        if form.is_valid():
            course = form.save()
            messages.success(request, "The changes have been saved.")
-           return redirect('../../../')
+           return redirect('/courses/edit/{0}/'.format(course_id))
     else:
         form = CourseModelForm(instance=course)
     return render(request, "courses/edit.html", {'form': form})
@@ -59,7 +59,7 @@ def remove(request, course_id):
     if request.method == "POST":
        course.delete()
        messages.success(request, "Course {0} has been deleted.".format(course.name))
-       return redirect('../../../')
+       return redirect('/')
     else:
         form = CourseModelForm(instance=course)
     return render(request, "courses/remove.html", {"course": course})
@@ -72,7 +72,7 @@ def add_lesson(request, course_id):
        if form.is_valid():
            instance = form.save()
            messages.success(request, "Lesson {0} has been successfully added.".format(form.cleaned_data['subject']))
-           return redirect('../../')
+           return redirect('/courses/{0}/'.format(course_id))
     else:
         form = LessonModelForm(initial={"course": course.name})
     return render(request, "courses/add_lesson.html", {'form': form})
