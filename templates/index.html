@@ -29,6 +29,7 @@
                    <td>Курс</td>
                    <td>Описание</td>
                    <td></td>
+                   <td></td>
                 </tr>
                   {% for course in courses%}
                 <tr>
@@ -36,6 +37,7 @@
                      <td><a href="{% url 'courses:detail' course.id%}">{{ course.name|upper }}</a> </td>
                      <td>{{ course.short_description|title }} </td>
                      <td><a href="{% url 'courses:edit' course.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
+                     <td><a href="{% url 'courses:remove' course.id %}"><button type="button" class="btn btn-primary">Удалить</button></a></td>
                 </tr>
                   {% endfor %}
             </table>
