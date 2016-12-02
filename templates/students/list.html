@@ -22,19 +22,31 @@
   <a href="{% url 'students:add' %}"><button type="button" class="btn btn-primary">Добавить нового студента</button></a>
 </p>
 
-
       <div class="blog-post">
             <h2>Список студентов</h2>
 
             <table class="table table-bordered" style="width: 95%">
-                <tr class="student_list"><td>#</td><td>фамилия имя</td><td>адрес</td><td>skype</td><td>курсы</td><td></td><td></td></tr>
+                <tr class="student_list">
+                   <td>#</td>
+                   <td>фамилия имя</td>
+                   <td>адрес</td>
+                   <td>skype</td>
+                   <td>курсы</td>
+                   <td></td>
+                   <td></td>
+                </tr>
                   {% for student in students_list %}
-                   <tr><td>{{ student.id }} </td><td><a href="{% url 'students:detail' student.id%}">{{ student.name }} {{ student.surname }}</a></td><td>{{ student.address }} </td><td>{{ student.skype }} </td>
+                <tr>
+                   <td>{{ student.id }} </td>
+                   <td><a href="{% url 'students:detail' student.id%}">{{ student.name }} {{ student.surname }}</a></td>
+                   <td>{{ student.address }} </td>
+                   <td>{{ student.skype }} </td>
                    <td> {% for courses in student.courses.all %}
-                       <p><a href="{% url 'courses:detail' courses.id%}">{{ courses }}</a></p>
-                 {% endfor %}   </td>
-                 <td><a href="{% url 'students:edit' student.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
-                 <td><a href="{% url 'students:remove' student.id %}"><button type="button" class="btn btn-primary">Удалить</button></a></td>
+                            <p><a href="{% url 'courses:detail' courses.id%}">{{ courses }}</a></p>
+                        {% endfor %}   
+                   </td>
+                   <td><a href="{% url 'students:edit' student.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
+                   <td><a href="{% url 'students:remove' student.id %}"><button type="button" class="btn btn-primary">Удалить</button></a></td>
                  </tr>
                   {% endfor %}
             </table>

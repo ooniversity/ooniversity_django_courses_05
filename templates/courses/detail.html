@@ -5,48 +5,62 @@
 
 
 {% block content %}
-      
-          <div class="blog-header">
-        <h1 class="blog-title">{{ course.name }} </h1>
-        <p>{{ course.description|truncatechars:32  }} </p>
-      </div>
+  <p>
+    <a href="{% url 'courses:add_lesson' course.id%}"><button type="button" class="btn btn-primary">Создание нового занятия </button></a>
+  </p>
 
-         <div class="blog-post">
-       <h2>Преподаватели</h2>
-        {% if i_coach == 1 %} 
-            <table class="table table-bordered" style="width: 95%">
-            <tr class="student_list"><td>Учитель</td></tr>
-             <tr><td>
-             <p><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }}  {{ coach.user.last_name }}</a></p> 
-             <p> {{ coach.description }}</p>
-             </td></tr>
-              </table>
-        {% endif %}
+      <div class="blog-header">
+    <h1 class="blog-title">{{ course.name }} </h1>
+    <p>{{ course.description|truncatechars:32  }} </p>
+  </div>
 
-        {% if i_assist == 1 %} 
-            <table class="table table-bordered" style="width: 95%">
-            <tr class="student_list"><td>Ассистент</td></tr>
-             <tr><td>
-             <p>
-                <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }}  {{ assistant.user.last_name }}</a>
-             </p> 
-             <p> {{ assistant.description }}</p>
-             </td></tr>
+  <div class="blog-post">
+
+   <h2>Преподаватели</h2>
+      {% if i_coach == 1 %} 
+          <table class="table table-bordered" style="width: 95%">
+          <tr class="student_list"><td>Учитель</td></tr>
+           <tr><td>
+           <p><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }}  {{ coach.user.last_name }}</a></p> 
+           <p> {{ coach.description }}</p>
+           </td></tr>
             </table>
-        {% endif %}
-    </div><!-- /.blog-post -->
-     
-          <div class="blog-post">
-            <h2>План занятий:</h2>
+      {% endif %}
 
-            <table class="table table-bordered" style="width: 95%">
-                <tr class="student_list"><td>#</td><td>Тема</td><td>Описание</td></tr>
-                  {% for lessons in lessons%}
-                   <tr><td>{{ lessons.order }} </td><td>{{ lessons.subject }} </td><td>{{ lessons.description }} </td></tr>
-                  {% endfor %}
-            </table>
+      {% if i_assist == 1 %} 
+          <table class="table table-bordered" style="width: 95%">
+            <tr class="student_list">
+               <td>Ассистент</td>
+             </tr>
+            <tr>
+              <td>
+                 <p><a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }}  {{ assistant.user.last_name }}</a></p> 
+                 <p> {{ assistant.description }}</p>
+              </td>
+            </tr>
+          </table>
+      {% endif %}
+  </div><!-- /.blog-post -->
+ 
+  <div class="blog-post">
+    <h2>План занятий:</h2>
 
-          </div><!-- /.blog-post -->
+    <table class="table table-bordered" style="width: 95%">
+       <tr class="student_list">
+         <td>#</td>
+         <td>Тема</td>
+         <td>Описание</td>
+       </tr>
+          {% for lessons in lessons%}
+       <tr>
+         <td>{{ lessons.order }} </td>
+         <td>{{ lessons.subject }} </td>
+         <td>{{ lessons.description }} </td>
+      </tr>
+          {% endfor %}
+    </table>
+      <p>  <a href="{% url 'courses:remove' course.id %}"><button type="button" class="btn btn-primary">Удалить курс</button></a> </p>
+  </div><!-- /.blog-post -->
 
 {% endblock content %}
 

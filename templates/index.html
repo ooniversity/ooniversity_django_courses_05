@@ -10,16 +10,38 @@
 {% block content %}
      {% include "include/school_include.html" %}
 
+     {% if messages %}
+        <ul class="messages">
+         <div class="jumbotron">
+           {% for message in messages %}
+             <li{% if message.tags %} class="{{ massage.tags }}" {% endif %}>{{ message }}</li>
+           {% endfor %}
+        </div>
+        </ul>
+     {% endif %}
+
         <div class="blog-post">
             <h2>Наши курсы:</h2>
 
             <table class="table table-bordered"  style="width: 95%">
-                <tr class="student_list"><td>#</td><td>Курс</td><td>Описание</td></tr>
+                <tr class="student_list">
+                   <td>#</td>
+                   <td>Курс</td>
+                   <td>Описание</td>
+                   <td></td>
+                </tr>
                   {% for course in courses%}
-                   <tr><td>{{ forloop.counter }}</td><td><a href="{% url 'courses:detail' course.id%}">{{ course.name|upper }}</a> </td><td>{{ course.short_description|title }} </td></tr>
+                <tr>
+                     <td>{{ forloop.counter }}</td>
+                     <td><a href="{% url 'courses:detail' course.id%}">{{ course.name|upper }}</a> </td>
+                     <td>{{ course.short_description|title }} </td>
+                     <td><a href="{% url 'courses:edit' course.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
+                </tr>
                   {% endfor %}
             </table>
-
+<p>
+  <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-primary">Добавить новый курс</button></a>
+</p>
           </div><!-- /.blog-post -->
 {% endblock content %}
 

@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 
 
-{% block nav_class_student %} active {% endblock %}
-
-
-{% block title %} Удаление студента {% endblock title %}
+{% block title %} Удаление курса {% endblock title %}
 
 
 {% block content %}
       
  <div class="blog-post">
-  <h2>Студент {{ student }} будет удален </h2>
+  <h2>Курс {{ student }} будет удален </h2>
 
    <form method="post">
      {% csrf_token %}
