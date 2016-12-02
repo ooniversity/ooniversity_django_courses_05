@@ -5,11 +5,18 @@
 
 
 {% block content %}
-  <p>
-    <a href="{% url 'courses:add_lesson' course.id%}"><button type="button" class="btn btn-primary">Создание нового занятия </button></a>
-  </p>
+  {% if messages %}
+        <ul class="messages">
+         <div class="jumbotron">
+           {% for message in messages %}
+             <li{% if message.tags %} class="{{ massage.tags }}" {% endif %}>{{ message }}</li>
+           {% endfor %}
+        </div>
+        </ul>
+     {% endif %}
 
-      <div class="blog-header">
+
+  <div class="blog-header">
     <h1 class="blog-title">{{ course.name }} </h1>
     <p>{{ course.description|truncatechars:32  }} </p>
   </div>
@@ -43,7 +50,10 @@
   </div><!-- /.blog-post -->
  
   <div class="blog-post">
-    <h2>План занятий:</h2>
+    <h2>План курса</h2>
+      <p>
+        <a href="{% url 'courses:add_lesson' course.id%}"><button type="button" class="btn btn-primary">Создание нового занятия </button></a>
+      </p>
 
     <table class="table table-bordered" style="width: 95%">
        <tr class="student_list">
