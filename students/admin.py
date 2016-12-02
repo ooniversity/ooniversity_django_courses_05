@@ -1,5 +1,6 @@
 from django.contrib import admin
 from students.models import Student
+from students.forms import StudentModelForm
 from django.db import models
 from django.forms import widgets 
 
@@ -14,10 +15,8 @@ class StudentAdmin(admin.ModelAdmin):
             (None, {'fields': ['courses']})
     ]    
 
-   
-
-
-   
 
 admin.site.register(Student, StudentAdmin)
+
+#admin.site.register(StudentModelForm)
 
