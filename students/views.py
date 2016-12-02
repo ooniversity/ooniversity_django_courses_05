@@ -18,13 +18,12 @@ def detail(request, student_id):
     student = Student.objects.get(id=student_id)
     return render (request, "students/detail.html", {"student": student,})
 
-def create(request):
+def add(request):
     model_form = StudentModelForm()
     if request.method == "POST":
        form = StudentModelForm(request.POST)
        if form.is_valid():
            instance = form.save()
-#           data = form.cleaned_data
            messages.success(request, "Student {0} has been successfully added.".format(form.cleaned_data['name'] + ' ' + form.cleaned_data['surname']))
            return redirect('../')
     else:
@@ -53,5 +52,8 @@ def remove(request, student_id):
     else:
         form = StudentModelForm(instance=student)
     return render(request, "students/remove.html", {"student": student})
+
+
+
 
 # Create your views here.
