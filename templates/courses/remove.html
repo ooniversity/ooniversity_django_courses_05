@@ -7,7 +7,7 @@
 {% block content %}
       
  <div class="blog-post">
-  <h2>Курс {{ course }} будет удален </h2>
+  <h2>Курс {{ course.name }} будет удален </h2>
 
    <form method="post">
      {% csrf_token %}

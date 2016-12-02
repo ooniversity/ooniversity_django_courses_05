@@ -49,7 +49,7 @@ def edit(request, course_id):
        if form.is_valid():
            course = form.save()
            messages.success(request, "The changes have been saved.")
-           return redirect('/courses/{0}/'.format(course_id))
+           return redirect('courses:edit', course.id)
     else:
         form = CourseModelForm(instance=course)
     return render(request, "courses/edit.html", {'form': form})
@@ -60,8 +60,6 @@ def remove(request, course_id):
        course.delete()
        messages.success(request, "Course {0} has been deleted.".format(course.name))
        return redirect('/')
-    else:
-        form = CourseModelForm(instance=course)
     return render(request, "courses/remove.html", {"course": course})
 
 def add_lesson(request, course_id):
