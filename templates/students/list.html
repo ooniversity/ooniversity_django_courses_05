@@ -9,8 +9,19 @@
 
 
 {% block content%}
+{% if messages %}
+  <ul class="messa">
+    {% for message in messages %}
+    <div class="mess">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+  <div id=button1><a href="{% url 'students:add'%}"><button class="adstud">Add new student</button></a></div>
   <div class="table">
-    <h3>Список студентов</h3>
+    <h3>Список студентов</h3></div><br>
+  <div class="table">
     </div>
       <div class="td">
       <table class="table">
@@ -21,17 +32,21 @@
             <th>адрес</th>
             <th>skype</th>
             <th>курсы</th>
+            <th></th>
           </tr>
         {% for i in students %}
           <col width="210">
           <tr>
             <td>{{i.id}}</td>
-            <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a></td>
+            <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a><br><a href="{% url 'students:edit' i.id %}"><button class="adstud">Edit</button></a>
+            <a href="{% url 'students:remove' i.id %}"><button class="adstud">Remove</button></a></td>
             <td>{{i.address}}</td>
             <td>{{i.skype}}</td>
             <td>{% for j in i.courses.all %}<a href="{% url 'courses:detail' j.id %}">{{j.name}}</a><br>
                 {% endfor %}
             </td>
+            <!--<td><a href="{% url 'students:edit' i.id %}"><button class="adstud">Edit</button></a></td>
+            <td><a href="{% url 'students:remove' i.id %}"><button class="adstud">Remove</button></a></td>-->
           </tr>
         {% endfor %}
       </table>
