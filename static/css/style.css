@@ -1,5 +1,5 @@
 .name {
-	padding-left:140px;
+	padding-left:90px;
     font-size:45px;
     color:blue;
 }
@@ -74,7 +74,7 @@ margin: 40px
 }
 
 .contact{
-    padding-left: 140px;
+    padding-left: 90px;
 }
 .dir {
     color: grey;
@@ -193,7 +193,7 @@ padding-left:40px
     padding: 12px;
 }
 .table{
-    margin-left:140px;
+    margin-left:90px;
     background:#F5F5F5;
     border-spacing:8px;
     font-style:italic;
@@ -202,7 +202,7 @@ padding-left:40px
 }
 
 .course{
-    margin-left:140px;
+    margin-left:90px;
     padding-left:15px;
     background:#F5F5F5;
     width:800px;
@@ -221,4 +221,23 @@ padding-left:40px
 .output_form{
     margin-left:40px;
     padding-left:40px;
-    }
+}
+#button1{
+    padding-left: 140px;
+}
+.adstud{
+    color: white;
+    background-color: #009ACD;
+}
+.mess{
+    background: rgba(66, 232, 197, 0.28);
+    font-style: italic;
+    width: 185px;
+    text-align: center;
+    border: 1px;
+    border-radius: 6px;
+}
+
+.messa{
+    margin-left: 90px;
+}
