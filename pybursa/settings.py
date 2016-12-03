@@ -31,17 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'quadratic.apps.QuadraticConfig',
-    'coaches.apps.CoachesConfig',
-    'students.apps.StudentsConfig',
-    'courses.apps.CoursesConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polls.apps.PollsConfig',
+    'quadratic.apps.QuadraticConfig',
+    'courses.apps.CoursesConfig',
+    'students.apps.StudentsConfig',
+    'coaches.apps.CoachesConfig',
 ]
 
 MIDDLEWARE = [
