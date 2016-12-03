@@ -1,15 +1,14 @@
-{% extends "base.html" %}
-
-{% load staticfiles %}
-
-{% block title %}Контакты{% endblock %}
-
-{% block navigation_contact %}"active"{% endblock %}
+{% extends 'base.html' %}
 
 
-{%  block content %}
+{% block title %}Contacts{% endblock title %}
 
-      <div class="starter-template">
+
+{% block active_contact %}active{% endblock %}
+
+
+{% block content %}
+ <div class="starter-template">
         <h1 class=cont><strong>Contacts</strong></h1><br>
         
 	<div>
@@ -25,8 +24,9 @@
            <dt class="text_phone">Phone</dt>
                <dd> <span></span><img src="{% static 'images/phone.png' %}" class=img_phone>066-555-5555</dd>    
         </dl>       
+        </div>
         
-        <div>
+	<div>
         <h3 class=mc>Manager</h3>
 
          <dl>
@@ -39,7 +39,8 @@
            <dt class="text_phone">Phone</dt>
                <dd> <span></span><img src="{% static 'images/phone.png' %}" class=img_phone>067-666-5555</dd>
         </dl>
-        
+        </div>
+
         <div>
         <h3 class=fc>Founder</h3>
 
@@ -55,4 +56,4 @@
         </dl>
              
     </div>	
-{% endblock %}
+{% endblock content %}
