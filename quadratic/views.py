@@ -1,32 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-def proverka(x):
-    mess = ''
-    zn = ''
-    if x:
-        try:
-            zn = int(x)
-        except ValueError:
-            zn = x
-            mess = 'коэффициент не целое число'
-    else:
-        mess = 'коэффициент не определен'
-    return {'zn':zn, 'mess':mess}
+from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     numbers = {}
-
-    dicta = proverka(request.GET['a'])
-    a = dicta['zn']
-    dictb = proverka(request.GET['b'])
-    b = dictb['zn']
-    dictc = proverka(request.GET['c'])
-    c = dictc['zn']   
-    if isinstance(a,int) and isinstance(b,int) and isinstance(c,int):
-        if a == 0:
-            dicta['mess'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-        else:
+    if request.GET:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
             d = b ** 2 - 4 * a * c
             if d < 0:
                 result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
@@ -37,6 +19,8 @@ def quadratic_results(request):
                 x2 = (-b - d ** (1/2.0)) / (2 * a)
                 result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
             numbers.update({ 'd' : d, 'result' : result })
+    else:
+        form = QuadraticForm()
+    numbers.update({ 'form' : form })
 
-    numbers.update({ 'a' : dicta, 'b' : dictb, 'c' : dictc })
     return render(request, 'results.html', numbers)
