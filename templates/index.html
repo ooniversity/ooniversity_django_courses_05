@@ -28,6 +28,9 @@
 	</div>
 	<div class="jumbotron">
 		<h2 class="sub_blocks">Наши курсы</h2>
+		<form>
+			<button><a class="add_student_button" href="{% url 'courses:add' %}">Добавить новый курс</a></button>
+		</form>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -43,6 +46,8 @@
 							<tr>
 								<td><a href="{% url 'courses:detail' course_item.id %}">{{ course_item.name|upper }}</a></td>
 								<td>{{ course_item.short_description|truncatechars:70 }}</td>
+								<td><a class="add_student_button" href="{% url 'courses:edit' course_item.id %}">Редактировать</a></td>
+								<td><a class="add_student_button" href="{% url 'courses:remove' course_item.id %}">Удалить</a></td>	
 							</tr>
 							{% endfor %}
 						</tbody>

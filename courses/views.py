@@ -1,76 +1,56 @@
 from django.shortcuts import render, redirect
-from courses.models import Course, Lesson
-from courses.forms import CourseModelForm, LessonModelForm
+from .models import Course, Lesson
+from .forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
-
+# Create your views here.
 
 def detail(request, course_id):
-    current_course = Course.objects.get(id=course_id)
-    lessons = Lesson.objects.filter(course=current_course).order_by('order')
-    context = {'course': current_course, 'lessons': lessons}
-	
-    return render(request, 'courses/detail.html', context)
-		
-def add(request):
-    if request.method == "POST":
-        form = CourseModelForm(request.POST)
-        if form.is_valid():
-            instance = form.save()
-            result_string = "Course %(name)s has been successfully added." % {'name': instance.name}
+    qs = Course.objects.get(id=course_id)
+    leson = Lesson.objects.filter(course=qs)
 
-            messages.success(request, result_string)
+    return render(request, 'courses/detail.html', {'course': qs, 'lessons': leson})
+
+def add(request):
+    if request.method == 'POST':
+        model_form = CourseModelForm(request.POST)
+        if model_form.is_valid():
+            model_form.save()
+            messages.success(request, "Course {0} has been successfully added.".format(model_form.cleaned_data['name']))
             return redirect('/')
     else:
-        form = CourseModelForm()
-
-    return render(request, 'courses/add.html', {'form': form})
-
+        model_form = CourseModelForm()
+    return render(request, 'courses/add.html', {'model': model_form})
 
 def edit(request, course_id):
-
-    course = Course.objects.get(id=course_id)
-
-    if request.method == "POST":
-        form = CourseModelForm(request.POST, instance=course)
-        if form.is_valid():
-            instance = form.save()
-            result_string = "The changes have been saved."
-            messages.success(request, result_string)
-            url_string = reverse('courses:edit', args=(course_id,))
-            return redirect(url_string)
-
-    form = CourseModelForm(instance=course)
-
-    return render(request, 'courses/edit.html', {'form': form})
-
+    course = Course.objects.get(id=int(course_id))
+    if request.method == 'POST':
+        model_form = CourseModelForm(request.POST, instance=course)
+        if model_form.is_valid():
+            model_form.save()
+            messages.success(request, 'The changes have been saved.')
+            return redirect('/courses/edit/{0}/'.format(course_id))
+    else:
+        model_form = CourseModelForm(instance=course)
+    return render(request, 'courses/edit.html', {'model': model_form})
 
 def remove(request, course_id):
-    course = Course.objects.get(id=course_id)
-    name = course.name
-    if request.method == "POST":
+    course = Course.objects.get(id=int(course_id))
+    if request.method == 'POST':
         course.delete()
-        result_string = "Course %(name)s has been deleted." % {'name': name}
-
-        messages.success(request, result_string)
+        messages.success(request, 'Course {0} has been deleted.'.format(course.name))
         return redirect('/')
-
-    delete_course = "Курс %(name)s будет удален" % {'name': name}
-
-    return render(request, 'courses/remove.html', {'delete_course': delete_course})
-
+    else:
+        model_form = CourseModelForm(instance=course)
+    return render(request, 'courses/remove.html', {'model': model_form})
 
 def add_lesson(request, course_id):
-    course = Course.objects.get(id=course_id)
-    if request.method == "POST":
-        form = LessonModelForm(request.POST)
-        if form.is_valid():
-            instance = form.save()
-            result_string = "Lesson %(subject)s has been successfully added." % {'subject': instance.subject}
-
-            messages.success(request, result_string)
-            url_string = reverse('courses:detail', args=(course_id,))
-            return redirect(url_string)
+    # course = Course.objects.get(id=int(course_id))
+    if request.method == 'POST':
+        model_form = LessonModelForm(request.POST)
+        if model_form.is_valid():
+            model_form.save()
+            messages.success(request, 'Lesson {0} has been successfully added.'.format(model_form.cleaned_data['subject']))
+            return redirect('/courses/{0}/'.format(course_id))
     else:
-        form = LessonModelForm(initial={'course': course})
-
-    return render(request, 'courses/add_lesson.html', {'form': form})
+        model_form = LessonModelForm(initial={'course': int(course_id)})
+    return render(request, 'courses/add_lesson.html', {'model': model_form})
