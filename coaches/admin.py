@@ -3,19 +3,17 @@ from django.contrib import admin
 # Register your models here.
 from coaches.models import Coach
 
-#class LessonInline(admin.StackedInline):
- #   model = Lesson
-  #  list_fields = ["subject", "description", "order"]
 
 class CoachAdmin(admin.ModelAdmin):
     list_display = ["user", "gender", "skype", "description"]
-    #----------------------------------------------------------list_filter = ('is_staff',)---------------------------
-  #  search_fields = ["name"]
- #   fields = ["name", "short_description"]
-   # inlines = [LessonInline]
+    list_filter = ['user__is_staff',]
 
-#class MyAdminSite(AdminSite):
- #   site_header = 'PyBursa Administration'
+    def name(self, obj):
+        return obj.user.first_name # не нужно и без него выводит
+
+    def surname(self, obj):
+        return obj.user.last_name
+
 
 admin.site.register(Coach, CoachAdmin)
 admin.site.site_header = "PyBursa Administration"

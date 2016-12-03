@@ -1,46 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-   <head>
-   		<meta charset="utf-8">
-		<title>about_students </title>
-		<meta name="description">
-		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
-		<link href="https://fonts.googleapis.com/css?family=Handlee|Indie+Flower" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-		<style type="text/css">
-			h1{font-family: 'Indie Flower', cursive;}
-			h3{font-family: 'Handlee', cursive;}
-			body {
-    			margin-right: 5%; /* Отступ справа */
-    			margin-left: 2%; /* Отступ слева */
-   				 }
-		</style>
-		<script src="{% static 'bootstrap.min.js' %}"></script>
-   </head>
-   <body>
-   	<nav class=".navbar-inverse">
-   		<div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="/">Главная</a>
-		    </div>
+{% extends "students/base.html" %}
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		       <!-- <li><a ">Контакты</a></li> -->
-		        <li><a href="/students/">Студенты</a></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-    </nav>
+{% load static %}
+
+
+{% block title %}about_students{% endblock title %}
+
+
+{% block content %}
 	<h1>{{ student_full.surname }} {{ student_full.name }}</h1>
 		  <p>_____________________________________________________</p>
 	      <p>Дата рождения:   {{ student_full.date_of_birth }}</p>
@@ -53,8 +19,8 @@
 	      <p>_____________________________________________________</p>
 	      <p>phone:   {{ student_full.phone }}</p>
 		  <p>_____________________________________________________</p>
+	      <p>Курсы: </p>
 	      {% for course in student_full.courses.all %}
 			<br><a href="/courses/{{ course.id }}">{{ course.name }}</a></td></br></p>
           {% endfor %}
-   </body>
-</html>
+{% endblock content %}

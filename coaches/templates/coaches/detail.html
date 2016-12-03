@@ -1,0 +1,36 @@
+{% extends "coaches/base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}BEST_COACHES{% endblock title %}
+
+
+{% block content %}
+    <h1 align="center">{{ course_name }}</h1></br>
+   <div align="center">{{ course_name.description }}</div></br>
+	<h3>{{ coach_name.full_name }}</h3>
+	<div>День рождения: {{ coach_name.date_of_birth|date:'j F, Y' }}</div>
+	<div>email: {{ coach_name.user.email }}</div>
+	<div>Телефон: {{ coach_name.phone }}</div>
+	<div>Адресс: {{ coach_name.address }}</div>
+	<div>Skype: {{ coach_name.skype }}</div>
+	{% if coach %}
+	  {% for c in coach %}
+		<p>Курсы Инструктор: <a href="/courses/{{ c.id }}/">{{ c.name }}</a> Студенты курса <a href="/students/{{ stud.id }}?course_id={{ c.id }}">
+			<i class="glyphicon glyphicon-share-alt"></i></a><br> </p>
+	  {% endfor %}
+	{% endif %}
+	{% if assistant %}
+	  {% for a in assistant %}
+		<p>Курсы ассистент: <a href="/courses/{{ c.id }}/">{{ a.name }}</a> Студенты курса <a href="/students/{{ stud.id }}?course_id={{ a.id }}">
+			<i class="glyphicon glyphicon-share-alt"></i></a><br> </p>
+	  {% endfor %}
+	{% endif %}
+   <p class="line">____________________________</p>
+{% endblock content %}
+
+
+
+

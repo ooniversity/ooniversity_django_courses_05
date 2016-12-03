@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class Coach(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, null = True)
+    user = models.OneToOneField(User, null = True)
     date_of_birth = models.DateField(null = True, blank = True)
     instructor = (
         ('m', 'Male'),
@@ -18,8 +18,13 @@ class Coach(models.Model):
     skype = models.CharField(max_length=100, null = True)
     description = models.TextField(null = True,)
 
-    #def __str__(self):
-     #   return self.username
+    def __str__(self):
+        return self.user.username
+
+    @property
+    def full_name(self):
+        return "{0} {1}".format(self.user.first_name, self.user.last_name)
+
 
 #user1:Gaitavr1 pass:qwerty12345 name:Mozes mail:gaitavr@example.com
 #user2:Kolombo pass:zxcvbnm12345 name:piter mail:piter_falk@hotmail.com

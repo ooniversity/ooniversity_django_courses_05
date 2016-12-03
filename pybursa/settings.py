@@ -142,6 +142,7 @@ TEMPLATES = [
             # insert your TEMPLATE_DIRS here
             #"/root/DJANGO",
             "courses/templates/courses",
+            "coaches/templates/coaches",
             "templates/pybursa",
             "quadratic/templates/quadratic",
             "",
