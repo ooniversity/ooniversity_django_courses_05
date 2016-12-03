@@ -32,6 +32,16 @@
         be used for everything from web development to software development and scientific applications.</p>
 </div><!-- /Content_program-->
 
+{% include 'include/message_include.html' %}
+
+<div>
+    <a href="{% url 'courses:add'%}">
+        <button>+ Добавить новый курс</button>
+    </a>
+</div>
+<br>
+<br>
+
 <div class="panel panel-default">
 
     <!-- Table -->
@@ -39,11 +49,23 @@
         <tr class="title_table">
             <td>Курс</td>
             <td>Описание</td>
+            <td></td>
+            <td></td>
         </tr>
         {% for course in courses %}
         <tr class="table_first_student">
             <td><a href="{% url 'courses:detail' course.id%}">{{ course|upper }}</a></td>
             <td>{{ course.short_description|title }}</td>
+            <td>
+                <a href="{% url 'courses:edit' course.id %}">
+                    <button>Изменить</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'courses:remove' course.id %}">
+                    <button>Удалить</button>
+                </a>
+            </td>
         </tr>
         {% endfor %}
 
