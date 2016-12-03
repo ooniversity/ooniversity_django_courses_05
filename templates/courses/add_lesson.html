@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Удаление{% endblock %}
+{% block title %}Новый урок{% endblock %}
 
 {% block navigation_students %}"active"{% endblock %}
-
 
 {%  block content %}
 
     <div class="container">
-        <H4>{{ delete_student }}</H4>
+        <H4>Создание нового занятия</H4>
 
         <form method="post">
             {% csrf_token %}
-        <input type="submit" value="Удалить">
+            {{ form.as_p }}
+        <input type="submit" value="Создать">
         </form>
     </div>
 
