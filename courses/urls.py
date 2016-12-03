@@ -1,5 +1,7 @@
 from django.conf.urls import include, url
-from courses.views import Course_descr_view
+from . import views
+
+app_name = 'courses'
 urlpatterns = [
-    url(r'^(?P<pk>\d+)/', Course_descr_view.as_view(), name = 'course-description'),
+    url(r'^(?P<course_id>[0-9]+)/$', views.detail, name='detail'),
 ]

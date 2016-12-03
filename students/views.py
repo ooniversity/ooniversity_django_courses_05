@@ -1,17 +1,20 @@
 from django.shortcuts import render
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
 from students.models import Student
 
-class List_View(ListView):
 
-    model = Student
-    template_name = "../templates/students/list_view.html"
+def list_view(request):
 
-    def get_queryset(self):
-        return Student.objects.all()
+    if len(request.GET) == 0:
+        student_list = Student.objects.all()
+    else:
+        course_id = request.GET['course_id']
+        student_list = Student.objects.filter(courses__id=course_id)
 
-class StudentDescr(DetailView):
-    model = Student
-    template_name = "../templates/students/details.html"
+    context = {'students': student_list}
+    return render(request, 'students/list.html', context)
 
+
+def detail(request, student_id):
+    current_student = Student.objects.get(id=student_id)
+    context = {'student': current_student}
+    return render(request, 'students/detail.html', context)
