@@ -15,35 +15,55 @@
 
 {% block content %}
 
-  <div class = "description">
+{% include 'include/message_include.html' %}
+
+<div>
+    <a href="{% url 'students:add'%}">
+        <button>+ Добавить нового студента</button>
+    </a>
+</div>
+
+<div class="description">
     <h1 class=title_description>BrainBursa students list</h1>
     <p class=content_description>Below is a list of the best students of the course </p>
 </div>
 
 <h1>Список студентов</h1>
 <div class="panel panel-default">
-<table class="table">
-    <tr class="title_table">
-      <td>#</td>
-      <td>фамилия имя</td>
-      <td>адрес</td>
-      <td>skype</td>
-      <td>курсы</td>
-    </tr>
-    {% for student in students %}
-    <tr class="title_table">
-      <td>{{student.id}}</td>
-      <td><a href="{% url 'students:detail' student.id%}">{{student.surname}} {{student.name}}</a></td>
-      <td>{{student.address}}</td>
-      <td>{{student.skype}}</td>
-      <td>
-        {% for course in student.courses.all %}
-      <a href="{% url 'courses:detail' course.id%}">{{course}}</a><br>
-      {% endfor %}
-      </td>
-    </tr>
-    {% endfor %}
+    <table class="table">
+        <tr class="title_table">
+            <td>#</td>
+            <td>фамилия имя</td>
+            <td>адрес</td>
+            <td>skype</td>
+            <td>курсы</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% for student in students %}
+        <tr class="title_table">
+            <td>{{student.id}}</td>
+            <td><a href="{% url 'students:detail' student.id%}">{{student.surname}} {{student.name}}</a></td>
+            <td>{{student.address}}</td>
+            <td>{{student.skype}}</td>
+            <td>
+                {% for course in student.courses.all %}
+                <a href="{% url 'courses:detail' course.id%}">{{course}}</a><br>
+                {% endfor %}
+            </td>
+            <td>
+                <a href="{% url 'students:edit' student.id %}">
+                    <button>Изменить</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'students:remove' student.id %}">
+                    <button>Удалить</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
 
-  </table>
+    </table>
 </div>
 {% endblock content %}
