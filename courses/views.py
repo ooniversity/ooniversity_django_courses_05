@@ -1,18 +1,11 @@
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from courses.models import Course
+from django.shortcuts import render
+from courses.models import Course, Lesson
 
 
+def detail(request, course_id):
 
-class Detail(ListView):
-    model = Course
-    template_name = '../templates/courses/list.html'
-
-    def get_queryset(self):
-        return Course.objects.all()
-
-
-class Course_descr_view(DetailView):
-    model = Course
-    template_name = '../templates/courses/detail.html'
+    current_course = Course.objects.get(id=course_id)
+    lessons = Lesson.objects.filter(course=current_course).order_by('order')
+    context = {'course': current_course, 'lessons': lessons}
+    return render(request, 'courses/detail.html', context)
 

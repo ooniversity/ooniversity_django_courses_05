@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}PyBursa{% endblock %}
+
+
+
+{%  block content %}
+    <div class="page-header">
+      <h3 id="title_course">{{ coach.get_full_name }}</h3>
+    </div>
+
+   <div class="container">
+        <div>
+
+        <table class="table">
+
+              <tr>
+                <td>Date</td>
+                <td>{{ coach.date_of_birth|date:'d F, Y' }}</td>
+              </tr>
+              <tr>
+                <td>Adress</td>
+                <td>{{ coach.address }}</td>
+              </tr>
+              <tr>
+                <td>Mail</td>
+                <td>{{ coach.user.email }}</td>
+              </tr>
+              <tr>
+                <td>Skype</td>
+                <td>{{ coach.skype }}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>{{ coach.phone }}</td>
+              </tr>
+              <tr>
+                <td>Course coach</td>
+                <td>
+                    {% for course in courses_coach %}
+                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a> Students <a href="{%  url 'students:list_view' %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a></p>
+                    {% endfor %}
+                </td>
+              </tr>
+
+              <tr>
+                <td>Course assistant</td>
+                <td>
+                    {% for course in courses_assistant %}
+                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a> Students <a href="{%  url 'students:list_view'  %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a></p>
+                    {% endfor %}
+                </td>
+              </tr>
+
+        </table>
+        </div>
+   </div>
+{% endblock %}
