@@ -8,7 +8,7 @@ def index(request):
 
 def contact(request):
 	#return render(request, "contact.html") 
-	return render(request, 'contact.html')
+	return render(request, 'pybursa/contact.html')
 
 def student_list(request):
 	#return render(request, "student_list.html")

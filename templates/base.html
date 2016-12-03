@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+   		<meta charset="utf-8">
+		<title>{% block title %}{% endblock title %}</title>
+		<meta name="description">
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Handlee|Indie+Flower" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<style type="text/css">
+			h1{font-family: 'Indie Flower', cursive;}
+			h3{font-family: 'Handlee', cursive;}
+			#img1 {width:18px;height:18px}
+			#img2 {width:25px;height:25px}
+			body {
+    			margin-right: 5%; /* Отступ справа */
+    			margin-left: 2%; /* Отступ слева */
+   				 }
+		</style>
+		<script src="{% static 'bootstrap.min.js' %}"></script>
+   </head>
+   <body>
+ 	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">PyBursa</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="{% block nav_class_main%}{% endblock %}"><a href="/">Главная <span class="sr-only">(current)</span></a></li>
+		<li class="{% block nav_class_contact%}{% endblock %}"><a href="{% url 'contact' %}">Контакты</a>
+        </li><span class="sr-only">(current)</span></a></li>
+        <li class="{% block nav_class_students%}{% endblock %}"><a href="{% block student_course %}{% endblock %}">
+            Студенты</a></li><span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{% block content %}
+{% endblock content %}
+   </body>
+</html>
