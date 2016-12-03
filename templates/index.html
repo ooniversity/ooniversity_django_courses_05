@@ -10,6 +10,14 @@
 {% block active_main %}active{% endblock active_main %}
 
 {% block content %}
+
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
+
 <div class="container-fluid">
   <div class="hero-unit">
     <h2>ItBursa</h2>
