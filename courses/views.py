@@ -68,10 +68,9 @@ def add_lesson(request, course_id):
             result_string = "Lesson %(subject)s has been successfully added." % {'subject': instance.subject}
 
             messages.success(request, result_string)
-            url_string = reverse('courses:detail', args=(course_id,))
-            return redirect(url_string)
+            return redirect('/courses/{0}/'.format(course_id))
     else:
-        form = LessonModelForm(initial={'course': course})
+        form = LessonModelForm(initial={'course': int(course_id)})
 
     return render(request, 'courses/add_lesson.html', {'form': form})
 
