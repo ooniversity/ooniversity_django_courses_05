@@ -2,7 +2,6 @@
 import math
 from quadratic.forms import QuadraticForm
 
-
 def discriminant(data):
 
     a = data['a']
@@ -35,7 +34,6 @@ def discriminant(data):
                }
 
     return context
-
 
 def quadratic_results(request):
 
