@@ -1,0 +1,22 @@
+{% extends "templates/base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}Adding of student{% endblock %}
+
+
+{% block navbar_students %}active{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+  <h2>Add new student</h2>
+</div>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add">
+  </form>
+{% endblock content %}

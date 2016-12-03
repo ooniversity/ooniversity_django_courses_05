@@ -1,0 +1,21 @@
+{% extends "templates/base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}Deleting of student{% endblock %}
+
+
+{% block navbar_students %}active{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+  <h4>Student {{ student.name }} {{ student.surname }} will be deleted</h4>
+</div>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+  </form>
+{% endblock content %}
