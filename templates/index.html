@@ -9,11 +9,21 @@
 
 
 {% block content %}
-  <h2 class="h2" align="right">Select the course</h2>
-  <div class="main">
-    <div class="select">
+  <div class="button2"><a href="{% url 'courses:add' %}"><button class="adstud">Add a new course</button></a>
+  </div><br>
+  {% if messages %}
+  <ul class="messa2">
+    {% for message in messages %}
+    <div class="mess2">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+  <h2 class="name_title">Select the course</h2>
+  <div class="program">
     <table>
-      <col width="255">
+      <col width="250">
       <tr>
         <th>Курс</th>
         <th>Описание</th>
@@ -21,21 +31,17 @@
       {% for course in courses %}
       <tr>
         <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
-        <td>{{course.short_description|title }}</td>
+        <td width="300" height="40">{{course.short_description|title }}</td>
+        <td width="100" height="40"><a href="{% url 'courses:remove' course.id %}"><button class="adstud">Remove</button></a></td>
+        <td width="100" height="40"><a href="{% url 'courses:edit' course.id %}"><button class="adstud">Edit</button></a></td>
       </tr>
       {% endfor %}
-    </table></div>
+    </table>
   </div>
-  <h2 class="h2" align="right">Description</h2>
-    <div class="main">
+  <h2 class="name_title">Description</h2>
 {% include "include/description_include.html" %}
-    </div>
-  <h2 class="h2" align="right"> Program</h2>
-    <div class="main">
-      <p class="info2">Весь курс разделен на шесть недель: первая неделя это <span class="higlights">html</span>, <span class="higlights">css</span> и <span class="higlights">GIT</span>. Вторая неделя будет посвящена <span class="higlights">Django</span>. Третья неделя это структура Web-приложений и работа с базами данных, четвертая неделя - кастомизация админки и язык шаблонов, пятая неделя будет проведена за изучениями форм, типов полей, виджетов и аттрибутов валидации. На шестой, заключительной неделе, пройдет реализация стандартных задач, проведение их отладки и тестирование.</p>
-    </div>
-  <h2 class="h2" align="right">Perspectives</h2>
-    <div class="main">
-    <p class="info3"> Успешное окончание курса предполагает подготовку студента на уровне достаточном для получения вакансии Junior-а в любой компании занимающейся разработкой ПО. По статистике 97% обучающихся получают указанные должности в течении первых 3 месяцев после окончания курса.</p>
-    </div>
+  <h2 class="name_title" align="right"> Program</h2>
+      <p class="program">Весь курс разделен на шесть недель: первая неделя это <span class="higlights">html</span>, <span class="higlights">css</span> и <span class="higlights">GIT</span>. Вторая неделя будет посвящена <span class="higlights">Django</span>. Третья неделя это структура Web-приложений и работа с базами данных, четвертая неделя - кастомизация админки и язык шаблонов, пятая неделя будет проведена за изучениями форм, типов полей, виджетов и аттрибутов валидации. На шестой, заключительной неделе, пройдет реализация стандартных задач, проведение их отладки и тестирование.</p>
+  <h2 class="name_title">Perspectives</h2>
+    <p class="program"> Успешное окончание курса предполагает подготовку студента на уровне достаточном для получения вакансии Junior-а в любой компании занимающейся разработкой ПО. По статистике 97% обучающихся получают указанные должности в течении первых 3 месяцев после окончания курса.</p>
 {% endblock content %}
