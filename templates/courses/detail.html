@@ -11,6 +11,17 @@
   <h1 class="name">{{course.name}}</h1>
     <p>{{ course.description|truncatechars:32 }}</p>
 </div>
+  <div class="button2"><a href="{% url 'courses:add_lesson' course.id %}"><button class="adstud">Add new lesson</button></a>
+  </div><br></div>
+  {% if messages %}
+  <ul class="messa2">
+    {% for message in messages %}
+    <div class="mess2">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </ul>
+  {% endif %}
       <div class="course">
         <table>
         <col>
