@@ -1,83 +1,41 @@
+{% extends "templates/base.html" %}
+
+
 {% load static %}
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>PyBursa Main Page</title>
-  <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static '/css/style.css' %}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <script src="{% static '/js/jquery.js' %}"></script>
-  <script src="{% static '/js/bootstrap.js' %}"></script>
-</head>
-<!--
-!!!!!!!!!!!!!style
-1. class='box-content'
-2. class="title"
-3. class="text-default"
-4. class="text-primary"
-5. class="footer-style"
-6. class="broken-text-up"
-7. class="broken-text-down"
-8. class="upper-text"
-9. class="imag"
-10.class="first-word"
-!!!!!!!!!!!!!Bootstrap
-1. class="nav nav-tabs"
-2. class="active"
-3. class="col-md-3"
-4. class="container"
-5. class="glyphicon glyphicon-heart"
-6. class="col-md-9"
-7. class="panel-group"
-8. class="panel panel-info"
-9. class="panel-body"
-10.class="panel-body"
--->
-<body class="imag">
-	<header>
-		<ul class="nav nav-tabs">
-		  <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-		  <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-		  <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-		</ul>	
-	</header>
 
 
+{% block title %}PyBursa Main Page{% endblock %}
 
-<div class="page-header">
-        <h1>Our courses</h1>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Course</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for course in courses %}
-                <tr>
-                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-                  <td>{{ course.short_description }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
 
+{% block navbar_index %}active{% endblock %}
+
+
+{% block content %}
+	<section>
+		<div class="page-header">
+	  		<h1>Our courses</h1>
+		</div>
+	 	<div class="row">
+	        <div class="col-md-12">
+	          <table class="table table-striped">
+	            <thead>
+	              <tr>
+	                <th>Course</th>
+	                <th>Description</th>
+	              </tr>
+	            </thead>
+	            <tbody>
+	              {% for course in courses %}
+	                <tr>
+	                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+	                  <td>{{ course.short_description|truncatechars:50 }}</td>
+	                </tr>
+	              {% endfor %}
+	            </tbody>
+	          </table>
+	        </div>
+	    </div>
 		<p><a class="btn btn-primary btn-lg" href="{% url 'contact' %}" role="button">Learn more</a></p>
 	</section>
-	
-	<footer class="footer col-lg-12">
-      <div class="footer-style">
-        <p class="broken-text-up">Footer <span class="broken-text-down">is broken.</span></p>
-      </div>
-    </footer>
-	
-	</body>
 
-</html>
+{% endblock content %}

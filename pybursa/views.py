@@ -3,11 +3,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from courses.models import Course
-
+from datetime import datetime
 
 def index(request):
     courses = Course.objects.all()
-    return render(request, 'templates/index.html', {'courses': courses})
+    return render(request, 'templates/index.html', {"courses": courses} )
 #    template = loader.get_template('templates/index.html')
 #    return HttpResponse(template.render(request))
 

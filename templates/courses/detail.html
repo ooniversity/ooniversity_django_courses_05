@@ -1,31 +1,20 @@
+{% extends "templates/base.html" %}
+
+
 {% load static %}
-<!DOCTYPE html>
-  <html>
 
-<head>
-  <meta charset="utf-8">
-  <title>PyBursa Course Details</title>
-  <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static '/css/style.css' %}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <script src="{% static '/js/jquery.js' %}"></script>
-  <script src="{% static '/js/bootstrap.js' %}"></script>
-</head>
 
-  <body class="imag">
+{% block title %}PyBursa Course Details{% endblock %}
 
-      <header>
-    <ul class="nav nav-tabs">
-      <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-      <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-    </ul> 
-  </header>
+
+
+{% block content %}
+
 
     <div class="container theme-showcase" role="main">
       <div class="jumbotron">
         <h1>{{ course.name }}</h1>
-        <p>{{ course.description }}</p>
+        <p>{{ course.description|truncatechars:32 }}</p>
       </div>
 
       <div class="page-header">
@@ -57,25 +46,14 @@
             <h1>Stuff</h1>
           </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Coach</h3>
-            </div>
-            <div class="panel-body">
-              <p><a href="{% url 'coaches:detail' course.coach_id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a></p>
-              <p>{{ course.coach.description }}</p>
-            </div>
-          </div>
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Assistant</h3>
-            </div>
-            <div class="panel-body">
-              <p><a href="{% url 'coaches:detail' course.assistant_id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a></p>
-              <p>{{ course.assistant.description }}</p>
-            </div>
-          </div>
+{% include "templates/inc_coach.html" with panel_title="Coach" coach=course.coach %}
 
-  </body>
-</html>
+
+{% include "templates/inc_coach.html" with panel_title="Assistant" coach=course.assistant %}
+
+
+    </div>
+
+
+{% endblock content %}
