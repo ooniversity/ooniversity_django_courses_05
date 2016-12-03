@@ -31,14 +31,14 @@ ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.114', 'csa.sofit.net.ua']
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
-    'quadratic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'polls.apps.PollsConfig',
+    'quadratic',
     'courses',
     'students',
 	'coaches',
