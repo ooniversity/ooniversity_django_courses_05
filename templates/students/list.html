@@ -5,38 +5,59 @@
 {% block navigation_students %}"active"{% endblock %}
 
 
-{%  block content %}
+{% block content %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
     <div class="page-header">
-      <h3 id="title_course">Список студентов</h3>
+        <h3 id="title_course">Список студентов</h3>
     </div>
 
-   <div class="container">
+
+    <div class="container">
         <div>
+            <table class="table">
+                <tr class="table_title">
+                    <th>#</th>
+                    <th>Фамилия Имя</th>
+                    <th>Адрес</th>
+                    <th>Skype</th>
+                    <th>Курсы</th>
+                    <th></th>
+                    <th></th>
+                </tr>
 
-        <table class="table">
-          <tr  class="table_title">
-            <th>#</th>
-            <th>Фамилия Имя</th>
-            <th>Адрес</th>
-            <th>Skype</th>
-            <th>Курсы</th>
-          </tr>
-
-          {% for student in students %}
-              <tr>
-                <td>{{ student.id }}</td>
-                <td><a href="{%  url 'students:detail'  student.id %}">{{ student.surname }} {{ student.name }}</a></td>
-                <td>{{ student.address }}</td>
-                <td>{{ student.skype }}</td>
-                <td>
-                    {% for course in student.get_courses %}
-                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
-                    {% endfor %}
-                </td>
-              </tr>
-          {% endfor %}
-        </table>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>
+                            <a href="{% url 'students:detail'  student.id %}">{{ student.surname }} {{ student.name }}</a>
+                        </td>
+                        <td>{{ student.address }}</td>
+                        <td>{{ student.skype }}</td>
+                        <td>
+                            {% for course in student.get_courses %}
+                                <p><a href="{% url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="{% url 'students:edit'  student.id %}">Изменить</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'students:remove'  student.id %}">Удалить</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
-   </div>
+        <a href="{% url 'students:add' %}">Добавить нового студента</a>
+    </div>
 {% endblock %}
 
