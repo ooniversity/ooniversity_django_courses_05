@@ -15,34 +15,38 @@
 
 {% block content %}
 
-<div class = "description">
+<div class="description">
     <h1 class=title_description>Description</h1>
-    <p class=content_description>This course is a great introduction to both fundamental programming concepts and the Python <br> programming language. By the end, you'll be familiar with Python syntax and you'll be able to<br> put into practice what you'll have learned in a final project you'll develop locally.</p>
+    <p class=content_description>This course is a great introduction to both fundamental programming concepts and the
+        Python <br> programming language. By the end, you'll be familiar with Python syntax and you'll be able to<br>
+        put into practice what you'll have learned in a final project you'll develop locally.</p>
 
 </div><!-- /description-->
 
-<div class = "program">
+<div class="program">
     <h1 class="program_title">Program</h1>
 </div><!-- /Program-->
 <div class="content_program">
-       <p>Python is a general-purpose, versatile and popular programming language. It's great as a first language <br>because it is concise and easy to read, and it is also a good language to have in any programmer's stack as <br>it can be used for everything from web development to software development and scientific applications.</p>
+    <p>Python is a general-purpose, versatile and popular programming language. It's great as a first language <br>because
+        it is concise and easy to read, and it is also a good language to have in any programmer's stack as <br>it can
+        be used for everything from web development to software development and scientific applications.</p>
 </div><!-- /Content_program-->
 
-    <div class="panel panel-default">
+<div class="panel panel-default">
 
-  <!-- Table -->
-  <table class="table">
-    <tr class="title_table">
-      <td>Курс</td>
-      <td>Описание</td>
-    </tr>
-      {% for course in courses %}
-        <tr class="table_first_student">
-          <td><a href="{% url 'courses:detail' course.id%}">{{ course|upper }}</a></td>
-          <td>{{ course.short_description|title }}</td>
+    <!-- Table -->
+    <table class="table">
+        <tr class="title_table">
+            <td>Курс</td>
+            <td>Описание</td>
         </tr>
-    {% endfor %}
+        {% for course in courses %}
+        <tr class="table_first_student">
+            <td><a href="{% url 'courses:detail' course.id%}">{{ course|upper }}</a></td>
+            <td>{{ course.short_description|title }}</td>
+        </tr>
+        {% endfor %}
 
-  </table>
+    </table>
 </div>
 {% endblock content %}
