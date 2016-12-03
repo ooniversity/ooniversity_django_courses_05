@@ -11,6 +11,16 @@
 
 
 <div class="container theme-showcase" role="main">
+	{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		<div class="messages">
+			{{ message }}
+		</div>
+		{% endfor %}
+	</ul>
+    {% endif %}
+    <p><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></p>
 	<div class="container-fluid">
 		<div class="hero-unit">
 			<h2 id="title_course">Cписок студентов</h2>
@@ -39,6 +49,12 @@
 										<p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
 										{% endfor %}
 									</td>
+									<td>
+										<a class="add_student_button" href="{% url 'students:edit' student.id %}">Изменить</a>
+									</td>
+									<td>
+										<a class="add_student_button" href="{% url 'students:remove' student.id %}">Удалить</a>
+									</td>
 								</tr>
 								{% endfor %}
 							</tbody>
@@ -46,6 +62,7 @@
 					</div>
 				</div>
 			</div>
+			<div><a class="add_student_button" href="{% url 'students:add' %}">Добавить нового студента</a></div>
 		</div>
 	</div>
 </div>
