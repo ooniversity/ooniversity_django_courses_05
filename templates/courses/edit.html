@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 {% block title %}Редактирование курса{% endblock %}
@@ -22,7 +22,7 @@
 	
 	<form method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
+		{{ model.as_p }}
         <input type="submit" value="Изменить">
 	</form>
 </div>

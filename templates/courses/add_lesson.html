@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 {% block title %}Новый урок{% endblock %}
@@ -10,11 +10,11 @@
 {%  block content %}
 
 <div class="container">
-	<H4>Создание нового занятия</H4>
+	<H4>Создание нового урока</H4>
 	
 	<form method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
+		{{ model.as_p }}
         <input type="submit" value="Создать">
 	</form>
 </div>
