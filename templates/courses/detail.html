@@ -1,100 +1,47 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Course {{cource.name}}</title>
+{% extends 'base.html' %}
 
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body class="font">
-    <div class="image">
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'index' %}">PyBursa</a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-      <div>
-        <div class="container">
-          <div class="block-first">
-            <div class="jumbotron">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3>{{course.name}}</h3>
-                    <p class="description">{{ course.description }}</p>
-                    <table>
-                        <tr>
-                            <th>#</th>
-                            <th>Тема</th>
-                            <th>Описание</th>
-                        </tr>
-                        {% for i in lessons %}
-                        <tr>
-                            <td>{{i.order}}</td>
-                            <td>{{i.subject}}</td>
-                            <td>{{i.description}}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                    <div>
-                        <p><b>Учитель</b></p>
-                        <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a></p>
-                        <p>{{ course.coach.description }}</p>
-                    </div>
-                    <div>
-                        <p><b>Ассистент</b></p>
-                        <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.full_name }}</a></p>
-                        <p>{{ course.assistant.description }}</p>
-                    </div>
+{%  block title %}{{ course.name }}{% endblock %}
+
+
+{% block students_get %}?course_id={{ course.id }}{% endblock %}
+
+
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div class="messages">
+                        {{ message }}
                 </div>
-              </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+            <h3>{{course.name}}</h3>
+            <p class="description">{{ course.description|truncatechars:32 }}</p>
+            <div class="master">
+                <p class="description"><b>Учитель</b></p>
+                <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a></p>
+                <p>{{ course.coach.description }}</p>
             </div>
-          </div>              
-        </div>
-      </div>
-    </div>
-  <footer>
-    <nav aria-label="...">
-      <ul class="pager">
-        <li class="next"><a href="{% url 'contact' %}"><span aria-hidden="true">&rarr;</span>Contact us </a></li>
-      </ul>
-    </nav>
-    <center>
-      <p>This site was made by <a href="https://www.facebook.com/denis.fursov.79">Denis Fursov</a> for Django / Python course</p>
-    </center>
-  </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+            <div class="master">
+                <p class="description"><b>Ассистент</b></p>
+                <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.full_name }}</a></p>
+                <p>{{ course.assistant.description }}</p>
+            </div>
+            <p><a class="add_student_button" href="{%  url  'courses:add-lesson' course.id %}">Добавить урок</a></p>
+            <table >
+                <tr>
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
+                </tr>
+                {% for i in lessons %}
+                <tr>
+                    <td>{{i.order}}</td>
+                    <td>{{i.subject}}</td>
+                    <td>{{i.description}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+{% endblock content %}
