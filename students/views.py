@@ -11,18 +11,15 @@ def list_view(request):
         course_name = Course.objects.all()
     else:
         course_id = int(course_id)
-        list_students = Student.objects.filter(courses = course_id)
-        course_name = Course.objects.all()
-    return render(request, 'students/templates/students/list_view.html', {'list_students': list_students,
-                                            'course_name': course_name})
+        list_students = Student.objects.filter(courses__id = course_id)
+        #student = list_students[0:]
+        #course_name = Course.objects.all()
+    return render(request, 'students/templates/students/list_view.html', {'list_students': list_students})
 
 def detail(request, stud_id):
-    student_full = Student.objects.get(id=stud_id)
+    student_full = Student.objects.get(id=int(stud_id))
     #course_name = Course.objects.filter(student = student_full.id)
-    course_name = Course.objects.filter(student=student_full.name)
-    print(course_name)
-    return render(request, 'students/templates/students/detail.html', {'stud_id': stud_id,
-                                                                       'student_full': student_full,
-                                                                       'course_name': course_name})
+    #course_name = Course.objects.filter(student=student_full.name)
+    return render(request, 'students/templates/students/detail.html', {'student_full': student_full})
 
 # Create your views here.

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'quadratic.apps.QuadraticConfig',
     'courses',
     'students',
+    'coaches',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,6 +142,7 @@ TEMPLATES = [
             # insert your TEMPLATE_DIRS here
             #"/root/DJANGO",
             "courses/templates/courses",
+            "coaches/templates/coaches",
             "templates/pybursa",
             "quadratic/templates/quadratic",
             "",
