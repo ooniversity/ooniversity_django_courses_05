@@ -14,66 +14,80 @@
 
 
 {% block content %}
-<div class = "description">
+
+{% include 'include/message_include.html' %}
+
+<div>
+    <a href="{% url 'courses:add_lesson'%}">
+        <button>+ Добавить занятие</button>
+    </a>
+</div>
+<br>
+<br>
+
+
+<div class="description">
     <h1 class=title_description>{{ course.name }}</h1>
     <p class=content_description>{{ course.description|truncatechars:32 }}</p>
 
 </div><!-- /description-->
 
-    <div class = "program">
+<div class="program">
     <h1 class="program_title">Преподаватели</h1>
 </div><!-- /Program-->
 
-    <div class="panel panel-default">
+<div class="panel panel-default">
 
-  <!-- Table -->
-  <table class="table">
-    <tr class="title_table">
-       <td>Учитель</td>
-    </tr>
-      {% for coache in coaches %}
-        <tr class="table_first_student">
-          <td><a href="{% url 'coaches:detail' coache.id%}">{{ coache.user.first_name }} {{ coache.user.last_name }}</a> <br> {{coache.description}}</td>
-        </tr>
-    {% endfor %}
-  </table>
-</div>
-
+    <!-- Table -->
     <table class="table">
-    <tr class="title_table">
-       <td>Ассистент</td>
-    </tr>
-      {% for assistant in assistants %}
-        <tr class="table_first_student">
-          <td><a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }} {{ assistant.user.last_name }}</a> <br> {{assistant.description}}</td>
+        <tr class="title_table">
+            <td>Учитель</td>
         </tr>
+        {% for coache in coaches %}
+        <tr class="table_first_student">
+            <td>
+                <a href="{% url 'coaches:detail' coache.id%}">{{ coache.user.first_name }} {{coache.user.last_name}}</a> <br> {{coache.description}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<table class="table">
+    <tr class="title_table">
+        <td>Ассистент</td>
+    </tr>
+    {% for assistant in assistants %}
+    <tr class="table_first_student">
+        <td><a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }} {{assistant.user.last_name }}</a> <br> {{assistant.description}}
+        </td>
+    </tr>
     {% endfor %}
-  </table>
+</table>
 </div>
 
 
-
-<div class = "program">
+<div class="program">
     <h1 class="program_title">План курса</h1>
 </div><!-- /Program-->
 
-    <div class="panel panel-default">
+<div class="panel panel-default">
 
-  <!-- Table -->
-  <table class="table">
-    <tr class="title_table">
-       <td>#</td>
-        <td>Тема</td>
-      <td>Описание</td>
-    </tr>
-      {% for lesson in lessons %}
+    <!-- Table -->
+    <table class="table">
+        <tr class="title_table">
+            <td>#</td>
+            <td>Тема</td>
+            <td>Описание</td>
+        </tr>
+        {% for lesson in lessons %}
         <tr class="table_first_student">
-          <td>{{ lesson.order }}</td>
-          <td>{{ lesson.subject }}</td>
+            <td>{{ lesson.order }}</td>
+            <td>{{ lesson.subject }}</td>
             <td>{{ lesson.description }}</td>
         </tr>
-    {% endfor %}
+        {% endfor %}
 
-  </table>
+    </table>
 </div>
 {% endblock content %}

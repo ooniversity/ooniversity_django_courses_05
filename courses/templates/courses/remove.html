@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}<title>Brain Bursa Course delete</title>{% endblock %}
+
+
+{% block nav_students_link %}{% url 'students:list_view'%}?course_id={{pk}}{% endblock %}
+
+
+{% block include %}{% include 'include/header_include.html' %} {%endblock%}
+
+
+{% block content %}
+
+<h2>Курс {{ course }} будет удален </h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Удалить"/>
+</form>
+
+
+
+{% endblock content %}
+
+

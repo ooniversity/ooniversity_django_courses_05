@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}<title>Brain Bursa Course add</title>{% endblock %}
+
+
+{% block nav_students_link %}{% url 'students:list_view'%}?course_id={{pk}}{% endblock %}
+
+
+{% block include %}{% include 'include/header_include.html' %} {%endblock%}
+
+
+{% block content %}
+
+<h1>Create new Course</h1>
+
+
+<form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value = "Создать"/>
+</form>
+
+
+{% endblock content %}
