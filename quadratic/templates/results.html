@@ -1,22 +1,19 @@
-{% extends 'base.html' %}
-
-
-{% block title %}Quadratic{% endblock title %}
-
-
-{% block active_quadratic %}active{% endblock %}
-
-
-{% block content %}
-            <p><b>Квадратное уравнение a*x*x + b*x + c = 0</b></p>
-            <form method="get">
-
-
-                {{ form.as_p }}
-
-
-                <input type="submit" value="Решить">
-            </form>
-            <p>{{ diskr }}</p>
-            <p>{{ info_text }}</p>
-{% endblock content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Квадратное уравнение a*x*x + b*x + c</p>
+    {% autoescape off %}
+        <p>a = {{ a }}</p>
+        <p>b = {{ b }}</p>
+        <p>c = {{ c }}</p>
+        {% if d %}
+            <p>{{ d }}</p>
+            <p>{{ x }}</p>
+        {% endif %}
+    {% endautoescape %}
+</body>
+</html>
