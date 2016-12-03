@@ -73,11 +73,11 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-							{% for i in lessons %}
+					    {% for i in lessons %}
 				      <tr>
-                <td>{{ i.id }}</a></td>
-								<td>{{ i.subject }}</td>
-								<td>{{ i.description }}</td>
+                                        <td>{{ i.order }}</a></td>
+					<td>{{ i.subject }}</td>
+					<td>{{ i.description }}</td>
 			     	  </tr>
 						  {% endfor %}
 		 	  	 </tbody>
