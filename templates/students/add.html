@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %}New student{% endblock %}
+
+
+{% block active_students %}active{% endblock %}
+
+
+{%  block content %}
+<div class="container-fluid">
+  <div class="hero-unit">
+
+    <div class="container">
+        <h2>Создание нового студента</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Создать">
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
