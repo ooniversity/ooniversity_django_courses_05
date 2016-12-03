@@ -14,6 +14,13 @@
 
 
 {% block content %}
+
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
 <div class="container-fluid">
   <div class="hero-unit">
     <h2 id="title_course">{{ course }}</h2>
@@ -56,6 +63,7 @@
     <div class="container">
 			<div class="row">
 				<div class="col-md-12">
+<p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a></p>
 				  <table class="table">
 				    <thead>
 				      <tr>
