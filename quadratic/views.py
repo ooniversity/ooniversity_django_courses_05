@@ -1,4 +1,4 @@
-rom django.shortcuts import render
+from django.shortcuts import render
 from .forms import QuadraticForm
 
 def quadratic_results(request):
@@ -29,4 +29,4 @@ def quadratic_results(request):
     else:
         form = QuadraticForm()
         context = {'form': form}
-    return render(request, 'quadratic/results.html', contex)
+    return render(request, 'quadratic/results.html', context)
