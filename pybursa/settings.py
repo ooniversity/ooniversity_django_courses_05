@@ -141,12 +141,11 @@ TEMPLATES = [
             #os.path.join(BASE_DIR, "templates"),
             # insert your TEMPLATE_DIRS here
             #"/root/DJANGO",
-            "courses/templates/courses",
-            "coaches/templates/coaches",
-            "templates/pybursa",
+            "templates/courses",
             "quadratic/templates/quadratic",
             "",
-            "templates/pybursa/admin",
+            "templates/pybursa",
+            "templates/",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
