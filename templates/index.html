@@ -8,6 +8,15 @@
 
 
 {%  block content %}
+
+{% if messages %}
+<ul class="messages">
+	{% for message in messages %}
+	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
 <div class="container theme-showcase" role="main">
 	<div class="jumbotron">
 		<h1 class="intro">О курсе PyBursa</h1>
