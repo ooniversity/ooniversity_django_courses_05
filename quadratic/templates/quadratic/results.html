@@ -1,18 +1,22 @@
-{% extends "base.html" %}
-
-{% block title %}Квадратное уравнение{% endblock %}
+{% extends 'base.html' %}
 
 
-{%  block content %}
-<div class="container">
-    <H4>Квадратное уравнение a*x*x + b*x + c = 0</H4>
+{% block title %}Quadratic{% endblock title %}
 
-    <form method="get">
-        {{ form.as_p }}
-    <input type="submit" value="Решить">
-    </form>
 
-    <h4>{{ dis_result }}</h4>
-    <h4>{{ result_text_x1_x2 }}</h4>
-</div>
-{% endblock %}
+{% block active_quadratic %}active{% endblock %}
+
+
+{% block content %}
+            <p><b>Квадратное уравнение a*x*x + b*x + c = 0</b></p>
+            <form method="get">
+
+
+                {{ form.as_p }}
+
+
+                <input type="submit" value="Решить">
+            </form>
+            <p>{{ diskr }}</p>
+            <p>{{ info_text }}</p>
+{% endblock content %}
