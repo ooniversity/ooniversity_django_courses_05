@@ -26,6 +26,7 @@
 
 
     <div class="container">
+	<a href="{% url 'courses:add' %}">Добавить новый курс</a>
         <div>
 
         <table class="table">
@@ -38,9 +39,19 @@
               <tr>
                 <td><a href="{%  url 'courses:detail'  course.id %}">{{ course.name|upper }}</a></td>
                 <td>{{ course.short_description|title }}</td>
-              </tr>
-          {% endfor %}
+              
+		        <td>
+                            <a href="{% url 'courses:edit'  course.id %}">Изменить</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'courses:remove'  course.id %}">Удалить</a>
+                        </td>
+  		</tr>
+	{% endfor %}
         </table>
         </div>
     </div>
+
+
+
 {% endblock %}

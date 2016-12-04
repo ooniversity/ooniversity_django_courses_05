@@ -52,5 +52,6 @@
                 {% endfor %}
             </table>
         </div>
+	 <a href="{% url 'courses:add-lesson' course.id %}">Добавить занятие</a>
     </div>
 {% endblock content %}
