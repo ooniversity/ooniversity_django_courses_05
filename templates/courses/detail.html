@@ -6,7 +6,15 @@
 {% block active_index %}active{% endblock %}
 
 {% block content %}
-
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div class="messages">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron min">
 
@@ -34,6 +42,7 @@
         </div>
       </div>
       <h4>План курса</h4>
+      <p><a class="btn btn-success" href="{% url 'courses:add-lesson' course.id %}">Добавить занятие</a></p>
       <table class="table table-striped">
           <thead>
             <tr>
