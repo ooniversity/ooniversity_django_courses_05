@@ -55,14 +55,15 @@ def remove(request, pk):
     return render(request, "courses/remove.html", {"course": course})
 
 
-def add_lesson(request):
+def add_lesson(request, pk):
+    course = Course.objects.get(id=pk)
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
             lesson = form.save()
             messages.success(request, "Lesson {0} has been successfully added.".format(
                 lesson.subject))
-            return redirect(reverse ('courses:detail', args=(lesson.course.id,)))
+            return redirect(reverse('courses:detail', args=(lesson.course.id,)))
     else:
-        form = LessonModelForm()
+        form = LessonModelForm(initial={"course": course.id})
     return render(request, 'courses/add_lesson.html', {'form': form})
