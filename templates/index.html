@@ -22,7 +22,8 @@
 	  </th>
 	  </tr>
 	  {% for curse in course_list %}
-	  <tr><td><a href="/courses/{{ curse.id }}/" >{{ curse.name|upper }}</a></td><td> {{ curse.short_description|title }}</td>
+	  <tr><td><a href="/courses/{{ curse.id }}/" >{{ curse.name|upper }}</a></td><td>
+		  {{ curse.short_description|title }}</td>
 	  {% endfor %}
 	  </tr>
 	</table>
