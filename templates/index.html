@@ -4,6 +4,15 @@
 {% block title %}Лучшие курсы от PyBursa{% endblock %}
 {% block active_index %}active{% endblock %}
 {% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div class="messages">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron min">
         <h2>Online курсы PyBursa Web-программирования на Python и Django с Алексеем Радченко</h2>
@@ -14,19 +23,24 @@
 	  <div class="jumbotron min">
 	    <h3 id="Program">Выбирай курс!</h3>
 	    <div class="row">
+          <p><a class="btn btn-success" href="{% url 'courses:add' %}">Добавить курс</a></p>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Курс</th>
                   <th>Описание</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
               {% for item in courses %}
                 <tr>
-                  <td><a href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
-                  <td>{{ item.short_description|title }}</td>
+                    <td><a href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
+                    <td>{{ item.short_description|title }}</td>
+                    <td><a class="btn btn-primary" href="{% url 'courses:edit' item.id %}">Изменить</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'courses:remove' item.id %}">Удалить</a></td>
                 </tr>
               {% endfor %}
               </tbody>
