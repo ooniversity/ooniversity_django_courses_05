@@ -9,7 +9,14 @@
 
 
 {% block content %}
-
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
 
     <div class="container theme-showcase" role="main">
       <div class="jumbotron">
@@ -20,6 +27,8 @@
       <div class="page-header">
         <h1>Course plan</h1>
       </div>
+
+      <a href="{% url 'courses:add-lesson' course.pk %}" class="btn btn-primary" role="button">Add lesson</a>
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped">

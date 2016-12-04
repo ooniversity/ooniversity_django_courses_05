@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}PyBursa Delete Course{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+  <h4>Course {{ course.name }} will be deleted.</h4>
+</div>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+  </form>
+{% endblock content %}
