@@ -6,12 +6,21 @@
 {% block active_student %}active{% endblock %}
 
 {% block content %}
-
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div class="messages">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron min">
         <h2>Список студентов</h2>
         <p>Ниже представлен список студентов, октябрь - ноябрь, 2016</p>
       </div>
+      <p><a class="btn btn-success" href="{% url 'students:add' %}">Добавить нового студента</a></p>
 	  <div class="table-responsive">
           <table class="table table-striped">
               <thead>
@@ -21,6 +30,8 @@
                   <th>адрес</th>
                   <th>skype</th>
                   <th>курсы</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -35,9 +46,15 @@
                               <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></p>
                           {% endfor %}
                       </td>
+                      <td>
+                          <a class="btn btn-primary" href="{% url 'students:edit' student.id %}">Изменить</a>
+                      </td>
+                      <td>
+                          <a class="btn btn-danger" href="{% url 'students:remove' student.id %}">Удалить</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
           </table>
       </div>
+      <p><a class="btn btn-success" href="{% url 'students:add' %}">Добавить нового студента</a></p>
 {% endblock content %}
