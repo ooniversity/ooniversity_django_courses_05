@@ -17,10 +17,9 @@ class QuadraticForm(forms.Form):
 
 def quadratic_results(request):
     form = QuadraticForm(request.GET)
-    context = {"d": '', "x1": '', "x2": '', "form": form}
+    context = {}
     if len(request.GET) > 0:
         if form.is_valid():
-            context['form'] = form
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
@@ -31,10 +30,7 @@ def quadratic_results(request):
                 context['x1'] = x1
                 context['x2'] = x2
             context['d'] = d
-
     else:
         form = QuadraticForm()
-        context = {"form": form}
-
-
+    context ['form'] = form
     return render(request, "quadratic/results.html", context)
