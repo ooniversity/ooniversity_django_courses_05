@@ -18,3 +18,4 @@ def student_list(request):
 
 def student_detail(request):
     return render(request, 'student_detail.html')
+    #sssssssssss
