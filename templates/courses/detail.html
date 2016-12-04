@@ -11,7 +11,7 @@
 
 {% block content %}
   <h1 align="center">{{ course_name }}</h1></br>
-   <div align="center">{{ course_name.description }}</div></br>
+   <div align="center">{{ course_name.description|truncatechars:32 }}</div></br>
 
 	<h3>преподаватели</h3>
 	<div>Инструктор</div>
@@ -33,7 +33,7 @@
 		  </th>
 		  </tr>
 		  {% for x in lesson_list%}
-		  <tr><td>{{ x.id }}</td><td>{{ x.subject }}</td><td> {{ x.description| truncatechars:32}} </td>
+		  <tr><td>{{ x.id }}</td><td>{{ x.subject }}</td><td> {{ x.description }} </td>
 		  </tr>
 	      {% endfor %}
    </table>
