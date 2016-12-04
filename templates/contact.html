@@ -1,17 +1,20 @@
-{% extends "templates/base.html" %}
+{% extends "base.html" %}
 
 {% load static %}
 
 
-{% block title %}ooniversity{% endblock title %}
+{% block title %}contact{% endblock title %}
 
 
 {% block nav_class_contact%}active{% endblock %}
 
 
+{% block student_course %}{% url 'students:list_view' %}{% endblock %}
+
+
 {% block content %}
 
-{% include "templates/include/my_first_include.html"%}
+{% include "templates/include/first_include.html"%}
 
   	<h1 class="hhh1" align="center"><img src="{% static 'images/fi-results-demographics.svg'%}" width="50px" height="50px">Contacts</img></h1>
   	<div class="head_padding">

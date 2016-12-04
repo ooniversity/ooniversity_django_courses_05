@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Question
-    template_name = 'polls/list_view.html'
+    template_name = 'polls/list.html'
 
 
 class ResultsView(generic.DetailView):
@@ -47,7 +47,7 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/list_view.html', {
+        return render(request, 'polls/list.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
