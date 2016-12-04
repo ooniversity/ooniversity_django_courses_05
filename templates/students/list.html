@@ -28,6 +28,8 @@
                 <td><a href="{%  url 'students:detail'  student.id %}">{{ student.surname }} {{ student.name }}</a></td>
                 <td>{{ student.address }}</td>
                 <td>{{ student.skype }}</td>
+                <td><a class="btn btn-primary btn-block" href="{% url 'students:edit' student.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
+<td><a class="btn btn-primary btn-block" href="{% url 'students:remove' student.id %}" role="button"><span class="glyphicon glyphicon-remove"></span>Delete</a></td>
                 <td>
                     {% for course in student.get_courses %}
                         <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>

@@ -24,7 +24,7 @@
    <div class="container">
        <h3>Course view</h3>
        <div>
-
+         <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add-lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span> Add a lesson</a></p>
         <table class="table">
           <tr  class="table_title">
             <th>#</th>
@@ -34,6 +34,7 @@
 
           {% for lesson in lessons %}
               <tr>
+
                 <td>{{ lesson.order }}</td>
                 <td>{{ lesson.subject }}</td>
                 <td>{{ lesson.description }}</td>

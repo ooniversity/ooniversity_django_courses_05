@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block title %}Remove course{% endblock %}
+
+
+{% block active_students %}active{% endblock %}
+
+
+{%  block content %}
+<div class="container-fluid">
+  <div class="hero-unit">
+
+    <div class="container">
+        <h2>{{ delete_course }}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+        <input type="submit" value="Delete">
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
