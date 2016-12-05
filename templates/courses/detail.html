@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Course{% endblock %}
+
+
+
+{%  block content %}
+    <div class="container">
+      <div class="jumbotron">
+        <div class="page-header">
+          <h3 id="title_course">{{ course }}</h3>
+          <p>{{ course.description|truncatechars:32 }}</p>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="container">
+        <h3>Coaches</h3>
+        {% include "include/coach_include.html" with coach_title="Coach" coach=course.coach %}
+        {% include "include/coach_include.html" with coach_title="Assistent" coach=course.assistant %}
+    </div>
+
+   <div class="container">
+       <h3>Course view</h3>
+       <div>
+         <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add-lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span> Add a lesson</a></p>
+        <table class="table">
+          <tr  class="table_title">
+            <th>#</th>
+            <th>Subject</th>
+            <th>Description</th>
+          </tr>
+
+          {% for lesson in lessons %}
+              <tr>
+
+                <td>{{ lesson.order }}</td>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
+              </tr>
+          {% endfor %}
+        </table>
+        </div>
+   </div>
+{% endblock %}

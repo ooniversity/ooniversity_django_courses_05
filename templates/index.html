@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}PyBursa{% endblock %}
+
+{% block navigation_index %}"active"{% endblock %}
+
+
+{%  block content %}
+    <div class="container">
+      <div class="jumbotron">
+        <div class="page-header">
+          <h3 id="title_course">PyBursa</h3>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+        <div>
+
+        <table class="table">
+          <tr  class="table_title">
+            <th>Course</th>
+            <th>Description</th>
+          </tr>
+
+          {% for course in courses %}
+              <tr>
+                <td><a href="{%  url 'courses:detail'  course.id %}">{{ course.name|upper }}</a></td>
+                <td>{{ course.short_description|title }}</td>
+                <td><a class="btn btn-primary btn-block" href="{% url 'courses:edit' course.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a></td>
+<td><a class="btn btn-primary btn-block" href="{% url 'courses:remove' course.id %}" role="button"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+
+			     	  </tr>
+
+              </tr>
+          {% endfor %}
+        </table>
+        </div>
+    </div>
+{% endblock %}
