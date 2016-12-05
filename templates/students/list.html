@@ -13,13 +13,24 @@
 
 
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="/students/add/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="new student"
+		data-content="And here's some amazing content. It's very engaging. Right?"> + Добавить нового студента</button></a>
 <h1 align="center">СПИСОК СТУДЕНТИКОВ</h1></br>
   	<table border="0">
 		<col width="50" valign="top">
    		<col width="200" valign="top">
 		<col width="300" valign="top">
    		<col width="250" valign="top">
-		<col width="50" valign="top">
+		<col width="100" valign="top">
+		<col width="100" valign="right">
     	  <tr>
 		    <th> # </th>
 		    <th> фамилия имя </th>
@@ -35,6 +46,10 @@
 		  	<td><a href="/courses/{{ course.id }}">{{course.name}}</a></td>
 		   {% endfor %}
 		  </td>
+		  <td><a href="/students/edit/{{ stud.id }}/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="edit student"
+		data-content="Right?">Изменить</button></a></td>
+	      <td><a href="/students/remove/{{ stud.id }}/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="delete student"
+		data-content="Right?">Удалить</button></a></td>
 		  </tr>
 		  {% endfor %}
 		</table>
