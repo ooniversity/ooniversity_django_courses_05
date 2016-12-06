@@ -5,6 +5,9 @@
 
 {% block active_index %}active{% endblock %}
 
+{% block course_id %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock course_id %}
+
+
 {% block content %}
     {% if messages %}
         <ul class="messages">

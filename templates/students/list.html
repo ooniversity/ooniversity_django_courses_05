@@ -5,13 +5,12 @@
 
 {% block active_student %}active{% endblock %}
 
+
 {% block content %}
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-                <div class="messages">
-                    {{ message }}
-                </div>
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
     {% endif %}
