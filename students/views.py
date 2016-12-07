@@ -26,7 +26,7 @@ class StudentDetailView(DetailView):
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
-    success_url = reverse_lazy('students:list')
+    success_url = reverse_lazy('students:list_view')
     
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -41,7 +41,7 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
-    success_url = reverse_lazy('students:list')
+    success_url = reverse_lazy('students:list_view')
     
     def get_success_url(self):
         super().get_success_url()
@@ -61,7 +61,7 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
-    success_url = reverse_lazy('students:list')
+    success_url = reverse_lazy('students:list_view')
     
     def delete(self, request, *args, **kwargs):
         response = super().delete(self, request, *args, **kwargs)
