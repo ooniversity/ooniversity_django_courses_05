@@ -13,17 +13,11 @@ class StudentListView(ListView):
     model = Student
 
     def get_queryset(self):
-        
         qs = super().get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
             qs = qs.filter(courses__id=course_id)
         return qs
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['page_title'] = 'Студенты -PyBursa' 
-        return context
 
 class StudentDetailView(DetailView):
     model = Student
