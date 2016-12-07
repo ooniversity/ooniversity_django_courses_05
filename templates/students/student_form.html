@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block nav_class_student %} active {% endblock %}
+
+{% block title %} {{ title }} {% endblock title %}
+
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+ <div class="jumbotron">
+   {% for message in messages %}
+     <li{% if message.tags %} class="{{ massage.tags }}" {% endif %}>{{ message }}</li>
+   {% endfor %}
+</div>
+</ul>
+{% endif %}
+      
+ <div class="blog-post">
+  <h2>{{ title }}</h2>
+
+   <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value = "Сохранить"/>
+   </form>
+
+{% endblock content %}
+
+
