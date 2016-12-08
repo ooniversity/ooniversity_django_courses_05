@@ -48,7 +48,7 @@ class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    # template_name = 'students/edit.html'
+
 
     def get_success_url(self):
         super().get_success_url()
@@ -71,7 +71,7 @@ class StudentDeleteView(DeleteView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/student_delete.html'
+
 
     def delete(self, request, *args, **kwargs):
         d = super().delete(request, *args, **kwargs)
