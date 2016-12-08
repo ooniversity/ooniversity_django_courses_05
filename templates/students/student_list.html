@@ -40,7 +40,7 @@
             <td></td>
             <td></td>
         </tr>
-        {% for student in students %}
+        {% for student in object_list %}
         <tr class="title_table">
             <td>{{student.id}}</td>
             <td><a href="{% url 'students:detail' student.id%}">{{student.surname}} {{student.name}}</a></td>

@@ -13,28 +13,23 @@ from .models import Student
 
 class StudentListView(ListView):
     model = Student
-    template_name = 'students/list.html'
-    context_object_name = 'students'
 
     def get_queryset(self):
         qs = super().get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
             qs = qs.filter(courses__id=course_id)
-
         return qs
 
 
 class StudentDetailView(DetailView):
     model = Student
-    template_name = 'students/detail.html'
 
 
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/add.html'
 
     def form_valid(self, form):
         s = super().form_valid(form)
@@ -75,7 +70,7 @@ class StudentDeleteView(DeleteView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/remove.html'
+    template_name = 'students/student_delete.html'
 
     def delete(self, request, *args, **kwargs):
         d = super().delete(request, *args, **kwargs)
