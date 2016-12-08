@@ -4,7 +4,7 @@
 {% load static %}
 
 
-{% block title %}<title>Brain Bursa Course edit</title>{% endblock %}
+{% block title %}<title>{{ title }}</title>{% endblock %}
 
 
 {% block nav_students_link %}{% url 'students:list_view'%}?course_id={{pk}}{% endblock %}
