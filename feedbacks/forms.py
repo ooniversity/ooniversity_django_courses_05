@@ -1,7 +1,7 @@
 from feedbacks.models import Feedback
 from django import forms
 
-class FeedbackModelForm(forms.ModelForm):
+class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         exclude = []
