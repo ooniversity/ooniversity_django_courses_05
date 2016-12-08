@@ -10,7 +10,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
-    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         pk = self.kwargs['pk']
