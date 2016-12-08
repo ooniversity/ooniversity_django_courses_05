@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
     'coaches.apps.CoachesConfig',
-
+    'feedbacks.apps.FeedbacksConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,4 +130,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+EMAIL_PORT = '1025'
 
+EMAIL_HOST = '127.0.0.1'
+
+ADMINS = [('admin', 'admin@qq2qq.ua')]
