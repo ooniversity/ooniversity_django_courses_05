@@ -1,16 +1,17 @@
 {% extends "base.html"%}
 
 
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}Add student{% endblock title %}
 
 
 {% block nav_class_students%}active{% endblock %}
 
 
 {% block content %}
+  <h2 class="output_form"><p><b>Add a new student</b></p></h2>
   <div class="output_form">
     <form method="post">{% csrf_token %}
-      {{ form.as_p }}
+      {{ model.as_p }}
       <input type="submit" value="Confirm" />
     </form>
   </div>

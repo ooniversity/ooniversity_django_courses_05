@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Course, Lesson
-from students.models import Student
-from django.contrib import messages
 from .forms import CourseModelForm, LessonModelForm
-
+from django.contrib import messages
 
 def detail(request, course_id):
     qs = Course.objects.get(id=course_id)
@@ -16,8 +13,8 @@ def add(request):
 		model_form = CourseModelForm(request.POST)
 		if model_form.is_valid():
 			model_form.save()
-			messages.success(request, 'Course {0} has been successfully added.'.format(
-	    		                                      model_form.cleaned_data['name']))
+			messages.success(request, 'Course {0} was added.'.format(
+	    		            model_form.cleaned_data['name']))
 			return redirect('/')
 	else:
 		model_form = CourseModelForm()
@@ -29,7 +26,7 @@ def edit(request, course_id):
         model_form = CourseModelForm(request.POST, instance=course)
         if model_form.is_valid():
             model_form.save()
-            messages.success(request, 'The changes have been saved.')
+            messages.success(request, 'The changes has been saved.')
             return redirect('/courses/edit/{0}/'.format(course_id))
     else:
         model_form = CourseModelForm(instance=course)
@@ -39,7 +36,8 @@ def remove(request, course_id):
 	course = Course.objects.get(id=int(course_id))
 	if request.method == 'POST':
 	    course.delete()
-	    messages.success(request, 'Course {0} has been deleted.'.format(course.name))
+	    messages.success(request, 'Course {0} has been deleted.'.format(
+                        course.name))
 	    return redirect('/')
 	else:
 	    model_form = CourseModelForm(instance=course)
@@ -50,9 +48,31 @@ def add_lesson(request, course_id):
         model_form = LessonModelForm(request.POST)
         if model_form.is_valid():
             model_form.save()
-            messages.success(request, 'Lesson {0} has been successfully added.'.format(model_form.cleaned_data['subject']))
+            messages.success(request, 'Lesson {0} has been successfully added.'.format
+                            (model_form.cleaned_data['subject']))
             return redirect('/courses/{0}/'.format(course_id))
     else:
         model_form = LessonModelForm(initial={'course': int(course_id)})
     return render(request, 'courses/add_lesson.html', {'model': model_form})
-# Create your views here.
+
+def edit_lesson(request, lesson_id):
+    lesson = Lesson.objects.get(id=int(lesson_id))
+    if request.method == 'POST':
+        model_form = LessonModelForm(request.POST, instance=lesson)
+        if model_form.is_valid():
+            model_form.save()
+            messages.success(request, 'The changes has been saved.')
+            return redirect('/courses/{0}/edit_lesson'.format(lesson_id))
+    else:
+        model_form = LessonModelForm(instance=lesson)
+    return render(request, 'courses/edit_lesson.html', {'model': model_form})
+
+def remove_lesson(request, lesson_id):
+    lesson = Lesson.objects.get(id=int(lesson_id))
+    if request.method == 'POST':
+        lesson.delete()
+        messages.success(request, 'Lesson {0} was deleted.'.format(lesson.subject))
+        return redirect('/courses/{0}/'.format(lesson.course_id))
+    else:
+        model_form = LessonModelForm(instance=lesson)
+    return render(request, 'courses/remove_lesson.html', {'model': model_form})
