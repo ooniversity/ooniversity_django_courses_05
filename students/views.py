@@ -20,14 +20,14 @@ class StudentListView(ListView):
             qs = qs.filter(courses=cours_id)
         return qs
 
+
 class StudentDetailView(DetailView):
     model = Student
-    # template_name = 'students/student_detail.html'
+
 
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
-    template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
@@ -41,11 +41,11 @@ class StudentCreateView(CreateView):
         context['title'] = 'Student registration'
         return context
 
+
 class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
-    template_name = 'students/edit.html'
-    # context_object_name = 'model'
+    template_name_suffix = '_update_form'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -60,10 +60,9 @@ class StudentUpdateView(UpdateView):
         context['title'] = 'Student info update'
         return context
 
+
 class StudentDeleteView(DeleteView):
     model = Student
-    template_name = 'students/remove.html'
-    # context_object_name = 'student'
     success_url = reverse_lazy('students:list_view')
 
     def delete(self, request, *args, **kwargs):
