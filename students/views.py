@@ -40,6 +40,7 @@ class StudentCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Student registration'
+        context['button'] = 'Создать'
         return context
 
 
@@ -47,7 +48,7 @@ class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/edit.html'
+    # template_name = 'students/edit.html'
 
     def get_success_url(self):
         super().get_success_url()
@@ -59,10 +60,10 @@ class StudentUpdateView(UpdateView):
         messages.success(self.request, "Info on the student has been successfully changed.")
         return s
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Student info update'
+        context['button'] = 'Изменить'
         return context
 
 
