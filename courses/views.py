@@ -3,10 +3,8 @@ from django.urls import reverse, reverse_lazy
 from courses.forms import CourseModelForm, LessonModelForm
 from courses.models import Course, Lesson
 from django.contrib import messages
-from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 
 
 class CourseDetailView(DetailView):
