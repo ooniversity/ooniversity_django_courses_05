@@ -10,14 +10,13 @@ from django.core.urlresolvers import reverse_lazy
 
 class StudentListView(ListView):
     model = Student
-    template_name = 'students/list.html'
     context_object_name = "students"
 
     def get_queryset(self):
         qs = super().get_queryset()
-        course_id = self.request.GET.get('course_id')
+        course_id = self.request.GET.get('course_id', None)
         if course_id:
-            qs = qs.filter(courses = course_id)
+            qs = qs.filter(courses__id=course_id)
         return qs
 
 class StudentDetailView(DetailView):
