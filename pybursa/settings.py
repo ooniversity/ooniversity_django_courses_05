@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'quadratic.apps.QuadraticConfig',
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
+    'feedbacks.apps.FeedbacksConfig',
     'coaches.apps.CoachesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,5 +128,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, "static"),
 ]
+
+ADMINS = ['admin', 'admin1']
+
+EMAIL_HOST = "127.0.0.1"
+
+EMAIL_PORT = "1025"
 
 
