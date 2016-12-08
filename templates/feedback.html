@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block navigation_feedback %}"active"{% endblock %}
+
+
+{%  block content %}
+   <div class="container">
+        <H4>Feedback</H4>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Создать">
+        </form>
+    </div>
+{% endblock %}
