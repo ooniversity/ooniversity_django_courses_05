@@ -10,11 +10,11 @@ from django.urls import reverse_lazy, reverse
 
 class StudentDetailView(DetailView):
     model = Student
-    template_name = 'student/detail.html'
+    #template_name = 'student/detail.html'
 
 class StudentListView(ListView):
     model = Student
-    template_name = "students/list.html"
+    #template_name = "students/list.html"
     context_object_name = "students"
 
     def get_queryset(self):
@@ -27,7 +27,7 @@ class StudentListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
-    template_name = 'students/add.html'
+    #template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
 
@@ -45,7 +45,7 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
-    template_name = 'students/edit.html'
+    #template_name = 'students/edit.html'
 
     def form_valid(self, form):
         result = super().form_valid(form)
