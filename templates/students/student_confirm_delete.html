@@ -11,6 +11,7 @@
 
 <div class="output_form">
   <form method="post">{% csrf_token %}
+    <p>Student {{ object.full_name }} will be delete!</p>
     <input type="submit" value="Comfirm remove" />
   </form>
  </div>
