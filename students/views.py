@@ -72,7 +72,10 @@ class StudentDeleteView(DeleteView):
             'name': self.object.name,
             'surname': self.object.surname
         }
-        messages.success(self.request, message)
+        messages.success(self.request,
+                         'Info on {0} {1} has been successfully deleted.'.format(
+                             self.object.name,
+                             self.object.surname))
         return response
 
     def get_context_data(self, **kwargs):
