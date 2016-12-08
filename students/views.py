@@ -8,8 +8,6 @@ from django.urls import reverse_lazy
 
 class StudenListView(ListView):
     model = Student
-    template_name = 'students/list.html'
-    context_object_name = 'students_list'
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
@@ -22,15 +20,12 @@ class StudenListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    template_name = 'students/detail.html'
-    context_object_name = 'student'
 
 
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/add.html'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -71,13 +66,17 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         response = super().delete(request, *args, **kwargs)
-        messages.success(self.request,
-                         'Info on {0} {1} has been successfully deleted.')
+        message = "Info on %(name)s %(surname)s has been successfully deleted." % {
+            'name': self.object.name,
+            'surname': self.object.surname
+        }
+        messages.success(self.request, message)
         return response
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'Student info suppression'
+
         return context
 
 '''def create(request):
@@ -92,7 +91,7 @@ class StudentDeleteView(DeleteView):
             return redirect('students:list_view')
     else:
         model_form = StudentModelForm()
-    return render(request, "students/add.html", {"model": model_form})
+    return render(request, "students/student_form.html", {"model": model_form})
 
 def edit(request, student_id):
     student = Student.objects.get(id=int(student_id))
