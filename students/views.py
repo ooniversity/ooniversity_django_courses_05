@@ -3,19 +3,20 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import StudentModelForm
 from django.views.generic import CreateView, UpdateView, DetailView, ListView, DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 
 
 class StudenListView(ListView):
     model = Student
 
     def get_queryset(self):
+        qs = super().get_queryset()
         course_id = self.request.GET.get('course_id', None)
+
         if course_id:
-            context = Student.objects.filter(courses=course_id)
-        else:
-            context = Student.objects.all()
-        return context
+            qs = qs.filter(courses__id=course_id)
+
+        return qs
 
 
 class StudentDetailView(DetailView):
@@ -31,8 +32,8 @@ class StudentCreateView(CreateView):
         response = super().form_valid(form)
         messages.success(self.request,
                          'Student {0} {1} has been successfully added'.format(
-                                                            form.cleaned_data['name'],
-                                                            form.cleaned_data['surname']))
+                             self.object.name,
+                             self.object.surname))
         return response
 
     def get_context_data(self, **kwargs):
@@ -56,6 +57,10 @@ class StudentUpdateView(UpdateView):
         context['title'] = 'Student info update'
         return context
 
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse('students:edit', args=(pk,))
+
 
 class StudentDeleteView(DeleteView):
     model = Student
@@ -73,5 +78,4 @@ class StudentDeleteView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Student info suppression'
-
         return context
