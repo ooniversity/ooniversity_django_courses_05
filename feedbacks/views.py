@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from feedbacks.models import Feedback
-from .forms import FeedbackModelForm
+from .forms import FeedbackForm
 from django.contrib import messages
 from django.views.generic.edit import CreateView
 from django.urls import reverse, reverse_lazy
@@ -10,7 +10,7 @@ from django.conf import settings
 
 class FeedbackView(CreateView):
     model = Feedback
-    form_class = FeedbackModelForm
+    form_class = FeedbackForm
     template_name = 'feedback.html'
     success_url = reverse_lazy('feedback')
     
