@@ -1,8 +1,10 @@
 {% extends "base.html"%}
 
 
-{% block title %}Add lesson{% endblock title %}
+{% block title %}Delete lesson{% endblock title %}
 
+
+<!--{% block nav_class_students%}active{% endblock %}-->
 
 
 {% block content %}
@@ -15,11 +17,11 @@
     {% endfor %}
   </ul>
 {% endif %}
-<h2 class="output_form"><p><b>Add lesson</b></p></h2>
+<h2 class="output_form"><p><b>Remove lesson</b></p></h2>
   <div class="output_form">
     <form method="post">{% csrf_token %}
       {{ model.as_p }}
-      <input type="submit" value="Add" />
+      <input type="submit" value="Remove" />
     </form>
   </div>
 {% endblock content %}

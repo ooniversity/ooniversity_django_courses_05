@@ -28,14 +28,17 @@
         <tr>
           <th width="30">#</th>
           <th width="120">Тема</th>
-          <th width="650">Описание</th>
+          <th width="500">Описание</th>
+          <th width="150"></th>
         </tr>
       {% for lesson in lessons %}
         <col>
         <tr>
-          <td>{{lesson.order}}</td>
-          <td>{{lesson.subject}}</td>
-          <td>{{lesson.description}}</td>
+          <td>{{ lesson.order }}</td>
+          <td>{{ lesson.subject }}</td>
+          <td>{{ lesson.description }}</td>
+          <td><a href="{% url 'courses:edit_lesson' lesson.id %}"><button class="adstud">Edit</button></a>
+            <a href="{% url 'courses:remove_lesson' lesson.id %}"><button class="adstud">Remove</button></a></td>
         </tr>
       {% endfor %}
         </table>
