@@ -16,18 +16,18 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from .views import index, contact, student_list, student_detail
-
-
+from feedbacks import views
 
 urlpatterns = [
-    url(r'^$', index, name = 'index'),
+    url(r'^$', index, name='index'),
     url(r'^contact/', contact, name='contact'),
     url(r'^student_detail/', student_detail, name='student_detail'),
-    url(r'^student_list/', student_list, name = 'student_list'),
+    url(r'^student_list/', student_list, name='student_list'),
     url(r'^admin/', admin.site.urls),
     url(r'^polls/', include('polls.urls')),
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^courses/', include('courses.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^coaches/', include('coaches.urls')),
+    url(r'^feedback/', views.Feedback.as_view(), name='feedback')
 ]
