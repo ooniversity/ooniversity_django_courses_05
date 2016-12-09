@@ -4,21 +4,28 @@ from .forms import StudentModelForm
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
-from pybursa.utils import detail_view
 
 
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
-
+    paginate_orphans = 0
+ 
     def get_queryset(self):
-        qs = super().get_queryset()
+       qs = super().get_queryset()
+       course_id = self.request.GET.get('course_id', None)
+       if course_id:
+           qs = qs.filter(courses__id=course_id)
+       return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         course_id = self.request.GET.get('course_id', None)
         if course_id:
-            qs = qs.filter(courses__id=course_id)
-        return qs
+            context['course_id_url'] = 'course_id={}&'.format(self.request.GET.get('course_id', None)) 
+        return context
 
 class StudentDetailView(DetailView):
     model = Student
