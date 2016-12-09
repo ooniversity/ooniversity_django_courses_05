@@ -5,13 +5,12 @@
 
 {% block active_student %}active{% endblock %}
 
+
 {% block content %}
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-                <div class="messages">
-                    {{ message }}
-                </div>
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -35,7 +34,7 @@
                 </tr>
               </thead>
               <tbody>
-                {% for student in students_list %}
+                {% for student in object_list %}
                     <tr>
                       <td>{{ student.id }}</td>
                       <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
