@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'students',
     'coaches',
+    'feedbacks',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, "static"),
 ]
+
+
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = '1025'
+
+ADMINS = ['admin', 'tatyana_paschenko']
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
