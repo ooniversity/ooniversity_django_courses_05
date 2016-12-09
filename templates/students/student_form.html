@@ -3,6 +3,8 @@
 
 {% block title %}{{ title }}{% endblock title %}
 
+{% block active_student %}active{% endblock %}
+
 
 {% block content %}
     {% if messages %}
@@ -14,6 +16,6 @@
     {% endif %}
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Создать">
+        <input type="submit" value="Save">
     </form>
 {% endblock %}

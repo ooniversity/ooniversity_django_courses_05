@@ -3,11 +3,13 @@
 
 {% block title %}{{ title }}{% endblock title %}
 
+{% block active_student %}active{% endblock %}
+
 
 {% block content %}
 
     <form method="post">{% csrf_token %}
-        <p>Студент {{ object.full_name }} будет удален</p>
+        <p>Студент {{ student.full_name }} будет удален</p>
         <input type="submit" value="Удалить">
     </form>
 
