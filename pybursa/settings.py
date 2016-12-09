@@ -129,11 +129,12 @@ STATICFILES_DIRS =[
     os.path.join(BASE_DIR, "static"),
 ]
 
+ADMINS = ['admin', 'tatyana_paschenko']
 
-EMAIL_HOST = 'localhost'
+EMAIL_HOST = '127.0.0.1'
 
 EMAIL_PORT = '1025'
 
-ADMINS = ['admin', 'tatyana_paschenko']
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
