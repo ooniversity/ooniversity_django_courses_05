@@ -7,7 +7,7 @@
 {% block content %}
     <h2>Добавить урок</h2>
     <form method="post">{% csrf_token %}
-        {{ model.as_p }}
+        {{ form.as_p }}
         <input type="submit" value="Добавить">
     </form>
 {% endblock %}
