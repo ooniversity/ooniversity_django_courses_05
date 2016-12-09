@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from feedbacks.forms import FeedbackForm
 from feedbacks.models import Feedback
 from django.views.generic.edit import CreateView
@@ -11,7 +11,7 @@ class FeedbackView(CreateView):
     model = Feedback
     template_name = 'feedback.html'
     form_class = FeedbackForm
-    success_url = '/feedback/'
+    success_url = reverse_lazy('feedbacks:index')
 
     def form_valid(self, form):
         response = super().form_valid(form)
