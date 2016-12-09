@@ -25,7 +25,6 @@ class StudentListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     form_class = StudentModelForm
-    #template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
 
