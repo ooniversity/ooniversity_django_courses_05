@@ -10,7 +10,6 @@ from django.urls import reverse_lazy, reverse
 
 class StudentDetailView(DetailView):
     model = Student
-    #template_name = 'student/detail.html'
 
 class StudentListView(ListView):
     model = Student
@@ -42,7 +41,6 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
-    #template_name = 'students/edit.html'
 
     def form_valid(self, form):
         result = super().form_valid(form)
