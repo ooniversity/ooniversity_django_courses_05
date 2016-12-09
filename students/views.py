@@ -37,7 +37,7 @@ class StudentCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'Student registration'
+        context['title'] = 'Student registration'
         return context
 
 
@@ -45,7 +45,6 @@ class StudentUpdateView(UpdateView):
     model = Student
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/edit.html'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -54,15 +53,13 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'Student info update'
+        context['title'] = 'Student info update'
         return context
 
 
 class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
-    template_name = 'students/remove.html'
-    context_object_name = 'model'
 
     def delete(self, request, *args, **kwargs):
         response = super().delete(request, *args, **kwargs)
@@ -75,42 +72,6 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = 'Student info suppression'
+        context['title'] = 'Student info suppression'
 
         return context
-
-'''def create(request):
-    if request.POST:
-        model_form = StudentModelForm(request.POST)
-        if model_form.is_valid():
-            model_form.save()
-            messages.success(request,
-                             'Student {0} {1} has been successfully added'.format(
-                                                            model_form.cleaned_data['name'],
-                                                            model_form.cleaned_data['surname']))
-            return redirect('students:list_view')
-    else:
-        model_form = StudentModelForm()
-    return render(request, "students/student_form.html", {"model": model_form})
-
-def edit(request, student_id):
-    student = Student.objects.get(id=int(student_id))
-    if request.POST:
-        model_form = StudentModelForm(request.POST, instance=student)
-        if model_form.is_valid():
-            model_form.save()
-            messages.success(request, 'Info on the student has been successfully changed.')
-            return redirect('/students/edit/{0}/'.format(student_id))
-    else:
-        model_form = StudentModelForm(instance=student)
-    return render(request, 'students/edit.html', {"model": model_form})
-
-def remove(request, student_id):
-    student = Student.objects.get(id=int(student_id))
-    if request.POST:
-        student.delete()
-        messages.success(request,
-                         'Info on {0} {1} has been successfully deleted.'.format(student.name, student.surname))
-        return redirect('students:list_view')
-    else:
-        return render(request, 'students/remove.html', {"model": student})'''
