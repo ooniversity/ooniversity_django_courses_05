@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-
 {% block nav_class_student %} active {% endblock %}
-
 
 {% block title %} Список студентов {% endblock title %}
 
@@ -10,11 +8,11 @@
 {% block content %}
 {% if messages %}
 <ul class="messages">
- <div class="jumbotron">
-   {% for message in messages %}
-     <li{% if message.tags %} class="{{ massage.tags }}" {% endif %}>{{ message }}</li>
-   {% endfor %}
-</div>
+    <div class="jumbotron">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ massage.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </div>
 </ul>
 {% endif %}
 
@@ -23,7 +21,7 @@
 </p>
 
       <div class="blog-post">
-            <h2>Список студентов</h2>
+            <h2>Список студентов </h2>
 
             <table class="table table-bordered" style="width: 95%">
                 <tr class="student_list">
@@ -52,24 +50,26 @@
                   {% endfor %}
             </table>
             
-             {% if is_paginated %}
-              <ul class="pagination">
-                {% if page_obj.has_previous %}
-                  <li><a href="?page={{ page_obj.previous_page_number }}"><< previous</a></li>
-                {% endif %}
-                
-                {% for i in page_obj.paginator.page_range %}
-                  {% if page_obj.number == i %}
-                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                  {% else %}
-                    <li><a href="?page={{ i }}">{{ i }}</a></li>
-                  {% endif %}
-                {% endfor %}
-                
-                {% if page_obj.has_next %}
-                  <li><a href="?page={{ page_obj.next_page_number }}">next >></a></li>
-                {% endif %}
-              </ul>
+            {% if is_paginated %}
+
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        <li><a href="?{{course_id_url}}page={{ page_obj.previous_page_number }}"><< previous</a></li>
+                    {% endif %}
+                  
+                    {% for i in page_obj.paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li><a href="?{{course_id_url}}page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                  
+                    {% if page_obj.has_next %}
+                        <li><a href="?{{course_id_url}}page={{ page_obj.next_page_number }}">next >></a></li>
+                     {% endif %}
+                </ul>
+
             {% endif %}
 
           </div><!-- /.blog-post -->
