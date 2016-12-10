@@ -5,6 +5,7 @@
 
 
 {% block content %}
+
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -14,9 +15,9 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <h2>Редактировать {{ form.instance.name }}</h2>
+
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
-    <input type="submit" value="EDIT">
+    <input type="submit" value="Edit">
     </form>
 {% endblock %}
