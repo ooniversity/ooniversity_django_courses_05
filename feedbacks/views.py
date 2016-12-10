@@ -9,7 +9,7 @@ from feedbacks.forms import FeedbackForm
 from feedbacks.models import Feedback
 
 
-class Feedback(CreateView):
+class FeedbackView(CreateView):
     model = Feedback
     template_name = 'feedback.html'
     success_url = reverse_lazy('feedback')
