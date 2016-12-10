@@ -1,12 +1,14 @@
-from .models import Student
-from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import StudentModelForm
-from django.views.generic import CreateView, UpdateView, DetailView, ListView, DeleteView
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from students.forms import StudentModelForm
+from students.models import Student
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
-class StudenListView(ListView):
+class StudentListView(ListView):
     model = Student
 
     def get_queryset(self):
@@ -72,7 +74,10 @@ class StudentDeleteView(DeleteView):
             'name': self.object.name,
             'surname': self.object.surname
         }
-        messages.success(self.request, message)
+        messages.success(self.request,
+                         'Info on {0} {1} has been successfully deleted.'.format(
+                             self.object.name,
+                             self.object.surname))
         return response
 
     def get_context_data(self, **kwargs):

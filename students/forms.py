@@ -5,3 +5,4 @@ class StudentModelForm(forms.ModelForm):
     class Meta:
         model = Student
         exclude = 0
+        fields = '__all__'
