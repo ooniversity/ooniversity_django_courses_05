@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+
+
+{% block title %}Feedbacks{% endblock title %}
+
+
+{% block nav_class_feedback%}active{% endblock %}
+
+
+{% block content %}
+
+{% if messages %}
+  <ul class="mess">
+    {% for message in messages %}
+    <div class="mess">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+<h2 class="output_form"><p><b>Leave your feedback</b></p></h2>
+  <div class="output_form">
+    <form method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Send" />
+    </form>
+  </div>
+{% endblock content %}

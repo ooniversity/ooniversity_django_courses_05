@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from . import views
+from .import views
 
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^courses/', include('courses.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^coaches/', include('coaches.urls')),
+    url(r'^feedback/', include('feedbacks.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),
