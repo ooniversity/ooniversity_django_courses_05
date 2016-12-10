@@ -12,15 +12,18 @@ from django.urls import reverse_lazy, reverse
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
-    # template_name = 'students/student_list.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
-        cours_id = self.request.GET.get('pk', None)
-        if cours_id:
-            qs = qs.filter(courses=cours_id)
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            qs = qs.filter(courses=course_id)
         return qs
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        temp = self.request.GET.get('course_id')
+        context['course_id'] = '?course_id=%s&' % temp if temp else ''
+        return context
 
 class StudentDetailView(DetailView):
     model = Student
