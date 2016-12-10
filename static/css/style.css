@@ -260,3 +260,13 @@ background:#D8D8D8;
 .left_details{
 float:left;
 }
+
+.current{
+    position: relative;
+    float: left;
+    text-decoration: none;
+    border: 3px solid royalblue;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 2px;
+}
