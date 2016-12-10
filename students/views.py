@@ -55,7 +55,7 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Student info suppression"
+        context['title'] = "Student info will be deleted"
         return context
 
     def delete(self, request, *args, **kwargs):
