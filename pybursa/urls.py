@@ -29,5 +29,5 @@ urlpatterns = [
     url(r'^courses/', include('courses.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^coaches/', include('coaches.urls')),
-    url(r'^feedback/', views.Feedback.as_view(), name='feedback')
+    url(r'^feedback/', views.FeedbackView.as_view(), name='feedback')
 ]
