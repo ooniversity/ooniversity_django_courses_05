@@ -4,7 +4,7 @@
 {% load static %}
 
 
-{% block title %}PyBursa Course Editing{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block content %}
@@ -19,7 +19,7 @@
 {% endif %}
 
 <div class="page-header">
-  <h2>Edit course</h2>
+  <h2>{{ title }}</h2>
 </div>
   <form method="post">
     {% csrf_token %}
