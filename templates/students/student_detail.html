@@ -1,10 +1,7 @@
 ﻿{% extends "base.html" %}
 
 
-{% block title %}Студент{% endblock %}
-
-
-{% block navigation_students %}"active"{% endblock %}
+{% block title %}{{ student.surname }}{% endblock %}
 
 
 {%  block content %}
@@ -14,31 +11,31 @@
 	
 	<div class="container-fluid">
 		<div class="hero-unit">
-			<h2>{{ student.full_name }}</h2>
+			<h2>{{ object.name }} {{ student.surname }}</h2>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<table class="table">
 							<tbody>
 								<tr>
-									<td>дата рождения</td><td>{{ student.date_of_birth }}</td>
+									<td>дата рождения</td><td>{{ object.date_of_birth }}</td>
 								</tr>
 								<tr>
-									<td>адрес</td><td>{{ student.address }}</td>
+									<td>адрес</td><td>{{ object.address }}</td>
 								</tr>
 								<tr>
-									<td>почта</td><td>{{ student.email }}</td>
+									<td>почта</td><td>{{ object.email }}</td>
 								</tr>
 								<tr>
-									<td>логин skype</td><td>{{ student.skype }}</td>
+									<td>логин skype</td><td>{{ object.skype }}</td>
 								</tr>
 								<tr>
-									<td>телефон</td><td>{{ student.phone }}</td>
+									<td>телефон</td><td>{{ object.phone }}</td>
 								</tr>
 								<tr>
 									<td>курсы</td>
 									<td>
-										{% for course in student.get_courses %}
+										{% for course in object.courses.all %}
 										<p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
 										{% endfor %}
 									</td>

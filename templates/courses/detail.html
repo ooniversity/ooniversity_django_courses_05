@@ -1,7 +1,10 @@
 ﻿{% extends "base.html" %}
 
 
-{% block title %}Курс{% endblock %}
+{% block title %}{{ course.name }}{% endblock %}
+
+
+{% block students_get %}?course_id={{ course.id }}{% endblock %}
 
 
 {%  block content %}

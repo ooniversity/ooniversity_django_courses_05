@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'courses',
     'students',
 	'coaches',
+	'feedbacks',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/home/csa/pybursa/static',
 ]
+
+ADMINS = [('admin', 'some@email.com'),]
+
+EMAIL_PORT = '1025'
+
+EMAIL_HOST = '127.0.0.1'
 
 #STATIC_ROOT = '/home/csa/pybursa/static'
 
