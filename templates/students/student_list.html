@@ -72,40 +72,24 @@
 			
 			{% if is_paginated %}
 			
-			 <nav>
-                <ul class="pagination">
-                  <li>
+			 <ul class="pagination">
                     {% if page_obj.has_previous %}
-                      <a href="?page={{ page_obj.previous_page_number }}" aria-label="<< previous">
-                          <span aria-hidden="true">&laquo;</span>
-                          previous
-                      </a>
+                        <li><a href="?{{ course_id_url }}page={{ page_obj.previous_page_number }}"><< previous</a></li>
                     {% endif %}
-                  </li>
-                  {% for page in paginator.page_range %}
+                  
+                   {% for page in paginator.page_range %}
+                      {% if page == page_obj.number %}
+                          <li class="active"><a href="">{{ page }}<span class="sr-only"></span></a></li>
+                      {% else %}
+                         <li><a href="?{{ course_id_url }}page={{ page }}">{{ page }}<span class="sr-only"></span></a></li>
+                       {% endif %}
+                   {% endfor %}
 
-                    {% if page_obj.number == page %}
-                      <li class="active">
-                        <a href="#" class="disabled">{{ page }}</a>
-                      </li>
-                    {% else %}
-                      <li>
-                        <a href="?page={{ page }}" class="disabled">{{ page }}</a>
-                      </li>
-                    {% endif %}
-
-                  {% endfor %}
-                  {% if page_obj.has_next %}
-                  <li>
-                    <a href="?page={{ page_obj.next_page_number }}" aria-label="next >>">
-                      <span aria-hidden="true">&raquo;</span>
-                      next
-                    </a>
-                  </li>
-                  {% endif %}
-                </ul>
-              </nav>
-			  
+                
+                    {% if page_obj.has_next %}
+                        <li><a href="?{{ course_id_url }}page={{ page_obj.next_page_number }}">next >></a></li>
+                     {% endif %}
+                </ul>			  
 				{% endif %}
 				
 				</div>
