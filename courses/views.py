@@ -6,7 +6,7 @@ from .forms import CourseModelForm, LessonModelForm
 
 def detail(request, pk):
     course = get_object_or_404(Course, pk=pk)
-    return render(request, 'templates/courses/detail.html', {'course': course})
+    return render(request, 'courses/detail.html', {'course': course})
 
 def create(request):
     if request.method == "POST":
@@ -17,7 +17,7 @@ def create(request):
             return redirect('index')
     else:
         form = CourseModelForm()
-    return render(request, 'templates/courses/add.html', {'form': form})
+    return render(request, 'courses/add.html', {'form': form})
 
 def edit(request, pk):
     course = get_object_or_404(Course, pk=pk)
@@ -29,7 +29,7 @@ def edit(request, pk):
             return redirect('courses:edit', course.id)
     else:
         form = CourseModelForm(instance=course)
-    return render(request, 'templates/courses/edit.html', {'form': form})
+    return render(request, 'courses/edit.html', {'form': form})
 
 def remove(request, pk):
     course = get_object_or_404(Course, pk=pk)
@@ -37,7 +37,7 @@ def remove(request, pk):
         course.delete()
         messages.success(request, 'Course {} has been deleted.'.format(course.name))
         return redirect('index')
-    return render(request, 'templates/courses/remove.html', {'course': course})
+    return render(request, 'courses/remove.html', {'course': course})
 
 def add_lesson(request, pk):
     course = get_object_or_404(Course, pk=pk)
@@ -49,5 +49,5 @@ def add_lesson(request, pk):
             return redirect('courses:detail', lesson.course_id)
     else:
         form = LessonModelForm(initial={'course': course})
-    return render(request, 'templates/courses/add_lesson.html', {'form': form})
+    return render(request, 'courses/add_lesson.html', {'form': form})
 
