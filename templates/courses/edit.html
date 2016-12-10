@@ -1,7 +1,7 @@
 ﻿{% extends "base.html" %}
 
 
-{% block title %}Редактирование курса{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block navigation_students %}"active"{% endblock %}
@@ -12,17 +12,17 @@
 {% if messages %}
 <ul class="messages">
 	{% for message in messages %}
-	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		<div class="messages">{{ message }}</div>
 	{% endfor %}
 </ul>
 {% endif %}
 
 <div class="container">
-	<H4>Изменение курса</H4>
+	<H4>Изменение курса {{ form.instance.name }}</H4>
 	
 	<form method="post">
 		{% csrf_token %}
-		{{ model.as_p }}
+		{{ form.as_p }}
         <input type="submit" value="Изменить">
 	</form>
 </div>

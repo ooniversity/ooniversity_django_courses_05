@@ -23,7 +23,7 @@
 											<td>адрес</td><td>{{ coach.address }}</td>
 										</tr>
 										<tr>
-											<td>почта</td><td>{{ coach.email }}</td>
+											<td>почта</td><td>{{ coach.user.email }}</td>
 										</tr>
 										<tr>
 											<td>логин skype</td><td>{{ coach.skype }}</td>
@@ -34,6 +34,7 @@
 										<tr>
 											<td>курсы учителя</td>
 											<td>
+											{% if couch_cours %}
 												{% for course in courses_coach %}
 												<p>
 													<a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a>
@@ -41,11 +42,13 @@
 													<a href="{%  url 'students:list_view' %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a>
 												</p>
 												{% endfor %}
+											{% endif %}
 											</td>
 										</tr>
 										<tr>
 											<td>курсы ассистента</td>
 											<td>
+											{% if courses_assistant %}
 												{% for course in courses_assistant %}
 												<p>
 													<a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a>
@@ -53,6 +56,7 @@
 													<a href="{%  url 'students:list_view'  %}?course_id={{ course.id }}"><i class="glyphicon glyphicon-user"></i></a>
 													</p>
 												{% endfor %}
+											{% endif %}
 											</td>
 										</tr>
 									</tbody>

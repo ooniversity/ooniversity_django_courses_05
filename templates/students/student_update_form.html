@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 
 
-{% block title %}Edit student{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block content %}
@@ -12,12 +12,12 @@
                 <div class="messages">
                         {{ message }}
                 </div>
-				{% endfor %}
+            {% endfor %}
         </ul>
     {% endif %}
 
     <form method="post">{% csrf_token %}
-        {{ model.as_p }}
-    <input type="submit" value="Edit">
+        {{ form.as_p }}
+    <input type="submit" value="Изменить">
     </form>
 {% endblock %}
