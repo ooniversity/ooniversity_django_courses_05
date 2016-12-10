@@ -14,7 +14,7 @@ class CourseDetailView(DetailView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        course_id = self.request.GET.get('pk', None)
+        course_id = self.request.GET.get('course_id', None)
         if course_id:
             qs = qs.filter(courses=course_id)
         return qs
@@ -36,9 +36,9 @@ class CourseCreateView(CreateView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
-        result = super().form_valid(form)
+        response = super().form_valid(form)
         messages.success(self.request, 'Course %s added.' %form.instance.name)
-        return result
+        return response
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -54,9 +54,9 @@ class CourseUpdateView(UpdateView):
         return reverse('courses:edit', args=(self.object.pk,))
 
     def form_valid(self, form):
-        result = super().form_valid(form)
+        response = super().form_valid(form)
         messages.success(self.request, 'The changes have been saved.')
-        return result
+        return response
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -69,10 +69,10 @@ class CourseDeleteView(DeleteView):
     success_url = reverse_lazy('index')
 
     def delete(self, request, *args, **kwargs):
-        result = super().delete(request, *args, **kwargs)
+        response = super().delete(request, *args, **kwargs)
         messages.success(self.request, 'Course %s deleted.' %
                          self.object.name)
-        return result
+        return response
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
