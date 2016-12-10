@@ -1,4 +1,4 @@
-{% extends "templates/base.html" %}
+{% extends "base.html" %}
 
 
 {% load static %}
@@ -42,7 +42,7 @@
             </thead>
             <tbody>
 
-            {% for student in students %}
+            {% for student in student_list %}
               <tr>
                 <td>{{ forloop.counter }}</td>
                 <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>

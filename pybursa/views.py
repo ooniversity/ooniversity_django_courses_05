@@ -7,12 +7,12 @@ from datetime import datetime
 
 def index(request):
     courses = Course.objects.all()
-    return render(request, 'templates/index.html', {"courses": courses} )
+    return render(request, 'index.html', {"courses": courses} )
 #    template = loader.get_template('templates/index.html')
 #    return HttpResponse(template.render(request))
 
 def contact(request):
-    return render(request, 'templates/contact.html')
+    return render(request, 'contact.html')
 #    template = loader.get_template('templates/contact.html')
 #    return HttpResponse(template.render(request))
 
