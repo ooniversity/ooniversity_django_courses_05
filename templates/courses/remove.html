@@ -4,12 +4,12 @@
 {% load static %}
 
 
-{% block title %}PyBursa Delete Course{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block content %}
 <div class="page-header">
-  <h4>Course {{ course.name }} will be deleted.</h4>
+  <h4>{{ title }}</h4>
 </div>
   <form method="post">
     {% csrf_token %}

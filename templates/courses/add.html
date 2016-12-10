@@ -4,7 +4,7 @@
 {% load static %}
 
 
-{% block title %}Adding of new course{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block navbar_index %}active{% endblock %}
@@ -13,7 +13,7 @@
 {% block content %}
 
 <div class="page-header">
-  <h2>Add new course</h2>
+  <h2>{{ title }}</h2>
 </div>
   <form method="post">
     {% csrf_token %}
