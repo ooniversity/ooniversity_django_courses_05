@@ -41,7 +41,7 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context['title'] = "Update info"
+        context['title'] = "Student info update"
         return context
 
     def form_valid(self, form):
@@ -55,7 +55,7 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Student info will be deleted"
+        context['title'] = "Student info suppression"
         return context
 
     def delete(self, request, *args, **kwargs):
