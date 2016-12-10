@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+#EMAIL_HOST_USER = 'qqq'
+#EMAIL_HOST_PASSWORD = 'bla'
+ADMINS = (('Timoshenko', 'book1978@gmail.com'),)
+#DEFAULT_FROM_EMAIL = 'blabla@gmail.com'
+EMAIL_SUBJECT_PREFIX = ''
