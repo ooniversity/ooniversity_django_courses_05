@@ -24,6 +24,11 @@ class CourseDetailView(DetailView):
         context['lessons'] = Lesson.objects.filter(course=self.object.pk)
         return context
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lessons'] = Lesson.objects.filter(course=self.object.pk)
+        return context
+
 class CourseCreateView(CreateView):
     model = Course
     form_class = CourseModelForm
@@ -32,8 +37,7 @@ class CourseCreateView(CreateView):
 
     def form_valid(self, form):
         result = super().form_valid(form)
-        messages.success(self.request, 'Course %s added.' %
-                         form.instance.name)
+        messages.success(self.request, 'Course %s added.' %form.instance.name)
         return result
 
     def get_context_data(self, **kwargs):
