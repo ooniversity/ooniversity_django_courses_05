@@ -35,7 +35,7 @@
 											<td>курсы учителя</td>
 											<td>
 											{% if couch_cours %}
-												{% for course in courses_coach %}
+												{% for course in couch_cours %}
 												<p>
 													<a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a>
 													Студенты курса 

@@ -26,8 +26,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^polls/', include('polls.urls')),
     url(r'^quadratic/', include('quadratic.urls')),
-    url(r'courses/', include('courses.urls')),
-    url(r'^students/', include('students.urls')),
-    url(r'^coaches/', include('coaches.urls')),
+    url(r'courses/', include('courses.urls', namespace = 'courses', app_name='courses')),
+    url(r'^students/', include('students.urls', namespace = 'students', app_name='students')),
+    url(r'^coaches/', include('coaches.urls', namespace = 'coaches', app_name='coaches')),
     url(r'^feedback/', include('feedbacks.urls')),
 ]

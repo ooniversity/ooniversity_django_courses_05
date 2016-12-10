@@ -5,14 +5,7 @@ from courses.models import Course
 # Create your views here.
 
 def detail(request, coach_id):
-
-    current_coach = Coach.objects.get(id=coach_id)
-    courses_coach = Course.objects.filter(coach=current_coach)
-    courses_assistant = Course.objects.filter(assistant=current_coach)
-
-    context = {'coach': current_coach,
-               'courses_coach': courses_coach,
-               'courses_assistant': courses_assistant,
-               }
-
-    return render(request, 'coaches/detail.html', context)
+    coach = Coach.objects.get(id=int(coach_id))
+    couch_cours = Course.objects.filter(coach=coach.id)
+    assistant_cours = Course.objects.filter(assistant=coach.id)
+    return render(request, 'coaches/detail.html', {'coach': coach, 'couch_cours': couch_cours, 'assistant_cours': assistant_cours})
