@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Edit student{% endblock title %}
+{% block title %}Edit {{ model.instance.subject }}{% endblock title %}
 
 
 {% block content %}
-
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -15,9 +14,9 @@
             {% endfor %}
         </ul>
     {% endif %}
-
+    <h2>Редактировать {{ model.instance.subject }}</h2>
     <form method="post">{% csrf_token %}
         {{ model.as_p }}
-    <input type="submit" value="Edit">
+    <input type="submit" value="Редактировать">
     </form>
 {% endblock %}
