@@ -4,7 +4,7 @@
 {% load static %}
 
 
-{% block title %}Editing of student{% endblock %}
+{% block title %} {{ title }} {% endblock %}
 
 
 {% block navbar_students %}active{% endblock %}
@@ -22,7 +22,7 @@
 {% endif %}
 
 <div class="page-header">
-  <h2>Editing of student's data</h2>
+  <h2>{{ title }}</h2>
 </div>
   <form method="post">
     {% csrf_token %}
