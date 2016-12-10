@@ -57,14 +57,15 @@
                         <li><a href="?{{ course_id_url }}page={{ page_obj.previous_page_number }}"><< previous</a></li>
                     {% endif %}
                   
-                    {% for i in page_obj.paginator.page_range %}
-                        {% if page_obj.number == i %}
-                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                        {% else %}
-                            <li><a href="?{{ course_id_url }}page={{ i }}">{{ i }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                  
+                   {% for page in paginator.page_range %}
+                      {% if page == page_obj.number %}
+                          <li class="active"><a href="">{{ page }}<span class="sr-only"></span></a></li>
+                      {% else %}
+                         <li><a href="?{{ course_id_url }}page={{ page }}">{{ page }}<span class="sr-only"></span></a></li>
+                       {% endif %}
+                   {% endfor %}
+
+                
                     {% if page_obj.has_next %}
                         <li><a href="?{{ course_id_url }}page={{ page_obj.next_page_number }}">next >></a></li>
                      {% endif %}
