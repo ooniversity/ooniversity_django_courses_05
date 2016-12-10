@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
     'coaches.apps.CoachesConfig',
+    'feedbacks.apps.FeedbacksConfig',
 ]
 
 MIDDLEWARE = [
