@@ -80,3 +80,4 @@ class StudentDeleteView(DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Student info suppression' 
         return context
+

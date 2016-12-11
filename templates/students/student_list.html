@@ -31,28 +31,27 @@
                     <th></th>
                 </tr>
 
-                {% for student in student_list %}
-                    <tr>
-                        <td>{{ student.id }}</td>
-                        <td>
-                            <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a>
-                        </td>
-                        <td>{{ student.address }}</td>
-                        <td>{{ student.skype }}</td>
-                        <td>
-                            {% for course in student.get_courses %}
-                                <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
-                            {% endfor %}
-                        </td>
-                        <td>
-                            <a href="{% url 'students:edit' student.id %}">Изменить</a>
-                        </td>
-                        <td>
-                            <a href="{% url 'students:remove' student.id %}">Удалить</a>
-                        </td>
-                    </tr>
-                {% endfor %}
+
+ {% for student in object_list %}
+                <tr>
+                    <td>{{ student.id }} </td>
+                    <td><a href="{% url 'students:detail' student.id%}">{{ student.name }} {{ student.surname }}</a></td>
+                    <td>{{ student.address }} </td>
+                    <td>{{ student.skype }} </td>
+                    <td> 
+                        {% for courses in student.courses.all %}
+                            <p><a href="{% url 'courses:detail' courses.id%}">{{ courses }}</a></p>
+                        {% endfor %}   
+                    </td>
+                    <td><a href="{% url 'students:edit' student.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
+                    <td><a href="{% url 'students:remove' student.id %}"><button type="button" class="btn btn-primary">Удалить</button></a></td>
+                 </tr>
+                  {% endfor %}
             </table>
+
+
+
+
 		{% if is_paginated %}
 
                <ul class="pagination">
@@ -73,9 +72,9 @@
                         <li><a href="?{{ course_id_url }}page={{ page_obj.next_page_number }}">next >></a></li>
                      {% endif %}
                 </ul>
-            {% endif %}
 
         </div>
         <a href="{% url 'students:add' %}">Добавить нового студента</a>
     </div>
+{% endif %}
 {% endblock %}
