@@ -6,8 +6,6 @@
 {% block title %}about course{% endblock title %}
 
 
-{% block student_course %}/students/?course_id={{ curse_id }}{% endblock %}
-
 
 {% block content %}
   <h1 align="center">{{ course_name }}</h1></br>
@@ -23,6 +21,19 @@
 	<p>{{ course_name.assistant.description }}</p>
 
    <h3>ПЛАН КУРСА</h3></br>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="/courses/{{ course_name.id }}/add_lesson"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="new lesson"
+		data-content="Right?"> + Добавить занятие</button></a>
+
+
    <table border="0">
 	   <col width="15" valign="top">
 	   <col width="200" valign="top">
