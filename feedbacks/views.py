@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from .models import Feedback
+from feedbacks.models import Feedback
 from .forms import FeedbackForm
 from django.views.generic.edit import CreateView
 from django.contrib import messages
