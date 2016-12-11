@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^students/', include('students.urls')),
     url(r'^coaches/', include('coaches.urls')),
     url(r'^student_detail/$', student_detail, name='student_detail'),
+    url(r'^feedback/', include('feedbacks.urls')),
 ]
