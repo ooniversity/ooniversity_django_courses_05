@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 
-{% load static %}
-
-
 {% block title %}PyBursa Course Details{% endblock %}
 
 
@@ -57,11 +54,14 @@
             <h1>Stuff</h1>
           </div>
 
+{% if course.coach %}
+  {% include "include/inc_coach_include.html" with panel_title="Coach" coach=course.coach %}
+{% endif %}
 
-{% include "include/inc_coach_include.html" with panel_title="Coach" coach=course.coach %}
 
-
-{% include "include/inc_coach_include.html" with panel_title="Assistant" coach=course.assistant %}
+{% if course.assistant %}
+  {% include "include/inc_coach_include.html" with panel_title="Assistant" coach=course.assistant %}
+{% endif %}
 
 
     </div>
