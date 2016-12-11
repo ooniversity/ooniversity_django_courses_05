@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'courses',
     'students',
     'coaches',
+    'feedbacks.apps.FeedbacksConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,3 +132,9 @@ STATICFILES_DIRS = [
 #STATIC_ROOT = '/home/ant/pybursa/static'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+EMAIL_PORT = '1025'
+
+EMAIL_HOST = '127.0.0.1'
+
+ADMINS = [('admin', 'admin@dj.ar2d2.com')]

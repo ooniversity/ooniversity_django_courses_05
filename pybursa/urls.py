@@ -19,6 +19,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
 from quadratic.views import quadratic_results
+from feedbacks import views
 from . import views
 
 urlpatterns = [
@@ -32,4 +33,5 @@ urlpatterns = [
     url(r'^courses/', include('courses.urls')),
     url(r'^students/', include('students.urls')),
     url(r'^coaches/', include('coaches.urls')),
+    url(r'^feedback/', include('feedbacks.urls')),
 ]
