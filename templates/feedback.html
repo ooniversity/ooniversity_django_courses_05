@@ -1,20 +1,27 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
+{% block title %} Feedback {% endblock title %}
 
-{% block title %}Feedback{% endblock %}
+{% block nav_class_feedback %} active {% endblock %}
 
-{% block navigation_feedback %}"active"{% endblock %}
+{% block content %}
 
+{% if messages %}
+        <ul class="messages">
+         <div class="jumbotron">
+           {% for message in messages %}
+             <li{% if message.tags %} class="{{ massage.tags }}" {% endif %}>{{ message }}</li>
+           {% endfor %}
+        </div>
+        </ul>
+     {% endif %}
+      
+ <div class="blog-post">
 
-{%  block content %}
-   <div class="container">
-        <H4>Feedback</H4>
+   <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value = "Отправить"/>
+   </form>
 
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-        <input type="submit" value="Создать">
-        </form>
-    </div>
-{% endblock %}
+{% endblock content %}

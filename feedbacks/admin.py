@@ -1,5 +1,8 @@
 from django.contrib import admin
 from feedbacks.models import Feedback
+from feedbacks.forms import FeedbackForm
+from django.db import models
+from django.forms import widgets 
 
 # Register your models here.
 class FeedbackAdmin(admin.ModelAdmin):
