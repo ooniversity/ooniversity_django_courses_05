@@ -13,6 +13,7 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         qs = super().get_queryset()
@@ -20,6 +21,11 @@ class StudentListView(ListView):
         if course_id:
             qs = qs.filter(courses=course_id)
         return qs
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        temp = self.request.GET.get('course_id')
+        context['course_id'] = '?course_id=%s&' % temp if temp else '?'
+        return context        
 
 class StudentCreateView(CreateView):
     model = Student

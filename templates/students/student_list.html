@@ -37,7 +37,7 @@
         {% for i in object_list %}
           <col width="210">
           <tr>
-            <td>{{i.id}}</td>
+            <td>{{ forloop.counter }}</td>
             <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{i.name}}</a><br><a href="{% url 'students:edit' i.id %}"><button class="adstud">Edit</button></a>
             <a href="{% url 'students:remove' i.id %}"><button class="adstud">Remove</button></a></td>
             <td>{{i.address}}</td>
@@ -48,5 +48,24 @@
           </tr>
         {% endfor %}
       </table>
+        {% if is_paginated %}
+          <div class="table">
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li><a href="{{ course_id }}page={{ page_obj.previous_page_number }}"> previous<< </a></li>
+            {% endif %}
+            {% for page in paginator.page_range %}
+              {% if page == page_obj.number %}
+                <li class="active"><a href="">{{ page }}<span class=""></span></a></li>
+              {% else %}
+                <li><a href="{{ course_id }}page={{ page }}">{{ page }}<span class=""></span></a></li>
+              {% endif %}
+            {% endfor %}
+          {% if page_obj.has_next %}
+            <li><a href="{{ course_id }}page={{ page_obj.next_page_number }}"> >>next </a></li>
+          {% endif %}
+          </ul>
+        {% endif %}
+          </div>
       </div>
 {% endblock content%}
