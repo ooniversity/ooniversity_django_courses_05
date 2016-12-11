@@ -1,18 +1,17 @@
 from django.conf import settings
-from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from feedbacks.forms import FeedbackForm
 from feedbacks.models import Feedback
 from django.views.generic.edit import CreateView
 from django.contrib import messages
-from django.core.mail import mail_admins, send_mail
+from django.core.mail import send_mail
 
 
 class FeedbackView(CreateView):
     model = Feedback
     template_name = 'feedback.html'
     form_class = FeedbackForm
-    success_url = reverse_lazy('feedbacks:index')
+    success_url = reverse_lazy('feedback')
 
     def form_valid(self, form):
         response = super().form_valid(form)
