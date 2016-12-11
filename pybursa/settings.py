@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
     'coaches.apps.CoachesConfig',
+    'feedbacks.apps.FeedbacksConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+ADMINS = (
+    ('Serhii', 'sergiy.persianov@gmail.com'),
+    ('Olena', 'olena.persianova@gmail.com'),
+)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
