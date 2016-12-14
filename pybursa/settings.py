@@ -57,6 +57,38 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pybursa.urls'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': 
+     {
+        'courses': {
+            'handlers': ['file1'],
+            'level': 'DEBUG', 
+        },
+
+        'students': {
+            'handlers': ['file2'],
+            'level': 'WARNING',
+        },
+    },
+     'handlers': 
+     {
+        'file1': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+        'file2': {
+            'level': 'WARNING', 
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+     },
+}
+
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
