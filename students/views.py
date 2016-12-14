@@ -7,6 +7,8 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 
+import logging
+logger = logging.getLogger(__name__)
 
 class StudentListView(ListView):
     model = Student
@@ -14,6 +16,10 @@ class StudentListView(ListView):
  
     def get_queryset(self):
        qs = super().get_queryset()
+       logger.debug("Students detail view has been debugged!")
+       logger.info("Logger of students detail view informs you!")        
+       logger.warning("Logger of students detail view warns you!")
+       logger.error("Students detail view went wrong!")
        course_id = self.request.GET.get('course_id', None)
        if course_id:
            qs = qs.filter(courses__id=course_id)
