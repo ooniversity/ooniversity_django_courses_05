@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l+#qe=8_jrg$ts%qoh^s-f!+n4b@5o1p&41ppegqmzrxt$w=8n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -176,5 +176,7 @@ ADMINS = ['admin', 'admin1']
 EMAIL_HOST = "127.0.0.1"
 
 EMAIL_PORT = "1025"
+
+
 
 
