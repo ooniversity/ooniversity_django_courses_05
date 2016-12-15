@@ -119,7 +119,7 @@ class StudentsDetailTest(TestCase):
         self.assertContains(response, "Lyuda")
         self.assertContains(response, "Kaluzhynova")
 
-    def test_student_detail(self):
+    def test_two_equal_students(self):
         from django.test import Client
         client = Client()
         student1 = Student.objects.create(
@@ -143,7 +143,7 @@ class StudentsDetailTest(TestCase):
         response = client.get('/students/1/')
         self.assertEqual(response.status_code, 200)
 
-    def test_link_course_detail(self):
+    def test_link_menu(self):
         student1 = Student(name = "Lyuda",)
         response = self.client.get('/students/', follow=True)
         self.assertContains(response, '/') 
