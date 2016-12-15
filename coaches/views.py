@@ -8,10 +8,8 @@ def detail(request, coach_id):
 
     coach_course_qs = Course.objects.filter(coach_id = coach_id)
     coach_course = coach_course_qs[0:]
-    print(coach_course)
-        
+       
     assistant_course_qs = Course.objects.filter(assistant_id = coach_id)
     assistant_course = assistant_course_qs[0:]
-    print(assistant_course)
 
     return render (request, "coaches/detail.html", {"coach": coach, "coach_course": coach_course, "assistant_course": assistant_course })
