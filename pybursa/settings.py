@@ -108,42 +108,43 @@ EMAIL_PORT = '1025'
 EMAIL_HOST = '127.0.0.1'
 
 LOGGING = {
-    'version' : 1,
+    'version': 1,
     'disable_existing_loggers': False,
-    'loggers':
-    {
-        'students': {
-            'handlers': ['students_log'],
-            'level': 'WARNING',
-        },
-        'courses': {
-            'handlers': ['courses_log'],
-            'level': 'DEBUG',
-        },
-    },
-    'handlers':
-    {
-        'students_log': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            'formatter': 'verbose',
-        },
-        'courses_log': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'formatter': 'simple'
-            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
-        },
-    },
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(FuncName)s %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
         },
     },
+    'loggers': 
+     {
+        'courses': {
+            'handlers': ['courses_log'],
+            'level': 'DEBUG',
+        },
+
+        'students': {
+            'handlers': ['students_log'],
+            'level': 'WARNING',
+        },
+    },
+     'handlers': 
+     {
+        'courses_log': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'simple',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+        'students_log': {
+            'level': 'WARNING', 
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+     },
 }
 
 try:
