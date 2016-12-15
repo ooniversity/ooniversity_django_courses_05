@@ -132,12 +132,16 @@ LOGGING = {
         'courses_log': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
+            'formatter': 'simple'
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
         },
     },
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(FuncName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
         },
     },
 }
