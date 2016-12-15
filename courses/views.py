@@ -31,11 +31,6 @@ class CourseDetailView(DetailView):
         context['lessons'] = Lesson.objects.filter(course=self.object.pk)
         return context
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['lessons'] = Lesson.objects.filter(course=self.object.pk)
-        return context
-
 class CourseCreateView(CreateView):
     model = Course
     form_class = CourseModelForm
