@@ -2,10 +2,11 @@ from django.http import HttpResponse, response
 from django.shortcuts import render
 from courses.models import Course
 from django.views.generic.base import TemplateView
+from django.views.decorators.cache import cache_page
 
 def index(request):
-    courses = Course.objects.all()
-    return render(request, "index.html", {'courses': courses})
+	courses = Course.objects.all()
+	return render(request, "index.html", {'courses': courses})
 
 def contact(request):
 	return render(request, "contact.html")
