@@ -60,19 +60,19 @@
            <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        <a href="?page={{ page_obj.previous_page_number }}{{ url_course_id }}"><< previous</a>
                     {% endif %}
 
-                    {% for num in paginator.page_range %}
+                    {% for num in page_obj.paginator.page_range %}
                         {% if num == page_obj.number %}
                             <span class="current"><b>{{ num }}</b></span>
                         {% else %}
-                            <a href="?page={{ num }}"> {{ num }}</a>
+                            <a href="?page={{ num }}{{ url_course_id }}"> {{ num }}</a>
                         {% endif %}
                     {% endfor %}
 
                     {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.next_page_number }}{{ url_course_id }}">next >></a>
                     {% endif %}
                 </span>
             </div>
