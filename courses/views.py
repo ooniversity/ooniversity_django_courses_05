@@ -5,6 +5,9 @@ from courses.models import Course, Lesson
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class CourseDetailView(DetailView):
@@ -16,6 +19,10 @@ class CourseDetailView(DetailView):
         pk = self.kwargs['pk']
         context = super().get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=pk).order_by('order')
+        logger.debug("Courses detail view has been debugged!")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
         return context
 
 

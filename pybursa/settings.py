@@ -133,3 +133,41 @@ EMAIL_PORT = '1025'
 EMAIL_HOST = '127.0.0.1'
 
 ADMINS = [('admin', 'admin@pybursa.ru')]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        'courses': {
+            'handlers': ['file1'],
+            'level': 'DEBUG',
+        },
+
+        'students': {
+            'handlers': ['file2'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'file1': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'simple',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+        'file2': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+    },
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s',
+        },
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s',
+        },
+    },
+}

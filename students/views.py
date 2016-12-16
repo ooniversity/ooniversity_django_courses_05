@@ -6,6 +6,9 @@ from students.models import Student
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class StudentListView(ListView):
@@ -15,15 +18,28 @@ class StudentListView(ListView):
     def get_queryset(self):
         qs = super().get_queryset()
         course_id = self.request.GET.get('course_id', None)
-
         if course_id:
             qs = qs.filter(courses__id=course_id)
-
         return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            context['course_id_url'] = 'course_id={}&'.format(self.request.GET.get('course_id', None))
+        return context
 
 
 class StudentDetailView(DetailView):
     model = Student
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        logger.debug("Students detail view has been debugged!")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        return context
 
 
 class StudentCreateView(CreateView):
