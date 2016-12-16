@@ -1,19 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Квадратное уравнение</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Basic page for Django course">
+    <meta name="author" content="Ivan Tarasenko">
+    <title>PyBursa Quadratic</title>
   </head>
-
   <body>
     <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-    <ul>
-      <li>a = {{ a }} {% if a_error %}<br /><em>{{ a_error }}</em>{% endif %}</li>
-      <li>b = {{ b }} {% if b_error %}<br /><em>{{ b_error }}</em>{% endif %}</li>
-      <li>c = {{ c }} {% if c_error %}<br /><em>{{ c_error }}</em>{% endif %}</li>
-    </ul>
-    {% if not error %}
-      <p>Дискриминант: {{ d }}</p>
-      <p>{{ result_text }}</p>
+    <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить"/>
+    </form>
+    {% if result %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>{{ result }}</p>
     {% endif %}
   </body>
 </html>
