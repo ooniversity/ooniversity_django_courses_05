@@ -1,19 +1,22 @@
-from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+from django.db import models
+
 
 class Coach(models.Model):
+
+    GENDER_CHOICES = (
+        (u'M', u'Male'),
+        (u'F', u'Female'),
+    )
+
     user = models.OneToOneField(User)
     date_of_birth = models.DateField()
-    gender = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
-    phone = models.CharField(max_length=15)
-    address = models.CharField(max_length=70)
-    skype = models.CharField(max_length=15)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    phone = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    skype = models.CharField(max_length=255)
     description = models.TextField()
 
     def __str__(self):
         return self.user.username
 
-    @property
-    def full_name(self):
-        return "{0} {1}".format(self.user.first_name, self.user.last_name)
