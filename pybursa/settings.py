@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'courses.apps.StudentsConfig', 
-	'courses.apps.CoursesConfig', 
+    'courses.apps.CoursesConfig', 
     'polls.apps.PollsConfig', 
     'quadratic.apps.QuadraticConfig', 
     'django.contrib.admin',
