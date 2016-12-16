@@ -10,6 +10,10 @@ from django.views.generic.detail import DetailView
 from .forms import StudentModelForm
 from .models import Student
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class StudentListView(ListView):
     model = Student
@@ -25,6 +29,14 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        logger.debug("Students detail view has been debugged!")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        return context
 
 
 class StudentCreateView(CreateView):
@@ -50,7 +62,6 @@ class StudentUpdateView(UpdateView):
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
 
-
     def get_success_url(self):
         super().get_success_url()
         pk = self.kwargs['pk']
@@ -73,7 +84,6 @@ class StudentDeleteView(DeleteView):
     form_class = StudentModelForm
     success_url = reverse_lazy('students:list_view')
 
-
     def delete(self, request, *args, **kwargs):
         d = super().delete(request, *args, **kwargs)
         messages.success(request, "Info on {0} has been successfully deleted.".format(
@@ -84,5 +94,3 @@ class StudentDeleteView(DeleteView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Student info suppression'
         return context
-
-
