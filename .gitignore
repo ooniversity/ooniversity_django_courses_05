@@ -4,3 +4,5 @@
 .idea
 __pycache__
 myvenv/
+courses_logger.log
+students_logger.log
