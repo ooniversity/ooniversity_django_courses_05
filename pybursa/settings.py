@@ -93,11 +93,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
@@ -143,6 +142,6 @@ LOGGING = {
 }
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     print('WARNING! local_settings are not defined!')
