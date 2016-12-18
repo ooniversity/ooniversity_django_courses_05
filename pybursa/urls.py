@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from pybursa import views
 from django.shortcuts import render
+from django.conf import settings
 
 app_name = 'pybursa'
 urlpatterns = [
@@ -25,7 +26,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name = 'index'),
     url(r'^courses/', include('courses.urls')),
-    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^contact/$', views.ContactView.as_view(), name='contact'),
+    #url(r'^contact/$', views.contact, name='contact'),
     url(r'^coaches/', include('coaches.urls')),
     url(r'^students/', include('students.urls', namespace='students')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls)),]

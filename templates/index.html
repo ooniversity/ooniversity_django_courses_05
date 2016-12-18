@@ -12,10 +12,25 @@
 {% block content %}
 
 {% include "templates/include/first_include.html"%}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="courses/add/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="new courses"
+		data-content="Right?"> + Добавить новый курс</button></a>
+<a href="/courses/add/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="new course"
+		data-content="Right?"> + Добавить новый курс</button></a>
   <h3>Сделай свой CHANGE:</h3>
    	<table border="0">
 	 	<col width="200" valign="top">
-		<col width="1000" valign="top">
+		<col width="500" valign="top">
+		<col width="200" valign="top">
+		<col width="200" valign="top">
    	  <tr>
 	    <th> КУРС </th>
 	    <th> ОПИСАНИЕ </th>
@@ -24,9 +39,19 @@
 	  {% for curse in course_list %}
 	  <tr><td><a href="/courses/{{ curse.id }}/" >{{ curse.name|upper }}</a></td><td>
 		  {{ curse.short_description|title }}</td>
+	  <td><a href="/courses/edit/{{ curse.id }}/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="edit course"
+		data-content="Right?">Изменить</button></a></td>
+	  <td><a href="/courses/remove/{{ curse.id }}/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="delete course"
+		data-content="Right?">Удалить</button></a></td>
+	  	  {% endfor %}
+
+	      <td><a href="/courses/remove/{{ curse.id }}/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="delete course"
+		data-content="Right?">Удалить</button></a>
 	  {% endfor %}
+
 	  </tr>
 	</table>
+
    <a href="{% url 'contact' %}" data-toggle="tooltip" title="Click ME!"></a>
    <div class="tooltip top" role="tooltip">
 	  <div class="tooltip-arrow"></div>

@@ -10,20 +10,20 @@
 
 
 {% block content %}
-	<h1>{{ student_full.surname }} {{ student_full.name }}</h1>
+	<h1>{{ student.surname }} {{ student.name }}</h1>
 		  <p>_____________________________________________________</p>
-	      <p>Дата рождения:   {{ student_full.date_of_birth }}</p>
+	      <p>Дата рождения:   {{ student.date_of_birth }}</p>
 	      <p>_____________________________________________________</p>
-	      <p>Адресс:   {{ student_full.address }}</p>
+	      <p>Адресс:   {{ student.address }}</p>
 		  <p>_____________________________________________________</p>
-	      <p>e-mail:   {{ student_full.email }}</p>
+	      <p>e-mail:   {{ student.email }}</p>
 	      <p>_____________________________________________________</p>
-	      <p>skype login:   {{ student_full.skype }}</p>
+	      <p>skype login:   {{ student.skype }}</p>
 	      <p>_____________________________________________________</p>
-	      <p>phone:   {{ student_full.phone }}</p>
+	      <p>phone:   {{ student.phone }}</p>
 		  <p>_____________________________________________________</p>
 	      <p>Курсы: </p>
-	      {% for course in student_full.courses.all %}
+	      {% for course in student.courses.all %}
 			<br><a href="/courses/{{ course.id }}">{{ course.name }}</a></td></br></p>
           {% endfor %}
 {% endblock content %}

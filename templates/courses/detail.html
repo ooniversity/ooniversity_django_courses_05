@@ -6,10 +6,21 @@
 {% block title %}about course{% endblock title %}
 
 
-{% block student_course %}/students/?course_id={{ curse_id }}{% endblock %}
+<<<<<<< HEAD
+{% block student_course %}/students/?course_id={{ course_name.id }}{% endblock %}
 
+=======
+>>>>>>> a_yakovcyk
 
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
   <h1 align="center">{{ course_name }}</h1></br>
    <div align="center">{{ course_name.description|truncatechars:32 }}</div></br>
 
@@ -23,6 +34,25 @@
 	<p>{{ course_name.assistant.description }}</p>
 
    <h3>ПЛАН КУРСА</h3></br>
+
+<<<<<<< HEAD
+=======
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+>>>>>>> a_yakovcyk
+
+<a href="/courses/{{ course_name.id }}/add_lesson"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="new lesson"
+		data-content="Right?"> + Добавить занятие</button></a>
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> a_yakovcyk
    <table border="0">
 	   <col width="15" valign="top">
 	   <col width="200" valign="top">
@@ -32,7 +62,7 @@
 		    <th> ОПИСАНИЕ </th>
 		  </th>
 		  </tr>
-		  {% for x in lesson_list%}
+		  {% for x in course_name.lesson_set.all%}
 		  <tr><td>{{ x.id }}</td><td>{{ x.subject }}</td><td> {{ x.description }} </td>
 		  </tr>
 	      {% endfor %}
