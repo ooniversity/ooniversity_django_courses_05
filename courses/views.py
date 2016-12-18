@@ -16,17 +16,17 @@ class CourseDetailView(DetailView):
     context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
+
+        logger.debug("Courses detail view has been debugged!")
+        logger.info("Logger of courses detail view informs you!")        
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+
         context = super().get_context_data(**kwargs)
         current_course = Course.objects.get(id=self.kwargs['pk'])
         lessons = Lesson.objects.filter(course=current_course).order_by('order')
         context['course'] = current_course
         context['lessons'] = lessons
-
-        logger.debug("Courses detail view has been debugged")
-        logger.info("Logger of courses detail view informs you!")
-        logger.warning("Logger of courses detail view warns you!")
-        logger.error("Courses detail view went wrong!")
-
         return context
 
 class CourseCreateView(CreateView):
