@@ -25,7 +25,7 @@
     <p class=content_description>{{ course.description|truncatechars:32 }}</p>
 
 </div><!-- /description-->
-
+{% if course.coach%}
 <div class="program">
     <h1 class="program_title">Преподаватели</h1>
 </div><!-- /Program-->
@@ -37,6 +37,7 @@
         <tr class="title_table">
             <td>Учитель</td>
         </tr>
+
 
         <tr class="table_first_student">
             <td>
@@ -59,6 +60,8 @@
 
 </table>
 </div>
+
+{% endif %}
 
 
 <div class="program">
