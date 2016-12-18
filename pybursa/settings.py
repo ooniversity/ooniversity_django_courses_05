@@ -4,9 +4,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '9&s+6b*gomdg#0v0l$*an23h#)uo11$iyc=03v1%=*6m+ldpa='
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
@@ -93,10 +93,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static'),
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
@@ -107,38 +108,43 @@ EMAIL_PORT = '1025'
 EMAIL_HOST = '127.0.0.1'
 
 LOGGING = {
-    'version' : 1,
+    'version': 1,
     'disable_existing_loggers': False,
-    'loggers':
-    {
-        'students': {
-            'handlers': ['students_log'],
-            'level': 'WARNING',
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'loggers': 
+     {
         'courses': {
             'handlers': ['courses_log'],
             'level': 'DEBUG',
         },
-    },
-    'handlers':
-    {
-        'students_log': {
+
+        'students': {
+            'handlers': ['students_log'],
             'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            'formatter': 'verbose',
         },
+    },
+     'handlers': 
+     {
         'courses_log': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
+            'formatter': 'simple',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
         },
-    },
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(message)s'
+        'students_log': {
+            'level': 'WARNING', 
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
         },
-    },
+     },
 }
 
 try:
