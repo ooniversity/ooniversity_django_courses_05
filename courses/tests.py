@@ -54,6 +54,17 @@ class CoursesDetailTest(TestCase):
         lesson = Lesson.objects.create(subject='Урок 1', description='Описание урока 1', course=course, order=order,)
         return lesson
 
+    def test_lesson_create(self):
+        course = Course(name='Python/Django')
+        course.save()
+        Lesson.objects.create(
+            subject='Списки',
+            description='Изучаем списки в Python',
+            course=course,
+            order='1',
+        )
+        self.assertEqual(Lesson.objects.all().count(), 1)
+
     def test_list_lessons(self):
         course = Course.objects.create(name='Course', short_description='Short description', description='Description',)
         lesson2 = self.create_lesson(course, 2)
