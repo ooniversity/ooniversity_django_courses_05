@@ -6,7 +6,7 @@ SECRET_KEY = '9&s+6b*gomdg#0v0l$*an23h#)uo11$iyc=03v1%=*6m+ldpa='
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
