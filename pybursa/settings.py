@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#y7xk03eek_c7$5ng2_tx+!40ccrns!#7vz^9^r-%bm3e1&&vk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '209.95.60.114', 'csa.sofit.net.ua']
 
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'students',
     'coaches',
     'feedbacks',
+    'debug_toolbar',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,40 @@ EMAIL_HOST = '127.0.0.1'
 #STATIC_ROOT = '/home/csa/pybursa/static'
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        'courses': {
+            'handlers': ['course_file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['student_file'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'course_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple_courses'
+        },
+        'student_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'simple_students'
+        },
+    },
+    'formatters': {
+        'simple_students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple_courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
