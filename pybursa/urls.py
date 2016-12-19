@@ -21,6 +21,7 @@ from django.shortcuts import render
 from .views import index, contact, student_list, student_detail
 from quadratic.views import quadratic_results
 from feedbacks import views
+from django.conf import settings
 
 urlpatterns = [
     url(r'^$', index, name='index'),
@@ -33,3 +34,7 @@ urlpatterns = [
     url(r'^coaches/', include('coaches.urls', namespace = 'coaches', app_name='coaches')),
     url(r'^admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls)),]

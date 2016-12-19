@@ -6,7 +6,11 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
+import logging
 # Create your views here.
+
+
+logger = logging.getLogger('courses')
 
 class CourseDetailView(DetailView):
     model = Course
@@ -21,6 +25,10 @@ class CourseDetailView(DetailView):
         return qs
 
     def get_context_data(self, **kwargs):
+        logger.debug("Courses detail view has been debugged!")
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
         context = super().get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.object.pk)
         return context
