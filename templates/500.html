@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}<title>404</title>{% endblock %}
+
+
+
+
+{% block content %}
+<h1>OOOPPPPSSSS! 500!</h1>
+<p>Sorry, internal server error occurred</p>
+
+<img src={% static "images/404.png" %} alt="image 500">
+
+{% endblock content %}
