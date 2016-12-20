@@ -6,6 +6,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 
 class StudentListView(ListView):

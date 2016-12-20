@@ -5,7 +5,9 @@ from courses.models import Course, Lesson
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+import logging
 
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
