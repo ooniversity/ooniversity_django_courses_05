@@ -8,8 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 import logging
 
-logger = logging.getLogger(__name__)
-
+logger = logging.getLogger('students')
 
 
 class StudentListView(ListView):
