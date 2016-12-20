@@ -13,36 +13,58 @@ def initialize_test():
                         description='web django',
                         course=course1,
                         order=1)
+class CoursesListTest(TestCase):
 
-class CoursesDetailTest(TestCase):
-
-    def test_1(self):
+    def test_course_creation(self):
         initialize_test()
         self.assertEqual(Course.objects.all().count(), 1)
 
-    def test_2(self):
+    def test_lesson_adding_page(self):
+        initialize_test()
+        self.assertEqual(Lesson.objects.all().count(), 1)
+
+    def test_links_courses(self):
+        initialize_test()
+        response = self.client.get('/courses/1/')
+        self.assertContains(response, 'Main')
+
+    def test_links_2_courses(self):
+        initialize_test()
+        response = self.client.get('/courses/1/')
+        self.assertContains(response, 'Main')
+
+    def test_links_3_courses(self):
+        initialize_test()
+        response = self.client.get('/courses/1/')
+        self.assertContains(response, 'Feedback')
+
+class CoursesDetailTest(TestCase):
+
+    def test_course_details(self):
         client = Client()
         initialize_test()
         response = client.get('/courses/1/')
         self.assertEqual(response.status_code, 200)
 
-    def test_3(self):
+    def test_detail_course(self):
+        client = Client()
         initialize_test()
-        self.assertEqual(Lesson.objects.all().count(), 1)
+        response = self.client.get('/courses/1/')
+        self.assertContains(response, 'pybursa')
 
-    def test_4(self):
+    def test_course_editing(self):
         client = Client()
         initialize_test()
         response = self.client.get('/courses/edit/1/')
         self.assertContains(response, 'pybursa')
 
-    def test_5(self):
+    def test_course_adding_lesson(self):
         client = Client()
         initialize_test()
         response = self.client.get('/courses/1/add_lesson')
         self.assertEqual(response.status_code, 200)
 
-    def test_6(self):
+    def test_course_deleting(self):
         client = Client()
         initialize_test()
         self.client.delete('/courses/remove/1/', 'Delete')

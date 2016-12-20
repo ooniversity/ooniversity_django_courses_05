@@ -20,31 +20,56 @@ def initialize_test():
     student1.courses.add(course1)
 
 
-class StudentsDetailTest(TestCase):
+class StudentsListTest(TestCase):
 
-    def test_1(self):
+    def test_student(self):
         initialize_test()
         self.assertEqual(Student.objects.all().count(), 1)
 
-    def test_2(self):
+    def test_links_students(self):
+        response = self.client.get('/students/')
+        self.assertContains(response, 'Contacts')
+
+    def test_links_2_students(self):
+        response = self.client.get('/students/')
+        self.assertContains(response, 'Main')
+
+    def test_links_3_students(self):
+        response = self.client.get('/students/')
+        self.assertContains(response, 'Feedback')
+
+    def test_links_4_students(self):
+        response = self.client.get('/students/')
+        self.assertContains(response, 'Students')
+
+
+class StudentsDetailTest(TestCase):
+
+    def test_students_detail(self):
         client = Client()
         initialize_test()
         response = client.get('/students/1/')
         self.assertEqual(response.status_code, 200)
 
-    def test_3(self):
+    def test_details(self):
+        client = Client()
+        initialize_test()
+        response = self.client.get('/students/1/')
+        self.assertContains(response, '345345345345')
+
+    def test_adding(self):
         client = Client()
         initialize_test()
         response = self.client.get('/students/add/')
         self.assertEqual(response.status_code, 200)
 
-    def test_4(self):
+    def test_student_editing_page(self):
         client = Client()
         initialize_test()
         response = self.client.get('/students/edit/1/')
         self.assertContains(response, 'Ivanov')
 
-    def test_5(self):
+    def test_student_deleting(self):
         client = Client()
         initialize_test()
         self.client.delete('/students/remove/1/','Delete')
