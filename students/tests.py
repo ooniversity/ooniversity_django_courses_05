@@ -22,11 +22,11 @@ def initialize_test():
 
 class StudentsDetailTest(TestCase):
 
-    def test_create_student(self):
+    def test_1(self):
         initialize_test()
         self.assertEqual(Student.objects.all().count(), 1)
 
-    def test_page(self):
+    def test_2(self):
         client = Client()
         initialize_test()
         response = client.get('/students/1/')
