@@ -14,7 +14,7 @@ def initialize_test():
                         course=course1,
                         order=1)
 
-class CoursesListTest(TestCase):
+class CoursesDetailTest(TestCase):
 
     def test_1(self):
         initialize_test()
