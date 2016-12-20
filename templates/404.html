@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %}<title>404</title>{% endblock %}
+
+
+
+
+{% block content %}
+<h1>AHHHHHHH! YOU FOUND ME!</h1>
+<p>Unfortunately you have also found an elusive 404 error page. This meanswe tell you</p>
+<p>Sorry, page is not found</p>
+<img src={% static "images/404.png" %} alt="image 404">
+
+{% endblock content %}
