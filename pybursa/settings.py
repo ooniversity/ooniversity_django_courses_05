@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'students.apps.StudentsConfig',
     'coaches.apps.CoachesConfig',
     'feedbacks.apps.FeedbacksConfig',
+    'debug_toolbar',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +55,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+INTERNAL_IPS = ['127.0.0.1']
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 ROOT_URLCONF = 'pybursa.urls'
 
@@ -135,3 +142,32 @@ ADMINS = (
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers':
+    {
+        'courses': {
+            'handlers': ['courses_debug_file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['students_debug_file'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers':
+    {
+        'courses_debug_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'courses_logger.log')
+        },
+        'students_debug_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log')
+        },
+    },
+}

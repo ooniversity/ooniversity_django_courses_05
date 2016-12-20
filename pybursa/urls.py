@@ -18,6 +18,7 @@ from django.contrib import admin
 from . import views
 from quadratic.views import quadratic_results
 from feedbacks.views import FeedbackView
+from django.conf import settings
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -29,3 +30,10 @@ urlpatterns = [
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
     url(r'^feedback/$', FeedbackView.as_view(), name="feedback"),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls)),]
+
+
+
