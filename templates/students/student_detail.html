@@ -27,31 +27,31 @@
 <table class="table">
     
     <tr>
-        <td>#</td>
+        <td class="table_first_student">#</td>
       <td>{{student.id}}</td>
         </tr>
     <tr>
-        <td>дата рождения</td>
+        <td class="table_first_student">дата рождения</td>
       <td>{{student.date_of_birth}}</td>
         </tr>
     <tr>
-        <td>почта</td>
+        <td class="table_first_student">почта</td>
         <td>{{student.email}}</td>
         </tr>
     <tr>
-        <td>телефон</td>
+        <td class="table_first_student">телефон</td>
         <td>{{student.phone}}</td>
         </tr>
     <tr>
-        <td>адрес</td>
+        <td class="table_first_student">адрес</td>
       <td>{{student.address}}</td>
         </tr>
     <tr>
-        <td>skype</td>
+        <td class="table_first_student">skype</td>
       <td>{{student.skype}}</td>
         </tr>
     <tr>
-        <td>курсы</td>
+        <td class="table_first_student">курсы</td>
         <td>{% for courses in student.courses.all %}
                        <p><a href="{% url 'courses:detail' courses.id%}">{{ courses }}</a></p>
                      {% endfor %}
