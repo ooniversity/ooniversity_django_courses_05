@@ -16,11 +16,11 @@ def initialize_test():
 
 class CoursesListTest(TestCase):
 
-    def test_create_course(self):
+    def test_1(self):
         initialize_test()
         self.assertEqual(Course.objects.all().count(), 1)
 
-    def test_page(self):
+    def test_2(self):
         client = Client()
         initialize_test()
         response = client.get('/courses/1/')
@@ -42,4 +42,9 @@ class CoursesListTest(TestCase):
         response = self.client.get('/courses/1/add_lesson')
         self.assertEqual(response.status_code, 200)
 
-        # def test_5(self):
+    def test_6(self):
+        client = Client()
+        initialize_test()
+        self.client.delete('/courses/remove/1/', 'Delete')
+        response = client.get('/courses/1/')
+        self.assertEqual(response.status_code, 404)
