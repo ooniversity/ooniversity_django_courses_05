@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Contacts{% endblock title %}
+
+
+{% block active_contact %}active{% endblock %}
+
+
+{% block content %}
+{% load static %}
+ <div class="starter-template">
+        <h1 class=cont><strong>Contacts</strong></h1><br>
+        
+	<div>
+        <h3 class=dc>Director</h3>
+              
+         <dl>
+           <dt class="text_name">Name</dt>
+               <dd> <span></span><img src="{% static 'images/name.png' %}" class=img_name>Ivan Ivanov</dd>
+           <dt class="text_skype">Skype</dt>
+               <dd><span></span><img src="{% static 'images/skypeout.png' %}" class=img_skype>ivan16</dd>
+           <dt class="text_email">Email</dt>
+               <dd><span></span><img src="{% static 'images/email.png' %}" class=img_email>ivan16@dom0.tld</dd>
+           <dt class="text_phone">Phone</dt>
+               <dd> <span></span><img src="{% static 'images/phone.png' %}" class=img_phone>066-555-5555</dd>    
+        </dl>       
+        </div>
+        
+	<div>
+        <h3 class=mc>Manager</h3>
+
+         <dl>
+           <dt class="text_name">Name</dt>
+               <dd> <span></span><img src="{% static 'images/name.png' %}" class=img_name>Peter Petrov</dd>
+           <dt class="text_skype">Skype</dt>
+               <dd><span></span><img src="{% static 'images/skypeout.png' %}" class=img_skype>peter16</dd>
+           <dt class="text_email">Email</dt>
+               <dd><span></span><img src="{% static 'images/email.png' %}" class=img_email>peter16@dom1.tld</dd>
+           <dt class="text_phone">Phone</dt>
+               <dd> <span></span><img src="{% static 'images/phone.png' %}" class=img_phone>067-666-5555</dd>
+        </dl>
+        </div>
+
+        <div>
+        <h3 class=fc>Founder</h3>
+
+         <dl>
+           <dt class="text_name">Name</dt>
+               <dd> <span></span><img src="{% static 'images/name.png' %}" class=img_name>Oleg Sidorov</dd>
+           <dt class="text_skype">Skype</dt>
+               <dd><span></span><img src="{% static 'images/skypeout.png' %}" class=img_skype>sidr16</dd>
+           <dt class="text_email">Email</dt>
+               <dd><span></span><img src="{% static 'images/email.png' %}" class=img_email>sidr16@dom2.tld</dd>
+           <dt class="text_phone">Phone</dt>
+               <dd> <span></span><img src="{% static 'images/phone.png' %}" class=img_phone>068-777-5555</dd>
+        </dl>
+             
+    </div>	
+{% endblock %}

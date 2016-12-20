@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block navigation_students %}"active"{% endblock %}
+
+
+{%  block content %}
+    <div class="page-header">
+      <h3 id="title_course">{{ student.name }} {{ student.surname }}</h3>
+    </div>
+
+   <div class="container">
+        <div>
+
+        <table class="table">
+
+              <tr>
+                <td>Дата рождения</td>
+                <td>{{ student.date_of_birth }}</td>
+              </tr>
+              <tr>
+                <td>адрес</td>
+                <td>{{ student.address }}</td>
+              </tr>
+              <tr>
+                <td>почта</td>
+                <td>{{ student.email }}</td>
+              </tr>
+              <tr>
+                <td>логин skype</td>
+                <td>{{ student.skype }}</td>
+              </tr>
+              <tr>
+                <td>телефон</td>
+                <td>{{ student.phone }}</td>
+              </tr>
+              <tr>
+                <td>курсы</td>
+                <td>
+                    {% for course in student.get_courses %}
+                        <p><a href="{%  url 'courses:detail'  course.id %}">{{ course.name }}</a></p>
+                    {% endfor %}
+                </td>
+              </tr>
+        </table>
+        </div>
+   </div>
+{% endblock %}

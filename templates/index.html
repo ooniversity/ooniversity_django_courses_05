@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}PyBursa{% endblock %}
+
+{% block navigation_index %}"active"{% endblock %}
+
+
+{%  block content %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="container">
+      <div class="jumbotron">
+        <div class="page-header">
+          <h3 id="title_course">PyBursa</h3>
+          <p>Курс Python/Django предназначен для начинающих программистов, которые хотят освоить язык Python и фреймворк Django.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+	<a href="{% url 'courses:add' %}">Добавить новый курс</a>
+        <div>
+
+        <table class="table">
+          <tr  class="table_title">
+            <th>Курс</th>
+            <th>Описание</th>
+            <th></th>
+            <th></th>  
+	</tr>
+
+          {% for course in courses %}
+              <tr>
+                <td><a href="{%  url 'courses:detail'  course.id %}">{{ course.name|upper }}</a></td>
+                <td>{{ course.short_description|title }}</td>
+              
+		        <td>
+                            <a href="{% url 'courses:edit'  course.id %}">Изменить</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'courses:remove'  course.id %}">Удалить</a>
+                        </td>
+  		</tr>
+	{% endfor %}
+        </table>
+        </div>
+    </div>
+
+
+
+{% endblock %}
