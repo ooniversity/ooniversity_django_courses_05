@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '50g@m(%2-%&rk#k#ym$(5##ex5$tn$k61apf-oc=^s%__5m12^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -123,11 +123,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-ADMINS = [('admin', 'vivid.tanya@gmail.com'), ('tatyana_paschenko', 'vivid.tanya@gmail.com')]
 
-EMAIL_HOST = '127.0.0.1'
-
-EMAIL_PORT = '1025'
 
 LOGGING = {
     'version': 1,

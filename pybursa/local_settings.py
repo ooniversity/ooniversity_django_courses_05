@@ -60,9 +60,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ADMINS = [('admin', 'vivid.tanya@gmail.com'), ('tatyana_paschenko', 'vivid.tanya@gmail.com')]
 
-EMAIL_HOST = '127.0.0.1'
+EMAIL_HOST = 'smtp.sendgrid.net'
 
-EMAIL_PORT = '1025'
+EMAIL_PORT = '587'
+
+EMAIL_HOST_USER = 'tatyana_paschenko'
+
+EMAIL_HOST_PASSWORD = '8074vivid8074'
 
 LOGGING = {
     'version': 1,
