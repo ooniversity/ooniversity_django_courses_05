@@ -24,7 +24,7 @@ SECRET_KEY = '50g@m(%2-%&rk#k#ym$(5##ex5$tn$k61apf-oc=^s%__5m12^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://tatyanapaschenko.pythonanywhere.com']
+ALLOWED_HOSTS = ['http://www.pybursa-tp.tk/']
 
 # Application definition
 
