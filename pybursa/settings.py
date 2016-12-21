@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '50g@m(%2-%&rk#k#ym$(5##ex5$tn$k61apf-oc=^s%__5m12^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -122,6 +122,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+ADMINS = [('admin', 'vivid.tanya@gmail.com'), ('tatyana_paschenko', 'vivid.tanya@gmail.com')]
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+
+EMAIL_PORT = '587'
+
+EMAIL_HOST_USER = 'TatyanaPaschenko'
+
+EMAIL_HOST_PASSWORD = '8074vivid8074'
 
 
 
