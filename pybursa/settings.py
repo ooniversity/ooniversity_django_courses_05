@@ -133,7 +133,7 @@ EMAIL_HOST_USER = 'TatyanaPaschenko'
 
 EMAIL_HOST_PASSWORD = '8074vivid8074'
 
-
+EMAIL_USE_TLS = True
 
 LOGGING = {
     'version': 1,
