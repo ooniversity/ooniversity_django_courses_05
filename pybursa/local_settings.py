@@ -64,9 +64,11 @@ EMAIL_HOST = 'smtp.sendgrid.net'
 
 EMAIL_PORT = '587'
 
-EMAIL_HOST_USER = 'tatyana_paschenko'
+EMAIL_HOST_USER = 'TatyanaPaschenko'
 
 EMAIL_HOST_PASSWORD = '8074vivid8074'
+
+EMAIL_USE_TLS = True
 
 LOGGING = {
     'version': 1,

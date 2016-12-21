@@ -123,7 +123,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-ADMINS = [('admin', 'vivid.tanya@gmail.com'), ('tatyana_paschenko', 'vivid.tanya@gmail.com')]
+ADMINS = [('assist', 'tatyana.pikalova2012@gmail.com'), ('tatyana_paschenko', 'vivid.tanya@gmail.com')]
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 
