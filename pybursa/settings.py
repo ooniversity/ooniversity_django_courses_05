@@ -130,6 +130,40 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'courses_log': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+
+        'students_log': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+    },
+
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_log'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
+        'students': {
+            'handlers': ['students_log'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
+
+
 EMAIL_PORT = '1025'
 
 EMAIL_HOST = '127.0.0.1'
