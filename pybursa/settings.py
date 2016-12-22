@@ -134,17 +134,29 @@ STATICFILES_DIRS = [
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+
+    'formatters': {
+        'students_format': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'courses_format': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
     'handlers': {
         'courses_log': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'courses_format',
         },
 
         'students_log': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'students_format',
         },
     },
 
