@@ -5,13 +5,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 
-import logging
-
 from .forms import LessonModelForm, CourseModelForm
 from .models import Course, Lesson
 
 logger = logging.getLogger(__name__)
-
 
 class CourseDetailView(DetailView):
     model = Course
