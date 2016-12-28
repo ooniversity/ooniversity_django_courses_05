@@ -6,6 +6,9 @@
 {% block title %}ooniversity{% endblock title %}
 
 
+{% block nav_class_main%}active{% endblock %}
+
+
 {% block student_course %}{% url 'students:list_view' %}{% endblock %}
 
 
@@ -47,7 +50,6 @@
 
 	      <td><a href="/courses/remove/{{ curse.id }}/"><button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="delete course"
 		data-content="Right?">Удалить</button></a>
-	  {% endfor %}
 
 	  </tr>
 	</table>
