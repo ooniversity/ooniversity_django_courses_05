@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 
 {% block title %}500{% endblock title %}
 
@@ -7,4 +9,6 @@
 {% block content %}
 
   	<h1 class="hhh1" align="center">Sorry, internal server error occurred</img></h1>
+
+    <img src="{% static 'images/500min.jpg'%}">
 {% endblock content %}

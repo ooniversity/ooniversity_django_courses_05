@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load static %}
 
 {% block title %}404{% endblock title %}
 
@@ -7,4 +8,6 @@
 {% block content %}
 
   	<h1 class="hhh1" align="center">Sorry, page is not found</img></h1>
+
+    <img src="{% static 'images/404.jpg'%}">
 {% endblock content %}
