@@ -27,34 +27,34 @@
     {% for coache in coaches %}
 
     <tr>
-        <td>дата рождения</td>
+        <td class="table_first_student">дата рождения</td>
       <td>{{coache.date_of_birth|date:'j F, Y'}}</td>
         </tr>
     <tr>
-        <td>адрес</td>
+        <td class="table_first_student">адрес</td>
       <td>{{coache.address}}</td>
         </tr>
     <tr>
-        <td>почта</td>
+        <td class="table_first_student">почта</td>
         <td>{{coache.get_user_email}}</td>
         </tr>
     <tr>
-        <td>логин skype</td>
+        <td class="table_first_student">логин skype</td>
       <td>{{coache.skype}}</td>
         </tr>
     <tr>
-        <td>телефон</td>
+        <td class="table_first_student">телефон</td>
         <td>{{coache.phone}}</td>
         </tr>
     <tr>
-        <td>курсы учитель</td>
+        <td class="table_first_student">курсы учитель</td>
         <td>{% for course in courses_teacher %}
            <p><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a>
                 студенты курса <a href="{% url 'students:list_view'%}?course_id={{course.id}}"<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
         {% endfor %}</td>
         </tr>
     <tr>
-        <td>курсы ассистент</td>
+        <td class="table_first_student">курсы ассистент</td>
         <td>
         {% for course in courses_asistent %}
             <p><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a>
